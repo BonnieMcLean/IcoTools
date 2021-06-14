@@ -22,7 +22,7 @@ You can either
 
 Format for control.csv
 
-|                 |                                                                                          |
+|Col1             |Col2                                                                                       |
 |-----------------|------------------------------------------------------------------------------------------|
 |media_source     |link to location of media files                                                           |
 |media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                            |                                                                           |
