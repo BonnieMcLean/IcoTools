@@ -7,7 +7,7 @@ Icotools comes with two functions:
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.rater('stimuli.csv','controlfile.csv')`
 
-The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. Stimuli can be either MP3 files, MP4 files, or images. A demo is available [here](www.honestcookingblog.com/experiments/experiment2.html). For more about the guessing experiments and their different variations, see the [instructions for guessing experiments](#Instructions-for-guessing-experiments).
+The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. Stimuli can be either MP3 files, MP4 files, or images. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). For more about the guessing experiments and their different variations, see the [instructions for guessing experiments](#Instructions-for-guessing-experiments).
 
 The ratings function makes rating experiments, where participants are presented with stimuli (either MP3 files, MP4 files, or images) and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. The exact labels used can be modified as desired. See [instructions for rating experiments](#Instructions-for-rating-experiments) for more information.
 
