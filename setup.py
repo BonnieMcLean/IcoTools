@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1' 
+VERSION = '0.0.5' 
 DESCRIPTION = 'Tools for collecting behavioural measures of iconicity'
 
 
@@ -12,8 +12,10 @@ setup(
         author="Bonnie McLean",
         author_email="<59.b.mclean@gmail.com>",
         description=DESCRIPTION,
-        long_description=DESCRIPTION,
+        long_description=open('pypiREADME.txt').read(),
         packages=find_packages(),
+        url='https://pypi.org/project/icotools/',
+        license="LICENSE",
         install_requires=[], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
         

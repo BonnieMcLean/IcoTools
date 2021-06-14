@@ -1,6 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<meta http-equiv="Cache-control" content="no-cache">
-
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <style>
 .trialDiv {
   padding-left: 20px;
@@ -286,6 +287,9 @@ OUTRO_QUESTIONS
 <!--POST EXPERIMENT INFORMATION COLLECTION-->
 <!--Include a short text description of the experiment to check people were paying attention-->
 <script>
+$.ajaxSetup({
+  cache: false
+});
 var allfoils=[[],[]];
 var alltrans=[[],[]];
 var foil_choices=[];

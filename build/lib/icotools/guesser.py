@@ -2,8 +2,137 @@ import os
 import codecs
 import csv
 import sys
+import math
+import random
 
-def guesser(experiments_wordlist,control_file):
+
+def balancer(csv_file,no_expwords):
+
+    # read in the file and make a list of trials, practice_qs, and controls
+    
+    trials=[]
+    practice=[]
+    controls=[]
+    iconic_count=0
+    arb_count=0
+    with open(csv_file,encoding='UTF-8') as infile:
+        reader=csv.DictReader(infile)
+        for row in reader:
+            try:
+                form=row['form']
+                meaning=row['meaning']
+                item=row['item']
+            except KeyError:
+                print('Your csv file is not formatted correctly. See help(balanced_exps) for information on how to format it correctly.')
+            try:
+                iconic=row['iconic']
+                # keep track of how many trials are iconic versus arb
+                if iconic=='y':
+                    hypothesis='iconic'
+                    if item=='trial':
+                        iconic_count+=1
+                else:
+                    hypothesis='not iconic'
+                    if item=='trial':
+                        arb_count+=1
+
+            except KeyError:
+                hypothesis='none'
+
+            try:
+                foils=row['foils']
+            except KeyError:
+                foils=''
+            try:
+                nofoils=row['no_foils']
+            except KeyError:
+                nofoils=''
+                
+            # store the trials, practice and control items
+            if item=='trial':
+                trials.append((form,meaning,hypothesis,item,foils,nofoils))
+            elif item=='practice':
+                practice.append((form,meaning,hypothesis,item,foils,nofoils))
+            else:
+                controls.append((form,meaning,hypothesis,item,foils,nofoils))
+    infile.close()
+
+
+    # Decide how many experiments to test all these words
+
+    no_words=len(trials)
+    no_experiments=math.ceil((no_words/no_expwords))
+    division=[no_words // no_experiments + (1 if x < no_words % no_experiments else 0)  for x in range (no_experiments)]
+    # shuffle the trials
+    random.shuffle(trials)
+
+    # balance the iconic and non-iconic words if you have that information specified
+
+    # balance the iconic words evenly across the experiments
+    iconic_groups=[iconic_count // no_experiments + (1 if x < iconic_count % no_experiments else 0)  for x in range (no_experiments)]
+    # balance the prosaic words evenly across the experiments
+    prosaic_groups=[arb_count // no_experiments + (1 if x < arb_count % no_experiments else 0)  for x in range (no_experiments)]
+
+    # make a structure to store the experiments
+    experiments=[]
+    for i in range(no_experiments):
+        experiments.append([])
+
+    # if you have a mix of iconic and prosaic words, balance them across the experiments
+    if sum(iconic_groups)>0 and sum(prosaic_groups)>0:
+        exp_index=0
+        for i in range(len(iconic_groups)):
+            no_iconic=iconic_groups[i]
+            no_prosaic=prosaic_groups[i]
+            
+            # first add iconic words
+            while no_iconic!=0:
+                trial=trials.pop(0)
+                if trial[2]=='iconic':
+                    experiments[exp_index].append(trial)
+                    no_iconic=no_iconic-1
+                else:
+                    trials.append(trial)
+            # then add the prosaic words
+            while no_prosaic!=0:
+                trial=trials.pop(0)
+                if trial[2]=='not iconic':
+                    experiments[exp_index].append(trial)
+                    no_prosaic=no_prosaic-1
+                else:
+                    trials.append(trial)
+                    
+            # move to the next experiment
+            exp_index+=1
+    else:
+        # if the words are all the same you don't need to balance them across trials, just follow the divisions
+        exp_index=0
+        for num in division:
+            for i in range(num):
+                trial=trials.pop(0)
+                experiments[exp_index].append(trial)
+            exp_index+=1
+                
+    # now add the practice and control items to all the experiments
+    for exp in experiments:
+        index=experiments.index(exp)
+        experiments[index]=practice+exp+controls
+
+##    # now write the experiments file
+##    filename=csv_file.strip('.csv')+'_experimentlist.csv'
+##    with open(filename,'w',newline='',encoding='UTF-8') as outfile:
+##        writer=csv.writer(outfile)
+##        writer.writerow(['experiment','item','form','meaning','hypothesis'])
+##        for i in range(len(experiments)):
+##            items=experiments[i]
+##            exp_no=i+1
+##            for tup in items:
+##                writer.writerow([exp_no,tup[3],tup[0],tup[1],tup[2]])
+##    outfile.close()
+        return(experiments)
+
+
+def guesser(wordlist,control_file):
     """Makes guessing experiments. If no foil column is provided in experiments_wordlist,
        foils will be randomly chosen from all the available forms
        save the form being tested
@@ -35,6 +164,7 @@ def guesser(experiments_wordlist,control_file):
         instructions_html=control['instructions_html']
         exitques_html=control['exitques_html']
         headphone_check=control['headphone_check']
+        words_per_exp=int(control['words_per_exp'])
     except KeyError:
         print('Your control file is not formatted correctly. See help(guesser) for information on how to format it.')
     if instructions_html=='default':
@@ -45,47 +175,60 @@ def guesser(experiments_wordlist,control_file):
     if media_type!='mp3' and media_type!='mp4':
         print('Please enter a valid media type. Valid media types are mp3 or mp4.')
         return
-    
-    # make a dictionary to store the experiments
-    experiments={}
+
+    # call balancer to make the experiments
+    experiments_raw=balancer(wordlist,words_per_exp)
 
     # make a list of all the words here in the case that you are just
     # using simple foils
     simple_foils=[]
-    
-    # read in the experiments
-    with open(experiments_wordlist,'r',encoding='UTF-8') as infile:
-        reader=csv.DictReader(infile)
-        for row in reader:
-            experiment=row['experiment']
-            if experiment not in experiments.keys():
-                experiments[experiment]=[]
-            form=row['form']
-            meanings=row['meaning'].upper().split('|')
-            try:
-                foils=row['foils'].split('|')
-            except KeyError:
-                if form not in simple_foils:
-                    simple_foils.append(form)
-                foils='simple'
-            experiments[experiment].append([form,foils,meanings])
-    infile.close()
 
+    # make a neat dictionary to store experiments
+    experiments={}
+
+    n=1
+    for exp in experiments_raw:
+        experiments[str(n)]=[]
+        for item in exp:
+            form=item[0]
+            meanings=item[1].upper().split('|')
+            hypothesis=item[2]
+            item_type=item[3]
+            foils=item[4].split('|')
+            nofoils=item[5].split('|')
+            simple_foils.append(form)
+            experiments[str(n)].append([form,foils,meanings,nofoils,hypothesis,item_type])
+        n+=1
+    
     # in the case where you have simple foils, figure out what the
     # foil list for each word is
 
     for exp in experiments:
-        wordlist=experiments[exp]
-        for i in range(len(wordlist)):
-            form=wordlist[i][0]
-            foils=wordlist[i][1]
-            if foils=='simple':
+        itemlist=experiments[exp]
+        for i in range(len(itemlist)):
+            form=itemlist[i][0]
+            foils=itemlist[i][1]
+            no_foils=itemlist[i][3]
+            if foils[0]=='':
                 true_foils=list(simple_foils)
-                #print(true_foils)
-               # print(form)
                 true_foils.remove(form)
+                if no_foils[0]!='':
+                    for item in no_foils:
+                        true_foils.remove(item)
                 experiments[exp][i][1]=true_foils
+            
 
+    # make experiments list
+    filename=wordlist.strip('.csv')+'_experiments.csv'
+    with open(filename,'w',newline='') as outfile:
+        writer=csv.writer(outfile)
+        writer.writerow(('experiment','item_type','form','meaning','foils','hypothesis'))
+        for exp in experiments:
+            items=experiments[exp]
+            for item in items:
+                writer.writerow((exp,item[5],item[0],'|'.join(item[2]),'|'.join(item[1]),item[4]))
+    outfile.close()
+                                
     # get together the code for the guessing experiments
     
     intro_code=[]
@@ -211,7 +354,7 @@ def guesser(experiments_wordlist,control_file):
                     myline=line.replace('chosenfoil1','chosenfoil'+str(n))                    
                 elif "ANSWER_MEDIA" in line:
                     word=trial[0]
-                    myline=line.replace('ANSWER_MEDIA',media_source+'/'+word+'.'+media_type)
+                    myline=line.replace('ANSWER_MEDIA',media_source+'/'+word+'.'+media_type+'"&someRandomSeed=" + Math.random().toString(36)')
                 elif 'options1' in line:
                     myline=line.replace('options1','options'+str(n))
                 elif 'q1' in line:

@@ -1,20 +1,10 @@
 import csv
 import random
 import sys
+import math
 
 
-def balancer(csv_file):
-    '''
-Makes a list of experiments and their items from the words in csv_file.
-Balances the experiments so they test a roughly equal number of words.
-If you specify whether you think these words will be iconic (y/n), it balances the experiments so they have a roughly equal number of iconic and non-iconic words.
-The csv_file should contain the following columns:
-
-form: the forms being tested (e.g. kirakira, fuwafuwa). Your media files should also be named by their form, e.g. kirakira.mp3, or fuwafuwa.mp4
-meaning: translations of the form, separated by | (e.g. sparkling|glittering|twinkling)
-item: the type of item that form is, available options are 'practice' (a practice item), 'control' (a control item), and 'trial' (a trial/real test item)
-iconic: your hypothesis about whether the form is iconic or not. Available values are 'y' or 'n'. This column is optional. If you include it, the function will balance the experiments so that each has a roughly equal number of words thought to be iconic, versus words thought to not be iconic.
-'''
+def balancer(csv_file,no_expwords):
 
     # read in the file and make a list of trials, practice_qs, and controls
     
@@ -57,22 +47,11 @@ iconic: your hypothesis about whether the form is iconic or not. Available value
     infile.close()
 
 
-    # Decide how many experiments to let all these words
-    print('You have '+str(len(trials))+'trials, with '+str(len(practice))+'practice items and '+str(len(controls))+' control items.')
+    # Decide how many experiments to test all these words
 
-    done=False
     no_words=len(trials)
-    while not done:
-        no_experiments=int(input('How many experiments do you want to have?'))
-        division=[no_words // no_experiments + (1 if x < no_words % no_experiments else 0)  for x in range (no_experiments)]
-        extra_qs=len(controls)+len(practice)
-        items=[x+extra_qs for x in division]
-        print('This will result in experiments with the following amount of items')
-        print(items)
-        choice=input('Is this good? If it is press y, otherwise press n to choose another number of experiments')
-        if choice=='y':
-            done=True
-
+    no_experiments=math.ceil((no_words/no_expwords))
+    division=[no_words // no_experiments + (1 if x < no_words % no_experiments else 0)  for x in range (no_experiments)]
     # shuffle the trials
     random.shuffle(trials)
 
@@ -129,8 +108,8 @@ iconic: your hypothesis about whether the form is iconic or not. Available value
         experiments[index]=practice+exp+controls
 
     # now write the experiments file
-
-    with open('wordlist_exps.csv','w',newline='',encoding='UTF-8') as outfile:
+    filename=csv_file+'_experimentlist'
+    with open(filename,'w',newline='',encoding='UTF-8') as outfile:
         writer=csv.writer(outfile)
         writer.writerow(['experiment','item','form','meaning','hypothesis'])
         for i in range(len(experiments)):

@@ -1,0 +1,1 @@
+Tools for collecting behavioural measures of iconicity. See https://github.com/BonnieMcLean/IcoTools for a tutorial. 

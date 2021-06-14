@@ -1,12 +1,11 @@
-Metadata-Version: 1.1
+Metadata-Version: 2.1
 Name: icotools
-Version: 0.0.1
+Version: 0.0.5
 Summary: Tools for collecting behavioural measures of iconicity
-Home-page: UNKNOWN
+Home-page: https://pypi.org/project/icotools/
 Author: Bonnie McLean
 Author-email: <59.b.mclean@gmail.com>
-License: UNKNOWN
-Description: Tools for collecting behavioural measures of iconicity
+License: LICENSE
 Keywords: python,iconicity
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
@@ -14,3 +13,7 @@ Classifier: Intended Audience :: Education
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: MacOS :: MacOS X
 Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE
+
+Tools for collecting behavioural measures of iconicity. See https://github.com/BonnieMcLean/IcoTools for a tutorial. 
+
