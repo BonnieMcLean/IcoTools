@@ -1,0 +1,309 @@
+item,form,meaning,iconic
+practice,yoroyoro,wobbling|swaying,y
+practice,fuwafuwa,fluffy|soft,y
+control,katai,hard|tough,y
+control,pyoNpyoN,bouncing|hopping,y
+control,hisohiso,hissing|whispering,y
+trial,koQsui,CUNNING,y
+trial,yawarakai,DELICATE,y
+trial,zyireQtai,ANNOYED/IMPATIENT,y
+trial,motyokoi,TICKLING,y
+trial,buruburu,TREMBLING,y
+trial,tyikutyiku,ITCHING,y
+trial,nebaneba,GOOEY,y
+trial,hosoi,SMALL,y
+trial,hetoheto,EXHAUSTED,y
+trial,omoi,HEAVY,y
+trial,oQkanai,FRIGHTENING,y
+trial,yaNdagunaruQ,ANNOYED/IMPATIENT,y
+trial,kibui,TIGHT,y
+trial,syizukaya,QUIET,y
+trial,zyitozyito,DAMP,y
+trial,herakoi,CUNNING,n
+trial,kakazyiru,SCRATCH,n
+trial,matsupoi,GLARING (OVERLY BRIGHT),n
+trial,hadagu,RAP (AT THE DOOR),n
+trial,komaNka,TIGHT,n
+trial,koenee,EXHAUSTED,n
+trial,hizurasyii,GLARING (OVERLY BRIGHT),n
+trial,nobude,RUDE,n
+trial,toroi,SLOW,y
+trial,yaQkoi,DELICATE,y
+trial,akarui,BRIGHT,y
+trial,syibasyiba,STINGING (PAIN),y
+trial,syikusyiku,WATERY (EYES),y
+trial,tyikatyika,PRICKLING,y
+trial,futoi,BIG,y
+trial,tyikatyika,STINGING (PAIN),y
+trial,syaNsyaN,LIVELY (ENERGETIC),y
+trial,komaka,SKINNY,y
+trial,kutyii,STUFFED (FULL OF FOOD),y
+trial,tsuuN,RINGING,y
+trial,karai,SPICY,y
+trial,katyikatyi,HARD,y
+trial,dotsuku,RAP (AT THE DOOR),y
+trial,yabuku,TEAR,n
+trial,ibii,SMOKY,n
+trial,dogitsuka,OILY/HEAVY (FOOD),n
+trial,tsukareta,EXHAUSTED,n
+trial,mabaii,GLARING (OVERLY BRIGHT),n
+trial,oodoona,RUDE,n
+trial,notaru,CRAWL,n
+trial,sabaku,TEAR,n
+trial,aQtakee,WARM,y
+trial,syiNdo,EXHAUSTED,y
+trial,nikoniko,GRINNING,y
+trial,uzyauzya,TREMBLING,y
+trial,futoi,THICK,y
+trial,kutakuta,EXHAUSTED,y
+trial,dokidoki,POUNDING (HEART),y
+trial,yarakai,DELICATE,y
+trial,netyinetyi,CLINGY,y
+trial,iraira,PRICKLING,y
+trial,sukoi,CUNNING,y
+trial,sui,SOUR,y
+trial,syoQpee,SALTY,y
+trial,yaoi,DELICATE,y
+trial,hotoru,DAMP,y
+trial,naku,CRY,n
+trial,akaanakaQta,DARK,n
+trial,tagee,LOUD,n
+trial,geNki,LIVELY (ENERGETIC),n
+trial,syitsukoi,OILY/HEAVY (FOOD),n
+trial,hasyikai,ITCHING,n
+trial,kawaku,DRY,n
+trial,egui,ACRID (TASTE),n
+trial,musyimusyi,DAMP,y
+trial,zyimezyime,DAMP,y
+trial,samisyii,GLOOMY,y
+trial,nuQka,HOT,y
+trial,izyiizyi,ANNOYED/IMPATIENT,y
+trial,syakiQ,CLEAR,y
+trial,zyukuzyuku,OOZING,y
+trial,zuNzuN,THROBBING,y
+trial,zyarizyari,COARSE (GRITTY),y
+trial,nigai,BITTER,y
+trial,zurui,CUNNING,y
+trial,syibityoo,COLD,y
+trial,kapokapo,SLOSHING,y
+trial,tyiisoo,TIGHT,y
+trial,boroboro,RAGGEDY ,y
+trial,omosyaiN,GLAD,n
+trial,kooru,FREEZE,n
+trial,syibutoi,RUDE,n
+trial,futoi,COARSE (GRITTY),n
+trial,syetsu,EXHAUSTED,n
+trial,kubiru,BIND,n
+trial,kudoi,SALTY,n
+trial,egarai,PRICKLING,n
+trial,suQkoi,CUNNING,y
+trial,omoi,OILY/HEAVY (FOOD),y
+trial,deQkai,BIG,y
+trial,osoi,SLOW,y
+trial,tyikutyiku,CRAMPING (STOMACH),y
+trial,darui,LETHARGIC,y
+trial,niyaniya,CRAMPING (STOMACH),y
+trial,hieQda,COLD,y
+trial,semai,CRAMPED,y
+trial,zarazara,COARSE (GRITTY),y
+trial,gatagata,TREMBLING,y
+trial,hayai,FAST,y
+trial,zukizuki,THROBBING,y
+trial,nureru,DRENCHED,y
+trial,zyikazyika,STINGING (PAIN),y
+trial,erai,LETHARGIC,n
+trial,kebutai,SMOKY,n
+trial,utsukusyi,TIDY,n
+trial,sabui,COLD,n
+trial,mawaru,ROLL,n
+trial,hidoroQko,GLARING (OVERLY BRIGHT),n
+trial,kamu,CHEW,n
+trial,kaii,PRICKLING,n
+trial,yagurasyika,LOUD,y
+trial,kyuukutsuka,TIGHT,y
+trial,ookii,BIG,y
+trial,taputapu,SLOSHING,y
+trial,tyiNtye,SKINNY,y
+trial,usui,BLAND (TASTE),y
+trial,syaQkoi,COLD,y
+trial,syaN,CLEAR,y
+trial,tyiQtyai,SMALL,y
+trial,naGai,LONG,y
+trial,zokuzoku,(SPINE) TINGLING,y
+trial,hoQkori,EXHAUSTED,y
+trial,zyiNzyiN,POUNDING (HEAD),y
+trial,adzu,RUDE,y
+trial,toNtoN,POUNDING (HEART),y
+trial,omotai,FUZZY,n
+trial,ezui,FRIGHTENING,n
+trial,tsurai,GLOOMY,n
+trial,kyootee,FRIGHTENING,n
+trial,koi,RICH (TASTE),n
+trial,maNpuku,STUFFED (FULL OF FOOD),n
+trial,uresyii,GLAD,n
+trial,osorosyii,FRIGHTENING,n
+trial,syibui,SOUR,y
+trial,neranera,GOOEY,y
+trial,syikusyiku,CRAMPING (STOMACH),y
+trial,kityii,TIGHT,y
+trial,noroi,SLOW,y
+trial,subesube,SLIPPERY,y
+trial,kiiN,RINGING,y
+trial,guNnari,EXHAUSTED,y
+trial,dzugedzuge,RUDE,y
+trial,yaQkiri,ANNOYED/IMPATIENT,y
+trial,iQpai,FULL (TO THE BRIM),y
+trial,nukui,WARM,y
+trial,saQpari,CLEAR,y
+trial,zuQkoi,CUNNING,y
+trial,nigai,ACRID (TASTE),y
+trial,doNkusai,SLOW,n
+trial,kitsuka,EXHAUSTED,n
+trial,arai,COARSE (GRITTY),n
+trial,amai,BLAND (TASTE),n
+trial,miQtomonai,RAGGEDY ,n
+trial,kusuguQtee,TICKLING,n
+trial,otorosyii,FRIGHTENING,n
+trial,sekarasyika,LOUD,n
+trial,nurunuru,GOOEY,y
+trial,piNpiN,LIVELY (ENERGETIC),y
+trial,kiree,TIDY,y
+trial,yakiyaki,ANNOYED/IMPATIENT,y
+trial,nebutai,SLEEPY,y
+trial,marui,ROUND,y
+trial,zyitozyito,DRENCHED,y
+trial,syimeQpoi,DRENCHED,y
+trial,yawakoi,DELICATE,y
+trial,nurui,LUKEWARM,y
+trial,tsurutsuru,SLIPPERY,y
+trial,suzusyii,COOL,y
+trial,kurai,DARK,y
+trial,zaQkuzaQku,COARSE (GRITTY),y
+trial,zomizomi,(SPINE) TINGLING,y
+trial,biNbogena,RAGGEDY ,n
+trial,syibaru,BIND,n
+trial,hagai,ANNOYED/IMPATIENT,n
+trial,tsumetee,COLD,n
+trial,nigiyaka,LOUD,n
+trial,hiru,DRY,n
+trial,kukuru,BIND,n
+trial,mameda,LIVELY (ENERGETIC),n
+trial,kaii,ITCHING,n
+trial,serasera,PRICKLING,y
+trial,syobosyobo,WATERY (EYES),y
+trial,komai,SMALL,y
+trial,hirihiri,THROBBING,y
+trial,guQtari,EXHAUSTED,y
+trial,zoNzoN,(SPINE) TINGLING,y
+trial,urusai,LOUD,y
+trial,haku,SPIT,y
+trial,syimiru,FREEZE,y
+trial,fuku,BLOW,y
+trial,paNpaN,STUFFED (FULL OF FOOD),y
+trial,dayai,EXHAUSTED,y
+trial,syikasyika,ITCHING,y
+trial,gaNgaN,POUNDING (HEAD),y
+trial,kowa,FRIGHTENING,y
+trial,dareta,EXHAUSTED,n
+trial,iteru,FREEZE,n
+trial,koe,LETHARGIC,n
+trial,hedzune,GLOOMY,n
+trial,mizukusai,BLAND (TASTE),n
+trial,hau,CRAWL,n
+trial,kitsuka,LETHARGIC,n
+trial,syiNdoi,LETHARGIC,n
+trial,hiratai,FLAT,n
+trial,atsui,HOT,y
+trial,booQ,FUZZY,y
+trial,hiyaQkoi,COOL,y
+trial,saQpari,TIDY,y
+trial,tataku,RAP (AT THE DOOR),y
+trial,mukamuka,ANNOYED/IMPATIENT,y
+trial,zuruNzuruN,GOOEY,y
+trial,moyamoya,FUZZY,y
+trial,mabusyii,GLARING (OVERLY BRIGHT),y
+trial,betabeta,GOOEY,y
+trial,naNgii,LETHARGIC,y
+trial,syibareru,COLD,y
+trial,zyizyimusai,RAGGEDY ,y
+trial,iraira,ANNOYED/IMPATIENT,y
+trial,nebaneba,GOOEY,y
+trial,hasyikai,PRICKLING,n
+trial,karui,LIGHT,n
+trial,erai,EXHAUSTED,n
+trial,mutsugoi,OILY/HEAVY (FOOD),n
+trial,kowai,EXHAUSTED,n
+trial,kogoru,FREEZE,n
+trial,bisyoQtanee,RAGGEDY ,n
+trial,misuborasyii,RAGGEDY ,n
+trial,kanasyii,GLOOMY,n
+trial,keQko,TIDY,y
+trial,syiQpori,DRENCHED,y
+trial,tyoQto,A LITTLE,y
+trial,bisyobisyo,DRENCHED,y
+trial,kudoi,OILY/HEAVY (FOOD),y
+trial,haQkiri,CLEAR,y
+trial,syobosyobo,STINGING (PAIN),y
+trial,zawazawa,(SPINE) TINGLING,y
+trial,biQto,A LITTLE,y
+trial,syitosyito,DRENCHED,y
+trial,karai,SALTY,y
+trial,bakubaku,POUNDING (HEART),y
+trial,zuuzuusyii,RUDE,y
+trial,hirihiri,PRICKLING,y
+trial,zyuruzyuru,OOZING,y
+trial,narui,FLAT,n
+trial,migotsu,TIDY,n
+trial,hiroi,SPACIOUS,n
+trial,kosobai,TICKLING,n
+trial,omoreru,DAMP,n
+trial,kosui,CUNNING,n
+trial,kowai,HARD,n
+trial,nomeQkoi,SLIPPERY,n
+trial,ikiru,DAMP,n
+trial,pityipityi,TIGHT,y
+trial,zyasyizyasyi,COARSE (GRITTY),y
+trial,hirihiri,TINGLING,y
+trial,kaQtarii,EXHAUSTED,y
+trial,kitsui,TIGHT,y
+trial,tyiraatyiraa,STINGING (PAIN),y
+trial,kiNkiN,COLD,y
+trial,atsukamasyii,RUDE,y
+trial,zyikuzyiku,DAMP,y
+trial,yakamasyii,LOUD,y
+trial,zukizuki,POUNDING (HEAD),y
+trial,saku,TEAR,y
+trial,ookii,LOUD,y
+trial,kirikiri,CRAMPING (STOMACH),y
+trial,gurasyi,GLOOMY,n
+trial,himozyii,STARVING,n
+trial,aburaQkoi,OILY/HEAVY (FOOD),n
+trial,igai,BIG,n
+trial,modokasyii,ANNOYED/IMPATIENT,n
+trial,hidarui,STARVING,n
+trial,hosoi,SKINNY,n
+trial,setsunai,GLOOMY,n
+trial,sukosyi,A LITTLE,n
+trial,boNyari,FUZZY,y
+trial,dayai,LETHARGIC,y
+trial,syiQketoru,DRENCHED,y
+trial,igaiga,PRICKLING,y
+trial,netyanetya,GOOEY,y
+trial,iQpai,STUFFED (FULL OF FOOD),y
+trial,syakiQ,LIVELY (ENERGETIC),y
+trial,syiiN,QUIET,y
+trial,pokapoka,WARM,y
+trial,suQkiri,CLEAR,y
+trial,gutyugutyu,OOZING,y
+trial,amai,SWEET,y
+trial,suu,SUCK,y
+trial,piripiri,TINGLING,y
+trial,yogoreru,DRENCHED,n
+trial,gomeku,CRY,n
+trial,kara,EMPTY,n
+trial,tairana,FLAT,n
+trial,koragu,DRY,n
+trial,deQkai,COARSE (GRITTY),n
+trial,kitanai,CUNNING,n
+trial,ookii,COARSE (GRITTY),n
+trial,kaku,SCRATCH,n
