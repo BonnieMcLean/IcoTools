@@ -20,7 +20,9 @@ You can either
 (a) make guessing experiments where the foils for each item are specified, or   
 (b) make guessing experiments where the foils for each item are randomly chosen from all the items available, with the option to specify particular item-foil pairings which should *not* be used.
 
-**Format for the control file**:
+If you don't specify your own foils, option (b) will be chosen automatically.
+
+## Format for the control file:
 
 It should be a csv file with two columns, the first column contains variable names and the second column contains their values.
 
@@ -34,7 +36,9 @@ It should be a csv file with two columns, the first column contains variable nam
 |exitques_html    |either 'default' or provide filename to your own html exit questions                      |                                                                        |
 |words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)    |                                                                        |
 
-**Format for the stimuli file**
+See examples in the example folder.
+
+## Format for the stimuli file
 It should be a csv file with (up to) 6 columns. The first three columns are required, but the last three are optional. Having extra columns (with stuff not relevant to the experiments) also doesn't matter.
 
 |form                                                                                                                                                                                                                      |item                                                                                                                                |meaning                                   |foils                                                                                                                                   |no_foils                                                                                                                                      |iconic                                                                                                                                                                 |
