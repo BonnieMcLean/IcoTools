@@ -22,7 +22,7 @@ You can either
 
 If you don't specify your own foils, option (b) will be chosen automatically.
 
-## Format for the control file:
+## Format for the control file
 
 It should be a csv file with two columns, the first column contains variable names and the second column contains their values.
 
