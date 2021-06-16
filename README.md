@@ -28,6 +28,7 @@ It should be a csv file with two columns, the first column contains variable nam
 
 |Col1             |Col2                                                                                      |
 |-----------------|------------------------------------------------------------------------------------------|
+|language         |language of the words (if you want to inform participants of that)                        |
 |media_source     |link to location of media files                                                           |
 |media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                            |                                                                           |
 |muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos                  |                                                                             |
@@ -51,4 +52,13 @@ See examples in the example folder.
 
 # Instructions for rating experiments
 
-COMING SOON
+|Col1             |Col2                                                                                      |
+|-----------------|------------------------------------------------------------------------------------------|
+|language         |language of the words (if you want to inform participants of that)                        |
+|media_source     |link to location of media files                                                           |
+|media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                            |                                                                           |
+|muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos                  |                                                                             |
+|headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'|                                                                        |
+|instructions_html|either 'default' or provide filename to your own html instructions                        |                                                                       |
+|exitques_html    |either 'default' or provide filename to your own html exit questions                      |                                                                        |
+|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)    |                                                                        |
