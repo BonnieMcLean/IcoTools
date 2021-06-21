@@ -1,0 +1,120 @@
+concept,form,item,meaning,iconic,foils
+WOBBLING,yoroyoro,practice,WOBBLING,y,tehe|tyekye|tseke
+SOFT,fuwafuwa,practice,FLUFFY,y,rizyu|gityu|nitsu
+HARD,katai,control,HARD,y,nuhua|zuwua|ruyua
+HOPPING,pyoNpyoN,control,BOUNCING|HOPPING,y,neQ|zeQ|reQ
+WHISPERING,hisohiso,control,WHISPERING,y,nake|dzame|zyage
+CRAMPING (STOMACH),tyikutyiku,trial,CRAMPING (e.g. in stomach)|SPASMING (e.g. in stomach),y,wani|yazi|gari
+WET,syiQpori,trial,WET|SOGGY|DAMP,y,rasyeha|nawekya|mayeka
+COARSE,zarazara,trial,ROUGH|GRITTY|COARSE,y,guhu|kyukyu|kuku
+STICKY,nebaneba,trial,STICKY|GOOEY,y,syotyu|kohu|hosyu
+SLIMY,nurunuru,trial,SLIMY|SLIPPERY|SLICK,y,syihi|kikyi|hiki
+HUMID,zyimezyime,trial,HUMID|MUGGY,y,matyo|waso|hasyo
+SLOSHING,kapokapo,trial,SLOSHING|SPLASHING,y,nusye|zuwe|ruye
+ANNOYED/IMPATIENT,yakiyaki,trial,ANNOYED|IMPATIENT,y,tuna|tyuza|tsura
+SLUGGISH,darui,trial,SLUGGISH|LETHARGIC,y,wuhia|yukyia|hukia
+PRICKLING,igaiga,trial,PRICKLING|TINGLING,y,aru|asu|atyu
+THROBBING,hirihiri,trial,THROBBING|PULSATING,y,naha|dzakya|zyaka
+EXHAUSTED,hetoheto,trial,EXHAUSTED|TIRED|WEARY,y,nohe|dzowe|zyoye
+COOL,suzusyii,trial,COOL|FRESH,y,kigira|mikyina|gikima
+SLIMY,zuruNzuruN,trial,SLIMY|GOOEY,y,gihiQ|kyikyiQ|kikiQ
+OILY/HEAVY (FOOD),omoi,trial,OILY/HEAVY (food),y,etyea|esea|esyea
+STINGING (PAIN),tyiraatyiraa,trial,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)",y,wahu|yakyu|gaku
+WATERY (EYES),syobosyobo,trial,WATERY (EYES)|BLEARY (EYES),y,retye|nehe|mesye
+SLIMY,nebaneba,trial,SLIMY|GOOEY,y,syotyu|kohu|hosyu
+PRICKLING,serasera,trial,PRICKLING|TINGLING,y,kohu|mokyu|goku
+SCARY,oQkanai,trial,SCARY|FRIGHTENING,y,enusyua|ezukua|eruhua
+ITCHING,kaii,trial,ITCHING|PRICKLING,n,nua|zua|rua
+FREEZE,kooru,trial,FREEZE,n,nehi|zekyi|reki
+TEAR,sabaku,trial,TEAR|RIP,n,kutyuni|muhuzi|gusyuri
+HUMID,omoreru,trial,HUMID|MUGGY,n,etyehohi|esekyokyi|esyekoki
+EXHAUSTED,dareta,trial,WORN OUT|TIRED|WEARY|EXHAUSTED,n,wuhohu|yukyowu|hukoyu
+WEAK,mizukusai,trial,BLAND (taste)|TASTELESS|WATERY (taste),n,tyaginikua|sakyizimua|syakirigua
+DRY,kawaku,trial,DRY|PARCHED,n,nuzyuni|zutyuzi|rutsuri
+STICKY,netyanetya,trial,STICKY|GOOEY,y,syowu|koyu|hogu
+SLUGGISH,kitsuka,trial,SLUGGISH|LETHARGIC,n,nahinu|zawizu|rayiru
+ITCHING,tyikutyiku,trial,ITCHING|PRICKLING,y,wani|yazi|gari
+COOL,hiyaQkoi,trial,COOL|FRESH,y,natunea|dzatyuzea|zyatsurea
+SUCK,suu,trial,SUCK,y,ki|mi|gi
+BLOW,fuku,trial,BLOW|PUFF,y,rini|gizi|niri
+TEAR,saku,trial,TEAR|RIP,y,kuni|muzi|guri
+SLOW,osoi,trial,SLOW,y,ekea|emea|egea
+RINGING,kiiN,trial,RINGING (e.g. a ringing sound in your ears),y,naQ|zaQ|raQ
+ANNOYED/IMPATIENT,izyiizyi,trial,ANNOYED|IMPATIENT,y,ama|awa|aha
+GLARING (OVERLY BRIGHT),mabusyii,trial,GLARING (light)|BLINDING (light)|DAZZLING,y,tyutyira|suhina|syusyima
+NOISY,yakamasyii,trial,LOUD|NOISY,y,tunutyura|tyuzusuna|tsurusyuma
+BIG,deQkai,trial,BIG|MASSIVE|LARGE|HUGE,y,wonua|yozua|horua
+CLEAN,saQpari,trial,CLEAN|TIDY,y,kusyuha|muwukya|guyuka
+SCRATCH,kaku,trial,SCRATCH,n,nuni|zuzi|ruri
+SAD,kanasyii,trial,SAD|GLUM,n,nusyura|zukuna|ruhuma
+ANNOYED/IMPATIENT,modokasyii,trial,ANNOYED|IMPATIENT,n,tyewenura|seyezuna|syeheruma
+SAD,tsurai,trial,SAD|GLUM,n,hihua|wikyua|yikua
+DARK,akaanakaQta,trial,DARK|DIM,n,unusyunuhu|uzukuzuwu|uruhuruyu
+LIVELY (ENERGETIC),geNki,trial,LIVELY|ENERGETIC,n,roQna|soQza|tyoQra
+COARSE,deQkai,trial,ROUGH|GRITTY|COARSE,n,wonua|yozua|horua
+EMPTY,kara,trial,EMPTY,n,nuhu|zukyu|ruku
+ITCHING,hasyikai,trial,ITCHING|PRICKLING,n,nuranua|dzunazua|zyumarua
+ACRID (TASTE),nigai,trial,ACRID (taste)|BITTER (taste),y,syarua|kasua|hatyua
+CRAMPED,semai,trial,CRAMPED|TIGHT,y,kotyua|mosua|gosyua
+BRIGHT,akarui,trial,BRIGHT|SUNNY,y,unuhia|uzukyia|urukia
+STICKY,betabeta,trial,STICKY|GOOEY,y,tyohu|howu|syoyu
+POUNDING (HEAD),zyiNzyiN,trial,POUNDING (e.g. headache)|THROBBING (e.g. headache),y,maQ|waQ|haQ
+ANNOYED/IMPATIENT,mukamuka,trial,ANNOYED|IMPATIENT,y,tyinu|sizu|syiru
+STINGING (PAIN),tyikatyika,trial,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)",y,wanu|yazu|garu
+NOISY,yagurasyika,trial,LOUD|NOISY,y,turihuranu|tyusikyunazu|tsutyikumaru
+QUIET,syizukaya,trial,QUIET,y,raginutu|nakyizutyu|makirutsu
+EXHAUSTED,kaQtarii,trial,EXHAUSTED|TIRED|WEARY,y,nuhuha|zuwukya|ruyuka
+FUZZY,booQ,trial,FUZZY|BLURRY|HAZY,y,tyeN|heN|syeN
+BIG,igai,trial,BIG|MASSIVE|LARGE|HUGE,n,arua|asua|atyua
+CRAWL,hau,trial,CRAWL|CREEP,n,nui|dzui|zyui
+EXHAUSTED,kitsuka,trial,EXHAUSTED|TIRED|WEARY,n,nahinu|zawizu|rayiru
+STUFFED (FULL OF FOOD),maNpuku,trial,STUFFED (from eating too much)|FULL (from eating),n,tyuQsyini|suQwizi|syuQyiri
+STRONG (TASTE),koi,trial,RICH (taste)|STRONG (taste),n,nea|zea|rea
+SHABBY,miQtomonai,trial,SCRUFFY|TATTY|RAGGEDY,n,tyahetyesyua|sawesekua|syayesyehua
+NOISY,nigiyaka,trial,LOUD|NOISY,n,syaratunu|kasatyuzu|hatyatsuru
+ANNOYED/IMPATIENT,hagai,trial,ANNOYED|IMPATIENT,n,nurua|dzusua|zyutyua
+CUNNING,kosui,trial,CUNNING|SLY|SNEAKY,n,nekia|zemia|regia
+WATERY (EYES),syikusyiku,trial,WATERY (EYES)|BLEARY (EYES),y,rani|nazi|mari
+TICKLING,motyokoi,trial,TICKLING,y,tyewenea|seyezea|syegerea
+BIG,ookii,trial,BIG|MASSIVE|LARGE|HUGE,y,ena|eza|era
+RINGING,tsuuN,trial,RINGING (e.g. a ringing sound in your ears),y,hiQ|wiQ|yiQ
+ANNOYED/IMPATIENT,yaQkiri,trial,ANNOYED|IMPATIENT,y,tunaha|tyuzakya|tsuraka
+OILY/HEAVY (FOOD),kudoi,trial,OILY/HEAVY (food),y,niwea|ziyea|rihea
+STUFFED (FULL OF FOOD),paNpaN,trial,STUFFED (from eating too much)|FULL (from eating),y,syuQ|wuQ|yuQ
+SHAKING,uzyauzya,trial,SHAKING|TREMBLING,y,imu|iwu|ihu
+LIVELY (ENERGETIC),syaNsyaN,trial,LIVELY|ENERGETIC,y,ruQ|nuQ|muQ
+DARK,kurai,trial,DARK|DIM,y,nihua|zikyua|rikua
+STUFFED (FULL OF FOOD),kutyii,trial,STUFFED (from eating too much)|FULL (from eating),y,niwa|ziya|riga
+SALTY,karai,trial,SALTY|BRINY (taste),y,nuhua|zukyua|rukua
+RAP (AT THE DOOR),dotsuku,trial,RAP (at the door)|KNOCK (at the door),y,wehini|yewizi|heyiri
+SLIMY,nurunuru,trial,SLIMY|SLIPPERY|SLICK,y,syihi|kikyi|hiki
+CRAWL,notaru,trial,CRAWL|CREEP,n,syehuhi|kewukyi|heyuki
+ACRID (TASTE),egui,trial,ACRID (taste)|BITTER (taste),n,oria|osia|otyia
+PRICKLING,hasyikai,trial,PRICKLING|TINGLING,n,nuranua|dzunazua|zyumarua
+WET,yogoreru,trial,WET|SOGGY|DAMP,n,terehohi|tyesekyokyi|tsetyekoki
+ROLL,mawaru,trial,ROLL|SPIN,n,tyuzyuhi|sutyukyi|syutsuki
+EXHAUSTED,erai,trial,EXHAUSTED|TIRED|WEARY,n,ohua|okyua|okua
+HARD,kowai,trial,HARD,n,nezyua|zetyua|retsua
+SHABBY,boroboro,trial,SCRUFFY|TATTY|RAGGEDY,y,tyehe|hekye|syeke
+LIVELY (ENERGETIC),piNpiN,trial,LIVELY|ENERGETIC,y,syaQ|waQ|yaQ
+CLEAN,keQko,trial,CLEAN|TIDY,y,none|zoze|rore
+CLEAN,kiree,trial,CLEAN|TIDY,y,naho|zakyo|rako
+CLINGING,netyinetyi,trial,CLINGY,y,syowa|koya|hoga
+SLICK,subesube,trial,SLIPPERY|SMOOTH,y,kityo|miho|gisyo
+FUZZY,boNyari,trial,FUZZY|BLURRY|HAZY,y,tyeQtuha|heQtyukya|syeQtsuka
+TIGHT,kyuukutsuka,trial,TIGHT|PINCHING,y,ninihinu|ziziwizu|ririyiru
+WARM,aQtakee,trial,WARM,y,uhuno|uwuzo|uyuro
+FULL (TO THE BRIM),iQpai,trial,FULL (to the brim)|FULL (to bursting),y,asyua|awua|ayua
+HUMID,musyimusyi,trial,HUMID|MUGGY,y,tyira|sina|syima
+TIGHT,kitsui,trial,TIGHT|PINCHING,y,nahia|zawia|rayia
+PRICKLING,iraira,trial,PRICKLING|TINGLING,y,ahu|akyu|aku
+SMALL,tyiQtyai,trial,SMALL|LITTLE|TINY,y,wawua|yayua|gagua
+COLD (WEATHER),sabui,trial,COLD|CHILLY,n,kutyia|muhia|gusyia
+SLUGGISH,syiNdoi,trial,SLUGGISH|LETHARGIC,n,raQwea|naQyea|maQhea
+DRY,koragu,trial,DRY|PARCHED,n,nehuri|zekyusi|rekutyi
+SLUGGISH,koe,trial,SLUGGISH|LETHARGIC,n,neo|zeo|reo
+EXHAUSTED,koenee,trial,EXHAUSTED|TIRED|WEARY,n,neosyo|zeoko|reoho
+LIGHT,karui,trial,LIGHT|AIRY,n,nuhia|zukyia|rukia
+GLARING (OVERLY BRIGHT),matsupoi,trial,GLARING (light)|BLINDING (light),n,tyuhisyea|suwiwea|syuyiyea
+(SPINE) TINGLING,zawazawa,trial,SHIVERS (DOWN YOUR SPINE)|(SPINE) TINGLING,y,kyutyu|guzyu|kutsu
+(SPINE) TINGLING,zoNzoN,trial,SHIVERS (DOWN YOUR SPINE)|(SPINE) TINGLING,y,kyeQ|geQ|keQ

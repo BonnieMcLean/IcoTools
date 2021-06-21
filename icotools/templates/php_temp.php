@@ -8,9 +8,6 @@ if ( isset( $_POST['submit'] ) ) {
     
 // Print a message for them
 
-print("Thank you for participating in this research. Please click on the link to get your Prolific completion code: ");
-echo '<a href="https://app.prolific.co/submissions/complete?cc=1A357732">Completion code</a>';
-
 
 // retrieve the form data by using the element's name attributes value as key
 // store it in an array

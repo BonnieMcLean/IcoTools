@@ -1,0 +1,9 @@
+language,Japanese
+media_source,http://johnhuisman.nl/bonnie/ 
+media_type,mp3
+headphone_check,y
+instructions_html,default
+exitques_html,exitques.html
+exitques_labels,"prolificID,nativelang,otherlangs,taskdesc"
+submit_html,submit_message.html
+words_per_exp,30

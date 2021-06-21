@@ -1,7 +1,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <style>
 .trialDiv {
   padding-left: 20px;
@@ -133,10 +130,7 @@ input[type=submit] {
 .player {width: 200px}
 
 </style>
-<div id="about">
-<h3 style="text-align: center">About</h3>
 INSTRUCTIONS
-</div>
 
 <div id="audiotest">
 <h2>Headphone check</h2>
@@ -179,7 +173,7 @@ Your browser does not support the audio element.
 </div>
 
 <div id="instructions">
-    <p style="text-align:center"> Thank you for wearing headphones. You may now continue to the experiment.</p>
+    <p style="text-align:center"> Thank you for wearing headphones. You may now continue to the task. </p>
 </div>
 <div id = "participateButton">
 <a href="#" id="participate">Participate</a>
@@ -189,93 +183,57 @@ Your browser does not support the audio element.
 <a href="#" id="startexperiment">Start</a>
 </div>
 
+<!---ADD GOOGLE FORM URL HERE!---->
+
 <form action="experimentX.php" method="post">
 
 <!---TRIAL START!---->
 
 <div id="trial1" class="trialDiv">
-<p style="text-align: center">Listen to the Japanese words below.</p>
 <p style="text-align: center" id='trans1'></p>
 <input type="hidden" name="chosentrans1" value="" id="chosentrans1">
-<table id="likert">
-<tr>
-<td><audio id='realplayer-1' class="player" controls controlsList="nodownload">
-  <source src="ANSWER_MEDIA" type="audio/mpeg">
-Your browser does not support the audio element.</audio></td>
-<td><audio id='foilplayer-1' class="player" controls controlsList="nodownload">
-  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></td>
-</tr>
-<input type="hidden" name="chosenfoil1" value="" id="chosenfoil1">
-<tr>
-<td>A</td>
-<td>B</td>
-</tr>
-  </table>
+<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player1'>
+  <source src="SOUNDFILE" type="audio/mpeg">
+Your browser does not support the audio element.</audio></p>
 </div>
 <div id="options1" class="optionsDiv">
-<br>
-<br>
-<p style="text-align: center" id='ques1'></p>
+<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
+
 <table id="likert">
      <tr>
-         <td><input type="radio" class="responseButton" name="q1" value="A" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="B" /></td>
+	     <td>No resemblance</td>
+         <td><input type="radio" class="responseButton" name="q1" value="0" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="1" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="2" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="3" /></td>
+		 <td><input type="radio" class="responseButton" name="q1" value="4" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="5" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="6" /></td>
+		 <td>Strong resemblance</td>
+
      </tr>
      <tr>
-         <td>A</td>
-         <td>B</td>
+         <td></td>
+         <td>0</td>
+         <td>1</td>
+         <td>2</td>
+         <td>3</td>
+		 <td>4</td>
+         <td>5</td>
+         <td>6</td>
+         <td></td>
+
      </tr>
   </table>
     <input type="hidden" name="rt1" value="0" id="reactionTime1">
 </div>
-
-<!---EVEN TRIAL!---->
-
-<div id="trial1" class="trialDiv">
-<p style="text-align: center">Listen to the Japanese words below.</p>
-<p style="text-align: center" id='trans1'></p>
-<input type="hidden" name="chosentrans1" value="" id="chosentrans1">
-<table id="likert">
-<tr>
-<td><audio id='foilplayer-1' class="player" controls controlsList="nodownload">
-  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></td>.
-<input type="hidden" name="chosenfoil1" value="" id="chosenfoil1">
-<td><audio id='realplayer-1' class="player" controls controlsList="nodownload">
-  <source src="ANSWER_MEDIA" type="audio/mpeg">
-Your browser does not support the audio element.</audio></td>
-</tr>
-<tr>
-<td>A</td>
-<td>B</td>
-</tr>
-  </table>
-</div>
-<div id="options1" class="optionsDiv">
-<br>
-<br>
-<p style="text-align: center" id='ques1'></p>
-<table id="likert">
-     <tr>
-         <td><input type="radio" class="responseButton" name="q1" value="A" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="B" /></td>
-     </tr>
-     <tr>
-         <td>A</td>
-         <td>B</td>
-     </tr>
-  </table>
-    <input type="hidden" name="rt1" value="0" id="reactionTime1">
-</div>
-
 
 <!---TRIAL END!---->
 
 
 <div id="exitsurvey">
 <h2 style="text-align:center">Thank you!</h2>
-OUTRO_QUESTIONS
+<!---OUTRO_QUESTIONS---->
 <div style="text-align:center">
 <p><input type="submit" name="submit"></p>
 </div>
@@ -285,12 +243,7 @@ OUTRO_QUESTIONS
 <!--POST EXPERIMENT INFORMATION COLLECTION-->
 <!--Include a short text description of the experiment to check people were paying attention-->
 <script>
-$.ajaxSetup({
-  cache: false
-});
-var allfoils=[[],[]];
 var alltrans=[[],[]];
-var foil_choices=[];
 var trans_choices=[];
 
 var i;
@@ -300,11 +253,6 @@ for (i=0;i<2;i++) {
 	transchoice=trans[Math.floor(Math.random()*trans.length)];
 	trans_choices.push(transchoice);
 	$('#chosentrans'+(i+1)).attr("value",transchoice)
-	//Choose a foil
-	foils=allfoils[i];
-	foilchoice=foils[Math.floor(Math.random()*foils.length)];
-	foil_choices.push(foilchoice);
-	$('#chosenfoil'+(i+1)).attr("value",foilchoice)
 }
 
 //REMEMBER TO UPDATE THE ARRAY YOU'RE SHUFFLING 
@@ -315,7 +263,6 @@ var curTrial=0;
 var nTrials=6;
 var startTrialTime;
 var firstgo='True';
-
 
 function audioplayed() {
 	if(firstgo=='True'){
@@ -338,12 +285,12 @@ function buttonClicked() {
 		$('#exitsurvey').show();
 	} else {	
 		$('#trial'+trialOrder[curTrial]).show();
-		firstgo='True';
+		firstgo='True'
 	}
 }
 function showFirstTrial() {
 	$('#trial'+trialOrder[0]).show();
-	
+
 }
 
 function showAudioTest() {
@@ -380,18 +327,17 @@ function showpractice() {
 	$('#startexperimentButton').hide();
 	$('#trial1').show();
 	}
-	
-
-function tryagain() {
-  $('#errormessage').hide()
-  $('#audiotest').show()
-}
 
 function easystart() {
 	$('#about').hide();
 	$('#participateButton').hide();
 	$('#trial1').show();
 
+}
+	
+function tryagain() {
+  $('#errormessage').hide()
+  $('#audiotest').show()
 }
 
 /* Fisher-Yates shuffle */
@@ -400,24 +346,15 @@ function shuffle(o){
     return o;
 }
 
-function showoptions(){
-$('#realplayer-'+trialOrder[curTrial]).bind("ended", function(){
-$('#foilplayer-'+trialOrder[curTrial]).bind("ended",audioplayed)
-});
-$('#foilplayer-'+trialOrder[curTrial]).bind("ended", function(){
-$('#realplayer-'+trialOrder[curTrial]).bind("ended",audioplayed)
-});
-}
+$('#participate').click(showAudioTest)
+$('#again').click(tryagain)
+
+$('#continue').click(processAudioTest)
+$('#startexperiment').click(showpractice)
 
 
-$('#participate').click(showAudioTest);
-$('#again').click(tryagain);
-
-$('#continue').click(processAudioTest);
-$('#startexperiment').click(showpractice);
-
-$('.player').bind('play',showoptions);
-$('.responseButton').click(buttonClicked);
+$('.player').bind("ended",audioplayed)
+$('.responseButton').click(buttonClicked)
 
 
 </script>
