@@ -133,20 +133,7 @@ def balancer(csv_file,no_expwords):
 
 
 def guesser(wordlist,control_file):
-    """Makes guessing experiments. If no foil column is provided in experiments_wordlist,
-       foils will be randomly chosen from all the available forms
-       save the form being tested
-
-       experiments_wordlist is the file written by the balanced_exps function.
-       the control file is a csv file with two columns that look like this:
-
-       media_source     |a link to the source of the media files (e.g. https://bonniemclean.net/videos)
-       media_type       |the type (file ending) for the media files, available values are 'mp3' or 'mp4'
-       muted_vids       |whether or not videos should be muted, available values are 'y' or 'n'
-       headphone_check  |whether to include a headphone check ('y'/'n')
-       instructions_html|the name of the instructions_html file, if not writing your own html_instructions, put 'default' here
-       exitques_html    |the name of the exist questions html file, if not writing your own html exit questions, put 'default' here
-       no_practiceq     |the number of practice questions (e.g 2)"""
+    """Makes gue"""
 
     # read in the information from the control file
     control={}

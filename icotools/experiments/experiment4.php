@@ -21,7 +21,7 @@ foreach($_POST as $key =>$value){
 
 // store it in the file
 
-$fp = fopen('experiment2.csv', 'a');
+$fp = fopen('experiment4.csv', 'a');
 fputcsv($fp, $responses);
 
 // close the file

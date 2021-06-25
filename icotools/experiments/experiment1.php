@@ -6,7 +6,7 @@
  // Check if the form is submitted
 if ( isset( $_POST['submit'] ) ) {
     
-// Print a message for them
+print("<p>Thank you for participating in this research. Please click on the link to get your Prolific completion code: <a href='https://app.prolific.co/submissions/complete?cc=1A357732'>https://app.prolific.co/submissions/complete?cc=1A357732</a></p>");
 
 
 // retrieve the form data by using the element's name attributes value as key

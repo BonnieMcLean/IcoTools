@@ -203,18 +203,20 @@ def rater(stimuli_list,control_file):
 
     # make experiments list
 
-    filename=stimuli_list.strip('.csv')+'_experiments.csv'
+    filename=stimuli_list.replace('.csv','')+'_experiments.csv'
     with open(filename,'w',newline='') as outfile:
         writer=csv.writer(outfile)
-        writer.writerow(('experiment','item_type','form','meaning','hypothesis'))
+        writer.writerow(('experiment','trial','item_type','form','meaning','hypothesis'))
         for exp in experiments:
             stuff=experiments[exp]
+            n=1
             for word in stuff:
                 form=word[0]
                 meaning=word[1]
                 hypothesis=word[2]
                 item_type=word[3]
-                writer.writerow((exp,item_type,form,meaning,hypothesis))
+                writer.writerow((exp,n,item_type,form,meaning,hypothesis))
+                n=n+1
     outfile.close()
 
     # get together code for rating tasks
