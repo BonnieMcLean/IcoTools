@@ -1,6 +1,6 @@
 # General overview
 
-Icotools is a [python package](https://pypi.org/project/icotools/), to install it, use `pip install icotools`.
+Icotools is a [python package](https://pypi.org/project/icotools/). To install it, use `pip install icotools`.
 
 Icotools comes with two functions:
 
@@ -12,6 +12,8 @@ The guesser function makes guessing experiments, where participants are given a 
 The ratings function makes rating experiments, where participants are presented with stimuli (either MP3 files, MP4 files, or images) and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. The exact labels used can be modified as desired. See [instructions for rating experiments](#Instructions-for-rating-experiments) for more information.
 
 Each function takes a list of stimuli (stimuli.csv) and a control file (control.csv) as inputs, and produces a folder of html experiments to collect measures of iconicity on those items. For each experiment, three files are produced--a html file, a php file, and a csv file. Once you upload all these files to your server, and share the link to the html experiments with participants, as participants complete your study, their answers (as well as their reaction times for each item, and a record of which translation/foil was presented to them for each item) will be written to the csv file on your server (by the php). 
+
+There are examples in the 'examples' folder. The file `processing.Rmd` contains R scripts for combining the raw results files from the experiments into one long tidy dataset. 
 
 # Instructions for guessing experiments
 
