@@ -7,9 +7,19 @@ Icotools comes with two functions:
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.rater('stimuli.csv','controlfile.csv')`
 
-The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. Stimuli can be either MP3 files, MP4 files, or images. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). For more about the guessing experiments and their different variations, see the [instructions for guessing experiments](#Instructions-for-guessing-experiments).
+The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). For more about the guessing experiments and their different variations, see the [instructions for guessing experiments](#Instructions-for-guessing-experiments).
 
-The ratings function makes rating experiments, where participants are presented with stimuli (either MP3 files, MP4 files, or images) and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. The exact labels used can be modified as desired. See [instructions for rating experiments](#Instructions-for-rating-experiments) for more information.
+The ratings function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. The exact labels used can be modified as desired. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). See [instructions for rating experiments](#Instructions-for-rating-experiments) for more information.
+
+**Available stimuli types for guessing experiments**  
+* mp3
+* mp4
+* images (COMING SOON)
+
+**Available stimuli types for rating experiments**
+* mp3
+* mp4 (COMING SOON)
+* images (COMING SOON)
 
 Each function takes a list of stimuli (stimuli.csv) and a control file (control.csv) as inputs, and produces a folder of html experiments to collect measures of iconicity on those items. For each experiment, three files are produced--a html file, a php file, and a csv file. Once you upload all these files to your server, and share the link to the html experiments with participants, as participants complete your study, their answers (as well as their reaction times for each item, and a record of which translation/foil was presented to them for each item) will be written to the csv file on your server (by the php). 
 
