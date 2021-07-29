@@ -41,30 +41,26 @@ It should be a csv file with two columns, the first column contains variable nam
 |Col1             |Col2                                                                                                            |
 |-----------------|----------------------------------------------------------------------------------------------------------------|
 |media_source     |link to location of media files                                                                                 |
-|media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                                                  |                                                                           |
+|media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                                                  |                                                                           
 |muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos                                        |
 |language         |(optional) language of the stimuli (if you want to inform participants of that)                                 |
-|headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'                      |                                                                        |
-|instructions_html|either 'default' or provide filename to your own html instructions                                              |                                                                       |
-|exitques_html    |either 'default' or provide filename to your own html exit questions                                            |  
-|submit_html      |either 'default' or provide filename to your own html submit message (e.g. if you need to redirect participants)|
-|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)                          |                                                                        |
+|headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'                      |                                                                        
+|instructions_html|provide filename to your own html instructions. If using mp3 stimuli, you can write 'default' for the default instructions, but there are no default instructions for other stimuli types|                                              |                                                                       |
+|exitques_html    |either 'default' or provide filename to your own html exit questions                                             |  
+|exitques_labels  |(if not using default exit questions) a comma separated list of labels for your exit questions (for the csv file)|
+|submit_html      |either 'default' or provide filename to your own html submit message (e.g. if you need to redirect participants) |
+|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)                           |                                                                        
 
 See examples in the example folder.
 
 ### Default instructions
 
-**For MP3 stimuli**
+The default instructions are for MP3 STIMULI ONLY. It was too hard to formulate generic instructions for the other formats. Note that 'Japanese' will be replaced with whatever language you specify in the control file. If you don't specify a language, the instructions will just refer to 'an unknown language'.
 
-<p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in Japanese, guessing from a choice of two Japanese words.</p>
-
-<p><strong>Criteria for participation</strong></p>
-<p>Because your answers should be guesses, it is very important for our experiment that you do NOT speak or understand Japanese. Also, since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
-<p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    
-**For images**
-
-**THERE ARE NO DEFAULT INSTRUCTIONS FOR MP4 STIMULI, PLEASE WRITE YOUR OWN**
+>  <p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in Japanese, guessing from a choice of two Japanese words.</p>
+>  <p><strong>Criteria for participation</strong></p>
+>  <p>Because your answers should be guesses, it is very important for our experiment that you do NOT speak or understand Japanese. Also, since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
+>  <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
 
 ## Format for the stimuli file
 It should be a csv file with (up to) 6 columns. The first three columns are required, but the last three are optional. Having extra columns (with stuff not relevant to the experiments) also doesn't matter.
