@@ -1,0 +1,56 @@
+experiment,trial,item_type,form,meaning
+1,1,practice,honnori,wafting
+1,2,practice,chirahora,skattered
+1,3,trial,boroboro,sloppily|crumbling|messily
+1,4,trial,berabera2,tearing|shredding|ripping
+1,5,trial,gojagoja,jumbled up|mixed up|muddled up
+1,6,trial,kankan3,clanging|clamoring|banging
+1,7,trial,harahara,fluttering|drifting|sinking
+1,8,trial,gayagaya,loud|hubbub|noisy
+1,9,trial,sekaseka,rushing|hurried|flustered
+1,10,trial,buruburu,shaking|trembling|shivering
+1,11,trial,gojagoja2,jumbled up|mixed up|muddled up
+2,1,practice,honnori,wafting
+2,2,practice,chirahora,skattered
+2,3,trial,gizagiza,zig-zag|jagged|sharp edged
+2,4,trial,mojimoji,restless|fidgety|squirming
+2,5,trial,kankan,blazing|bright|dazzling
+2,6,trial,wakuwaku,excited|cheerful|upbeat
+2,7,trial,morimori3,lumpy|in a mound|piled up
+2,8,trial,nikoniko-nomosaic,smiling|beaming|grinning
+2,9,trial,korokoro2,round|circular|curved
+2,10,trial,betabeta,sticky|gummy|gooey
+2,11,trial,nurunuru,slimy|slippery|greasy
+3,1,practice,honnori,wafting
+3,2,practice,chirahora,skattered
+3,3,trial,buruburu,cold|chilly|freezing
+3,4,trial,bukubuku,chubby|pudgy|fat
+3,5,trial,chirahora,here and there|to and fro|skattered
+3,6,trial,chikuchiku,prickling|stinging|tingling
+3,7,trial,kankan2,angry|furious|mad
+3,8,trial,hokahoka,steaming hot|piping hot|scalding hot
+3,9,trial,morimori,muscly|buff|bulky
+3,10,trial,debudebu,fat|pudgy|dumpy
+3,11,trial,honnori,faintly|slightly|subtly
+4,1,practice,honnori,wafting
+4,2,practice,chirahora,skattered
+4,3,trial,shikkari,tightly|firmly|securely
+4,4,trial,kirakira,sparkling|glittering|twinkling
+4,5,trial,korokoro,rolling|turning|spinning
+4,6,trial,morimori2,gobbling|gorging (on food)|pigging out
+4,7,trial,bukubuku2,round|swollen|bloated
+4,8,trial,wanwan,crying|bawling|howling
+4,9,trial,kunekune,winding|twisting|twirling
+4,10,trial,gokugoku,gulping|guzzling|drinking
+4,11,trial,ukiuki,excited|cheerful|upbeat
+5,1,practice,honnori,wafting
+5,2,practice,chirahora,skattered
+5,3,trial,dokidoki,anxious|afraid|nervous
+5,4,trial,hisohiso,whispering|hushed|quietly
+5,5,trial,sansan,blazing|bright|dazzling
+5,6,trial,berabera,blabbing on |prattling on|chattering
+5,7,trial,fuwafuwa,fluffy|spongy|soft
+5,8,trial,hiyahiya,relieved|close call|phew
+5,9,trial,kebakeba,fuzzy|frizzy|frazzled
+5,10,trial,kachikachi,hard|solid|firm
+5,11,trial,ujauja,squirming|wriggling|fidgety

@@ -1,0 +1,990 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<style>
+.trialDiv {
+  padding-left: 20px;
+  width: 600px;
+  margin: 0 auto;
+  font-family: Arial, Helvetica;
+  font-size: 14pt;
+  margin-top: 100px;
+  display: none;
+}
+
+input[type=submit] {
+  text-align: center;
+  font-family: Arial, Helvetica;
+  font-size: 14pt;
+  height: 50px;
+  width: 70px;
+  }
+
+.wrapper {
+  text-align: center;
+}
+
+#submitButton {
+	display: none;
+	margin: 0 auto;
+	font-family: Arial, Helvetica;
+	font-size: 14pt;
+	margin-top: 100px;
+	text-align: center;
+	
+}
+
+.optionsDiv {
+  padding-left: 20px;
+  width: 600px;
+  margin: 0 auto;
+  font-family: Arial, Helvetica;
+  font-size: 14pt;
+  display:none;
+}
+
+#about {
+	width: 800px;
+	margin: 0 auto;
+	font-family: Arial, Helvetica;
+    font-size: 14pt;
+	text-align: left;
+	margin-top: 100px;
+}
+
+#instructions {
+	width: 800px;
+	margin: 0 auto;
+	text-align:center;
+	font-family: Arial, Helvetica;
+    font-size: 14pt;
+	text-align: left;
+	margin-top: 100px;
+	display:none;
+}
+
+#errormessage {
+	width: 800px;
+	margin: 0 auto;
+	font-family: Arial, Helvetica;
+    font-size: 14pt;
+	text-align: left;
+	margin-top: 100px;
+	display: none;
+}
+
+#audiotest {
+  	width: 800px;
+	margin: 0 auto;
+	text-align:center;
+	font-family: Arial, Helvetica;
+    font-size: 14pt;
+	text-align: left;
+	margin-top: 100px;
+	display:none;
+}
+
+#exitsurvey {
+  	width: 800px;
+	margin: 0 auto;
+	text-align:center;
+	font-family: Arial, Helvetica;
+    font-size: 14pt;
+	text-align: left;
+	margin-top: 100px;
+	display:none;
+}
+
+#participate {
+	color:white;
+	text-decoration: none;
+	font-family: Arial, Helvetica;
+
+}
+#participateButton {
+	width: 200px;
+	border: 4px outset steelblue;
+	background: steelblue;
+	padding: 5px;
+	margin: 0 auto;
+	text-align:center
+}
+
+#startExperiment {
+	color:white;
+	text-decoration: none;
+	font-family: Arial, Helvetica;
+}
+
+#startexperimentButton {
+	width: 200px;
+	border: 4px outset steelblue;
+	background: steelblue;
+	padding: 5px;
+	margin: 0 auto;
+	text-align:center;
+	display:none;
+}
+
+#likert { text-align:center; }
+#likert td { width: 300px; }
+
+.player {width: 200px}
+
+</style>
+<div id="about">
+<h3 style="text-align: center">About</h3>
+<p>Your custom instructions here</p>
+</div>
+
+<div id="audiotest">
+<h2>Headphone check</h2>
+<p>When you play each item you will hear three sounds separated by silences. Simply judge WHICH SOUND WAS SOFTEST (quietest) -- 1, 2, or 3?</p>
+<h3>Item 1</h3>
+<audio controls>
+  <source src="https://bonniemclean.github.io/headcheck/middle.wav" type="audio/wav">
+  <source src="https://bonniemclean.github.io/headcheck/middle.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<p><input type="radio" name="item1" value=0> 1</p>
+<p><input type="radio" name="item1" value=1> 2</p>
+<p><input type="radio" name="item1" value=0> 3</p>
+<h3>Item 2</h3>
+<audio controls>
+  <source src="https://bonniemclean.github.io/headcheck/first.wav" type="audio/wav">
+  <source src="https://bonniemclean.github.io/headcheck/first.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<p><input type="radio" name="item2" value=1> 1</p>
+<p><input type="radio" name="item2" value=0> 2</p>
+<p><input type="radio" name="item2" value=0> 3</p>
+<h3>Item 3</h3>
+<audio controls>
+  <source src="https://bonniemclean.github.io/headcheck/last.wav" type="audio/wav">
+  <source src="https://bonniemclean.github.io/headcheck/last.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<p><input type="radio" name="item3" id="item3" value=0> 1</p>
+<p><input type="radio" name="item3" id="item3" value=0> 2</p>
+<p><input type="radio" name="item3" id="item3" value=1> 3</p>
+
+<a href="#" id="continue">Continue</a>
+</div>
+
+<div id="errormessage">
+<p style="text-align:center">Your test results indicate you aren't using headphones. Please use headphones if you want to participate.</p>
+<a href="#" id="again">Try again</a>
+
+</div>
+
+<div id="instructions">
+    <p style="text-align:center"> Thank you for wearing headphones. You may now continue to the experiment.</p>
+</div>
+<div id = "participateButton">
+<a href="#" id="participate">Participate</a>
+</div>
+
+<div id = "startexperimentButton">
+<a href="#" id="startexperiment">Start</a>
+</div>
+
+<form action="experiment17.php" method="post">
+
+<!---TRIAL START!---->
+
+<div id="trial1" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans1'></p>
+<input type="hidden" name="chosentrans1" value="" id="chosentrans1">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-1' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//yoroyoro.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-1' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil1" value="" id="chosenfoil1">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options1" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques1'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q1" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt1" value="0" id="reactionTime1">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial2" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans2'></p>
+<input type="hidden" name="chosentrans2" value="" id="chosentrans2">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-2' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil2" value="" id="chosenfoil2">
+<td><audio id='realplayer-2' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//fuwafuwa.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options2" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques2'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q2" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q2" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt2" value="0" id="reactionTime2">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial3" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans3'></p>
+<input type="hidden" name="chosentrans3" value="" id="chosentrans3">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-3' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//nebaneba.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-3' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil3" value="" id="chosenfoil3">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options3" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques3'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q3" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q3" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt3" value="0" id="reactionTime3">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial4" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans4'></p>
+<input type="hidden" name="chosentrans4" value="" id="chosentrans4">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-4' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil4" value="" id="chosenfoil4">
+<td><audio id='realplayer-4' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//noroi.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options4" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques4'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q4" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q4" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt4" value="0" id="reactionTime4">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial5" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans5'></p>
+<input type="hidden" name="chosentrans5" value="" id="chosentrans5">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-5' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//zyitozyito.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-5' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil5" value="" id="chosenfoil5">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options5" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques5'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q5" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q5" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt5" value="0" id="reactionTime5">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial6" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans6'></p>
+<input type="hidden" name="chosentrans6" value="" id="chosentrans6">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-6' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil6" value="" id="chosenfoil6">
+<td><audio id='realplayer-6' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//zuNzuN.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options6" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques6'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q6" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q6" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt6" value="0" id="reactionTime6">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial7" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans7'></p>
+<input type="hidden" name="chosentrans7" value="" id="chosentrans7">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-7' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//kitsui.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-7' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil7" value="" id="chosenfoil7">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options7" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques7'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q7" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q7" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt7" value="0" id="reactionTime7">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial8" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans8'></p>
+<input type="hidden" name="chosentrans8" value="" id="chosentrans8">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-8' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil8" value="" id="chosenfoil8">
+<td><audio id='realplayer-8' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//nurui.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options8" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques8'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q8" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q8" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt8" value="0" id="reactionTime8">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial9" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans9'></p>
+<input type="hidden" name="chosentrans9" value="" id="chosentrans9">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-9' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//geNki.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-9' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil9" value="" id="chosenfoil9">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options9" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques9'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q9" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q9" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt9" value="0" id="reactionTime9">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial10" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans10'></p>
+<input type="hidden" name="chosentrans10" value="" id="chosentrans10">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-10' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil10" value="" id="chosenfoil10">
+<td><audio id='realplayer-10' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//nobude.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options10" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques10'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q10" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q10" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt10" value="0" id="reactionTime10">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial11" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans11'></p>
+<input type="hidden" name="chosentrans11" value="" id="chosentrans11">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-11' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//kyootee.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-11' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil11" value="" id="chosenfoil11">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options11" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques11'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q11" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q11" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt11" value="0" id="reactionTime11">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial12" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans12'></p>
+<input type="hidden" name="chosentrans12" value="" id="chosentrans12">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-12' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil12" value="" id="chosenfoil12">
+<td><audio id='realplayer-12' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//sabaku.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options12" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques12'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q12" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q12" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt12" value="0" id="reactionTime12">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial13" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans13'></p>
+<input type="hidden" name="chosentrans13" value="" id="chosentrans13">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-13' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//katai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-13' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil13" value="" id="chosenfoil13">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options13" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques13'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q13" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q13" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt13" value="0" id="reactionTime13">
+</div>
+
+<!---EVEN TRIAL!---->
+
+<div id="trial14" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans14'></p>
+<input type="hidden" name="chosentrans14" value="" id="chosentrans14">
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-14' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil14" value="" id="chosenfoil14">
+<td><audio id='realplayer-14' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//pyoNpyoN.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options14" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques14'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q14" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q14" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt14" value="0" id="reactionTime14">
+</div>
+
+
+<!---TRIAL END!---->
+
+<div id="trial15" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
+<p style="text-align: center" id='trans15'></p>
+<input type="hidden" name="chosentrans15" value="" id="chosentrans15">
+<table id="likert">
+<tr>
+<td><audio id='realplayer-15' class="player" controls controlsList="nodownload">
+  <source src="http://honestcookingblog.com/soundfiles//hisohiso.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-15' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil15" value="" id="chosenfoil15">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
+</div>
+<div id="options15" class="optionsDiv">
+<br>
+<br>
+<p style="text-align: center" id='ques15'></p>
+<table id="likert">
+     <tr>
+         <td><input type="radio" class="responseButton" name="q15" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q15" value="B" /></td>
+     </tr>
+     <tr>
+         <td>A</td>
+         <td>B</td>
+     </tr>
+  </table>
+    <input type="hidden" name="rt15" value="0" id="reactionTime15">
+</div>
+
+<!---EVEN TRIAL!---->
+
+
+<div id="exitsurvey">
+<h2 style="text-align:center">Thank you!</h2>
+<p>This is the end of the task. However, before you submit your ratings we need to collect some information from you. Kindly fill in the following:</p>
+<p><strong>Prolific ID*:</strong><input type="text" name="prolificID" required></p>
+<p><strong>Native Language*:</strong><input type="text" name="nativelang" required></p>
+<p><strong>Other languages you understand:</strong><input type="otherlangs" name="entry.2072304820"></p>
+<p><strong>*For our feedback, please also describe the TASK you were performing*:</strong></p>
+<p><input type="text" name="taskdesc" size="80"></p>
+<p>*Required</p>
+<div style="text-align:center">
+<p><input type="submit" name="submit"></p>
+</div>
+
+</div>
+
+<!--POST EXPERIMENT INFORMATION COLLECTION-->
+<!--Include a short text description of the experiment to check people were paying attention-->
+<script>
+$.ajaxSetup({
+  cache: false
+});
+var allfoils=[["http://honestcookingblog.com/soundfiles//tehe.mp3","http://honestcookingblog.com/soundfiles//tyekye.mp3","http://honestcookingblog.com/soundfiles//tseke.mp3"],["http://honestcookingblog.com/soundfiles//rizyu.mp3","http://honestcookingblog.com/soundfiles//gityu.mp3","http://honestcookingblog.com/soundfiles//nitsu.mp3"],["http://honestcookingblog.com/soundfiles//syotyu.mp3","http://honestcookingblog.com/soundfiles//kohu.mp3","http://honestcookingblog.com/soundfiles//hosyu.mp3"],["http://honestcookingblog.com/soundfiles//syehea.mp3","http://honestcookingblog.com/soundfiles//kekyea.mp3","http://honestcookingblog.com/soundfiles//hekea.mp3"],["http://honestcookingblog.com/soundfiles//mahe.mp3","http://honestcookingblog.com/soundfiles//wawe.mp3","http://honestcookingblog.com/soundfiles//haye.mp3"],["http://honestcookingblog.com/soundfiles//giQ.mp3","http://honestcookingblog.com/soundfiles//kyiQ.mp3","http://honestcookingblog.com/soundfiles//kiQ.mp3"],["http://honestcookingblog.com/soundfiles//nahia.mp3","http://honestcookingblog.com/soundfiles//zawia.mp3","http://honestcookingblog.com/soundfiles//rayia.mp3"],["http://honestcookingblog.com/soundfiles//syihia.mp3","http://honestcookingblog.com/soundfiles//kikyia.mp3","http://honestcookingblog.com/soundfiles//hikia.mp3"],["http://honestcookingblog.com/soundfiles//roQna.mp3","http://honestcookingblog.com/soundfiles//soQza.mp3","http://honestcookingblog.com/soundfiles//tyoQra.mp3"],["http://honestcookingblog.com/soundfiles//syetyiwo.mp3","http://honestcookingblog.com/soundfiles//kehiyo.mp3","http://honestcookingblog.com/soundfiles//hesyiho.mp3"],["http://honestcookingblog.com/soundfiles//neho.mp3","http://honestcookingblog.com/soundfiles//zewo.mp3","http://honestcookingblog.com/soundfiles//reyo.mp3"],["http://honestcookingblog.com/soundfiles//kutyuni.mp3","http://honestcookingblog.com/soundfiles//muhuzi.mp3","http://honestcookingblog.com/soundfiles//gusyuri.mp3"],["http://honestcookingblog.com/soundfiles//nuhua.mp3","http://honestcookingblog.com/soundfiles//zuwua.mp3","http://honestcookingblog.com/soundfiles//ruyua.mp3"],["http://honestcookingblog.com/soundfiles//neQ.mp3","http://honestcookingblog.com/soundfiles//zeQ.mp3","http://honestcookingblog.com/soundfiles//reQ.mp3"],["http://honestcookingblog.com/soundfiles//nake.mp3","http://honestcookingblog.com/soundfiles//dzame.mp3","http://honestcookingblog.com/soundfiles//zyage.mp3"]];
+var alltrans=[["WOBBLING"],["FLUFFY"],["SLIMY","GOOEY"],["SLOW"],["WET","SOGGY","DAMP"],["THROBBING","PULSATING"],["TIGHT","PINCHING"],["LUKEWARM"],["LIVELY","ENERGETIC"],["RUDE","ARROGANT","BRAZEN"],["SCARY","FRIGHTENING"],["TEAR","RIP"],["HARD"],["BOUNCING","HOPPING"],["WHISPERING"]];
+var foil_choices=[];
+var trans_choices=[];
+
+var i;
+for (i=0;i<15;i++) {
+    //Choose a translation
+	trans=alltrans[i];
+	transchoice=trans[Math.floor(Math.random()*trans.length)];
+	trans_choices.push(transchoice);
+	$('#chosentrans'+(i+1)).attr("value",transchoice)
+	//Choose a foil
+	foils=allfoils[i];
+	foilchoice=foils[Math.floor(Math.random()*foils.length)];
+	foil_choices.push(foilchoice);
+	$('#chosenfoil'+(i+1)).attr("value",foilchoice)
+}
+
+//REMEMBER TO UPDATE THE ARRAY YOU'RE SHUFFLING 
+var shuffled = shuffle([3,4,5,6,7,8,9,10,11,12,13,14,15]);
+var trialOrder =[1,2].concat(shuffled);
+var curTrial=0;
+//REMEMBER TO UPDATE THE NUMBER OF TRIALS BELOW 
+var nTrials=15;
+var startTrialTime;
+// The firstgo variable is to allow them to play the media multiple times without resetting the reaction time count
+
+var firstgo='True';
+
+
+function audioplayed() {
+	if(firstgo=='True'){
+	$('#options'+trialOrder[curTrial]).show();
+	startTrialTime=new Date();
+	firstgo='False'}
+}
+
+function buttonClicked() {
+	var curTime = new Date();
+	var rt = curTime - startTrialTime;
+	$('#reactionTime' + trialOrder[curTrial]).val(rt);
+	// If you want to change another attribute of an object use this
+	//$('#reactionTime'+curTrial).attr("value",rt);
+	console.log(rt);
+	$('#trial'+trialOrder[curTrial]).hide();
+	$('#options'+trialOrder[curTrial]).hide();
+	curTrial++;
+	if (curTrial >= nTrials) {
+		$('#exitsurvey').show();
+	} else {	
+		$('#trial'+trialOrder[curTrial]).show();
+		firstgo='True';
+	}
+}
+function showFirstTrial() {
+	$('#trial'+trialOrder[0]).show();
+	
+}
+
+function showAudioTest() {
+	$('#about').hide();
+	$('#participateButton').hide();
+	$('#audiotest').show()
+}
+
+function processAudioTest() {
+  first=$( "input[type=radio][name=item1]:checked" ).val()
+  second=$( "input[type=radio][name=item2]:checked" ).val()
+  third=$( "input[type=radio][name=item3]:checked" ).val()
+  score=first+second+third
+  if (score>=2) {
+    $('#instructions').show();
+    $('#startexperimentButton').show();
+    $('#audiotest').hide();
+  } else {
+    $('#audiotest').hide();
+    $('#errormessage').show()
+  }
+  
+}
+
+function showInstructions() {
+	$('#about').hide();
+	$('#participateButton').hide();
+	$('#instructions').show();
+	$('#startexperimentButton').show();
+}
+
+function showpractice() {
+    $('#instructions').hide();
+	$('#startexperimentButton').hide();
+	$('#trial1').show();
+	}
+	
+
+function tryagain() {
+  $('#errormessage').hide()
+  $('#audiotest').show()
+}
+
+function easystart() {
+	$('#about').hide();
+	$('#participateButton').hide();
+	$('#trial1').show();
+
+}
+
+/* Fisher-Yates shuffle */
+function shuffle(o){
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+}
+
+function showoptions(){
+$('#realplayer-'+trialOrder[curTrial]).bind("ended", function(){
+$('#foilplayer-'+trialOrder[curTrial]).bind("ended",audioplayed)
+});
+$('#foilplayer-'+trialOrder[curTrial]).bind("ended", function(){
+$('#realplayer-'+trialOrder[curTrial]).bind("ended",audioplayed)
+});
+}
+
+
+$('#participate').click(showAudioTest);
+$('#again').click(tryagain);
+
+$('#continue').click(processAudioTest);
+$('#startexperiment').click(showpractice);
+
+$('.player').bind('play',showoptions);
+$('.responseButton').click(buttonClicked);
+
+
+document.getElementById('trans1').innerHTML='One of them means '+trans_choices[0]
+document.getElementById('ques1').innerHTML='Which one do you think means '+trans_choices[0]+'?'
+document.getElementById('foilplayer-1').src=foil_choices[0]
+document.getElementById('trans2').innerHTML='One of them means '+trans_choices[1]
+document.getElementById('ques2').innerHTML='Which one do you think means '+trans_choices[1]+'?'
+document.getElementById('foilplayer-2').src=foil_choices[1]
+document.getElementById('trans3').innerHTML='One of them means '+trans_choices[2]
+document.getElementById('ques3').innerHTML='Which one do you think means '+trans_choices[2]+'?'
+document.getElementById('foilplayer-3').src=foil_choices[2]
+document.getElementById('trans4').innerHTML='One of them means '+trans_choices[3]
+document.getElementById('ques4').innerHTML='Which one do you think means '+trans_choices[3]+'?'
+document.getElementById('foilplayer-4').src=foil_choices[3]
+document.getElementById('trans5').innerHTML='One of them means '+trans_choices[4]
+document.getElementById('ques5').innerHTML='Which one do you think means '+trans_choices[4]+'?'
+document.getElementById('foilplayer-5').src=foil_choices[4]
+document.getElementById('trans6').innerHTML='One of them means '+trans_choices[5]
+document.getElementById('ques6').innerHTML='Which one do you think means '+trans_choices[5]+'?'
+document.getElementById('foilplayer-6').src=foil_choices[5]
+document.getElementById('trans7').innerHTML='One of them means '+trans_choices[6]
+document.getElementById('ques7').innerHTML='Which one do you think means '+trans_choices[6]+'?'
+document.getElementById('foilplayer-7').src=foil_choices[6]
+document.getElementById('trans8').innerHTML='One of them means '+trans_choices[7]
+document.getElementById('ques8').innerHTML='Which one do you think means '+trans_choices[7]+'?'
+document.getElementById('foilplayer-8').src=foil_choices[7]
+document.getElementById('trans9').innerHTML='One of them means '+trans_choices[8]
+document.getElementById('ques9').innerHTML='Which one do you think means '+trans_choices[8]+'?'
+document.getElementById('foilplayer-9').src=foil_choices[8]
+document.getElementById('trans10').innerHTML='One of them means '+trans_choices[9]
+document.getElementById('ques10').innerHTML='Which one do you think means '+trans_choices[9]+'?'
+document.getElementById('foilplayer-10').src=foil_choices[9]
+document.getElementById('trans11').innerHTML='One of them means '+trans_choices[10]
+document.getElementById('ques11').innerHTML='Which one do you think means '+trans_choices[10]+'?'
+document.getElementById('foilplayer-11').src=foil_choices[10]
+document.getElementById('trans12').innerHTML='One of them means '+trans_choices[11]
+document.getElementById('ques12').innerHTML='Which one do you think means '+trans_choices[11]+'?'
+document.getElementById('foilplayer-12').src=foil_choices[11]
+document.getElementById('trans13').innerHTML='One of them means '+trans_choices[12]
+document.getElementById('ques13').innerHTML='Which one do you think means '+trans_choices[12]+'?'
+document.getElementById('foilplayer-13').src=foil_choices[12]
+document.getElementById('trans14').innerHTML='One of them means '+trans_choices[13]
+document.getElementById('ques14').innerHTML='Which one do you think means '+trans_choices[13]+'?'
+document.getElementById('foilplayer-14').src=foil_choices[13]
+document.getElementById('trans15').innerHTML='One of them means '+trans_choices[14]
+document.getElementById('ques15').innerHTML='Which one do you think means '+trans_choices[14]+'?'
+document.getElementById('foilplayer-15').src=foil_choices[14]
+</script>
+</form>

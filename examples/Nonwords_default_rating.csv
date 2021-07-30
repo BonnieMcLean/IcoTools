@@ -1,0 +1,465 @@
+experiment,trial,item_type,form,meaning
+1,1,practice,yoroyoro,WOBBLING
+1,2,practice,fuwafuwa,FLUFFY
+1,3,trial,tyiNtye,THIN|SLENDER
+1,4,trial,syoQpee,SALTY|BRINY (taste)
+1,5,trial,saQpari,CLEAR|REFRESHED
+1,6,trial,oQkanai,SCARY|FRIGHTENING
+1,7,trial,betabeta,STICKY|GOOEY
+1,8,trial,syikasyika,ITCHING|PRICKLING
+1,9,trial,saku,TEAR|RIP
+1,10,trial,kitsuka,EXHAUSTED|TIRED|WEARY
+1,11,trial,iteru,FREEZE
+1,12,trial,kyootee,SCARY|FRIGHTENING
+1,13,trial,hizurasyii,GLARING (light)|BLINDING (light)
+1,14,control,katai,HARD
+1,15,control,pyoNpyoN,BOUNCING|HOPPING
+1,16,control,hisohiso,WHISPERING
+2,1,practice,yoroyoro,WOBBLING
+2,2,practice,fuwafuwa,FLUFFY
+2,3,trial,gaNgaN,POUNDING (e.g. headache)|THROBBING (e.g. headache)
+2,4,trial,urusai,LOUD|NOISY
+2,5,trial,hirihiri,PRICKLING|TINGLING
+2,6,trial,komai,SMALL|LITTLE|TINY
+2,7,trial,karai,SPICY
+2,8,trial,haku,SPIT|VOMIT
+2,9,trial,syimiru,FREEZE
+2,10,trial,egarai,PRICKLING|TINGLING
+2,11,trial,kawaku,DRY|PARCHED
+2,12,trial,kosobai,TICKLING
+2,13,trial,tagee,LOUD|NOISY
+2,14,control,katai,HARD
+2,15,control,pyoNpyoN,BOUNCING|HOPPING
+2,16,control,hisohiso,WHISPERING
+3,1,practice,yoroyoro,WOBBLING
+3,2,practice,fuwafuwa,FLUFFY
+3,3,trial,netyanetya,STICKY|GOOEY
+3,4,trial,komaka,THIN|SLENDER
+3,5,trial,igaiga,PRICKLING|TINGLING
+3,6,trial,iQpai,FULL (to the brim)|FULL (to bursting)
+3,7,trial,nurunuru,SLIMY|SLIPPERY|SLICK
+3,8,trial,iraira,ANNOYED|IMPATIENT
+3,9,trial,omoi,OILY/HEAVY (food)
+3,10,trial,geNki,LIVELY|ENERGETIC
+3,11,trial,kanasyii,SAD|GLUM
+3,12,trial,gurasyi,SAD|GLUM
+3,13,trial,kukuru,BIND|TIGHTEN
+3,14,control,katai,HARD
+3,15,control,pyoNpyoN,BOUNCING|HOPPING
+3,16,control,hisohiso,WHISPERING
+4,1,practice,yoroyoro,WOBBLING
+4,2,practice,fuwafuwa,FLUFFY
+4,3,trial,kowa,SCARY|FRIGHTENING
+4,4,trial,dzugedzuge,RUDE|ARROGANT|BRAZEN
+4,5,trial,yawakoi,SOFT|SQUISHY
+4,6,trial,yakamasyii,LOUD|NOISY
+4,7,trial,samisyii,SAD|GLUM
+4,8,trial,atsui,HOT
+4,9,trial,hirihiri,THROBBING|PULSATING
+4,10,trial,kaii,PRICKLING|TINGLING
+4,11,trial,omosyaiN,GLAD|HAPPY
+4,12,trial,akaanakaQta,DARK|DIM
+4,13,trial,syibaru,BIND|TIGHTEN
+4,14,control,katai,HARD
+4,15,control,pyoNpyoN,BOUNCING|HOPPING
+4,16,control,hisohiso,WHISPERING
+5,1,practice,yoroyoro,WOBBLING
+5,2,practice,fuwafuwa,FLUFFY
+5,3,trial,gatagata,SHAKING|TREMBLING
+5,4,trial,zuuzuusyii,RUDE|ARROGANT|BRAZEN
+5,5,trial,suzusyii,COOL|FRESH
+5,6,trial,piripiri,BURNING|TINGLING
+5,7,trial,toroi,SLOW
+5,8,trial,zyiNzyiN,POUNDING (e.g. headache)|THROBBING (e.g. headache)
+5,9,trial,syaNsyaN,LIVELY|ENERGETIC
+5,10,trial,hagai,ANNOYED|IMPATIENT
+5,11,trial,syibutoi,RUDE|ARROGANT|BRAZEN
+5,12,trial,herakoi,CUNNING|SLY|SNEAKY
+5,13,trial,mabaii,GLARING (light)|BLINDING (light)
+5,14,control,katai,HARD
+5,15,control,pyoNpyoN,BOUNCING|HOPPING
+5,16,control,hisohiso,WHISPERING
+6,1,practice,yoroyoro,WOBBLING
+6,2,practice,fuwafuwa,FLUFFY
+6,3,trial,hosoi,SMALL|LITTLE|TINY
+6,4,trial,zyikazyika,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)"
+6,5,trial,zuQkoi,CUNNING|SLY|SNEAKY
+6,6,trial,nebutai,SLEEPY|DROWSY
+6,7,trial,saQpari,CLEAN|TIDY
+6,8,trial,tsurutsuru,SLIPPERY|SMOOTH
+6,9,trial,sukoi,CUNNING|SLY|SNEAKY
+6,10,trial,syetsu,EXHAUSTED|TIRED|WEARY
+6,11,trial,oodoona,RUDE|ARROGANT|BRAZEN
+6,12,trial,mutsugoi,OILY/HEAVY (food)
+6,13,trial,tsukareta,EXHAUSTED|TIRED|WEARY
+6,14,control,katai,HARD
+6,15,control,pyoNpyoN,BOUNCING|HOPPING
+6,16,control,hisohiso,WHISPERING
+7,1,practice,yoroyoro,WOBBLING
+7,2,practice,fuwafuwa,FLUFFY
+7,3,trial,hiyaQkoi,COOL|FRESH
+7,4,trial,sui,SOUR|ACIDIC
+7,5,trial,syizukaya,QUIET
+7,6,trial,syibityoo,COLD|CHILLY
+7,7,trial,kurai,DARK|DIM
+7,8,trial,mabusyii,GLARING (light)|BLINDING (light)|DAZZLING
+7,9,trial,netyinetyi,CLINGY
+7,10,trial,gomeku,CRY|WAIL
+7,11,trial,karui,LIGHT|AIRY
+7,12,trial,narui,FLAT|SMOOTH
+7,13,trial,tsumetee,COLD|CHILLY
+7,14,control,katai,HARD
+7,15,control,pyoNpyoN,BOUNCING|HOPPING
+7,16,control,hisohiso,WHISPERING
+8,1,practice,yoroyoro,WOBBLING
+8,2,practice,fuwafuwa,FLUFFY
+8,3,trial,zyuruzyuru,OOZING|DRIBBLING|SEEPING OUT (e.g. liquid)
+8,4,trial,kiNkiN,COLD|CHILLY
+8,5,trial,tsuuN,RINGING (e.g. a ringing sound in your ears)
+8,6,trial,pityipityi,TIGHT|PINCHING
+8,7,trial,zyukuzyuku,OOZING|DRIBBLING|SEEPING OUT (e.g. liquid)
+8,8,trial,iQpai,STUFFED (from eating too much)|FULL (from eating)
+8,9,trial,paNpaN,STUFFED (from eating too much)|FULL (from eating)
+8,10,trial,osorosyii,SCARY|FRIGHTENING
+8,11,trial,amai,BLAND (taste)|TASTELESS|WATERY (taste)
+8,12,trial,koe,SLUGGISH|LETHARGIC
+8,13,trial,hasyikai,PRICKLING|TINGLING
+8,14,control,katai,HARD
+8,15,control,pyoNpyoN,BOUNCING|HOPPING
+8,16,control,hisohiso,WHISPERING
+9,1,practice,yoroyoro,WOBBLING
+9,2,practice,fuwafuwa,FLUFFY
+9,3,trial,syaN,CLEAR|REFRESHED
+9,4,trial,usui,BLAND (taste)|TASTELESS|WATERY (taste)
+9,5,trial,guNnari,EXHAUSTED|TIRED|WEARY
+9,6,trial,iraira,SCRATCHY
+9,7,trial,zyarizyari,ROUGH|GRITTY|COARSE
+9,8,trial,ookii,LOUD|NOISY
+9,9,trial,tyikatyika,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)"
+9,10,trial,koi,RICH (taste)|STRONG (taste)
+9,11,trial,koenee,EXHAUSTED|TIRED|WEARY
+9,12,trial,hidarui,HUNGRY|STARVING
+9,13,trial,erai,SLUGGISH|LETHARGIC
+9,14,control,katai,HARD
+9,15,control,pyoNpyoN,BOUNCING|HOPPING
+9,16,control,hisohiso,WHISPERING
+10,1,practice,yoroyoro,WOBBLING
+10,2,practice,fuwafuwa,FLUFFY
+10,3,trial,hotoru,HUMID|MUGGY
+10,4,trial,dayai,SLUGGISH|LETHARGIC
+10,5,trial,hoQkori,EXHAUSTED|TIRED|WEARY
+10,6,trial,zawazawa,(SPINE) TINGLING| SHIVERS (DOWN YOUR SPINE)
+10,7,trial,katyikatyi,HARD
+10,8,trial,syiQketoru,WET|SOGGY|DAMP
+10,9,trial,dayai,EXHAUSTED|TIRED|WEARY
+10,10,trial,nomeQkoi,SLIPPERY|SMOOTH
+10,11,trial,egui,ACRID (taste)|BITTER (taste)
+10,12,trial,setsunai,SAD|GLUM
+10,13,trial,misuborasyii,SCRUFFY|TATTY|RAGGEDY
+10,14,control,katai,HARD
+10,15,control,pyoNpyoN,BOUNCING|HOPPING
+10,16,control,hisohiso,WHISPERING
+11,1,practice,yoroyoro,WOBBLING
+11,2,practice,fuwafuwa,FLUFFY
+11,3,trial,zuruNzuruN,SLIMY|GOOEY
+11,4,trial,kudoi,OILY/HEAVY (food)
+11,5,trial,ookii,BIG|MASSIVE|LARGE|HUGE
+11,6,trial,yaQkiri,ANNOYED|IMPATIENT
+11,7,trial,syimeQpoi,WET|SOGGY|DAMP
+11,8,trial,bisyobisyo,WET|SOGGY|DAMP
+11,9,trial,kapokapo,SLOSHING|SPLASHING
+11,10,trial,modokasyii,ANNOYED|IMPATIENT
+11,11,trial,ookii,ROUGH|GRITTY|COARSE
+11,12,trial,nobude,RUDE|ARROGANT|BRAZEN
+11,13,trial,arai,ROUGH|GRITTY|COARSE
+11,14,control,katai,HARD
+11,15,control,pyoNpyoN,BOUNCING|HOPPING
+11,16,control,hisohiso,WHISPERING
+12,1,practice,yoroyoro,WOBBLING
+12,2,practice,fuwafuwa,FLUFFY
+12,3,trial,tyikatyika,PRICKLING|TINGLING
+12,4,trial,koQsui,CUNNING|SLY|SNEAKY
+12,5,trial,futoi,THICK|FAT
+12,6,trial,nebaneba,STICKY|GOOEY
+12,7,trial,subesube,SLIPPERY|SMOOTH
+12,8,trial,nikoniko,GRINNING|SMILING
+12,9,trial,suu,SUCK
+12,10,trial,komaNka,TIGHT|PINCHING
+12,11,trial,kudoi,SALTY|BRINY (taste)
+12,12,trial,omotai,FUZZY|BLURRY|HAZY
+12,13,trial,miQtomonai,SCRUFFY|TATTY|RAGGEDY
+12,14,control,katai,HARD
+12,15,control,pyoNpyoN,BOUNCING|HOPPING
+12,16,control,hisohiso,WHISPERING
+13,1,practice,yoroyoro,WOBBLING
+13,2,practice,fuwafuwa,FLUFFY
+13,3,trial,izyiizyi,ANNOYED|IMPATIENT
+13,4,trial,kibui,TIGHT|PINCHING
+13,5,trial,moyamoya,FUZZY|BLURRY|HAZY
+13,6,trial,yagurasyika,LOUD|NOISY
+13,7,trial,biQto,A LITTLE|SLIGHTLY
+13,8,trial,zyitozyito,WET|SOGGY|DAMP
+13,9,trial,tyiQtyai,SMALL|LITTLE|TINY
+13,10,trial,mameda,LIVELY|ENERGETIC
+13,11,trial,ezui,SCARY|FRIGHTENING
+13,12,trial,bisyoQtanee,SCRUFFY|TATTY|RAGGEDY
+13,13,trial,himozyii,HUNGRY|STARVING
+13,14,control,katai,HARD
+13,15,control,pyoNpyoN,BOUNCING|HOPPING
+13,16,control,hisohiso,WHISPERING
+14,1,practice,yoroyoro,WOBBLING
+14,2,practice,fuwafuwa,FLUFFY
+14,3,trial,zyitozyito,HUMID|MUGGY
+14,4,trial,niyaniya,CRAMPING (e.g. in stomach)|SPASMING (e.g. in stomach)
+14,5,trial,tyoQto,A LITTLE|SLIGHTLY
+14,6,trial,boroboro,SCRUFFY|TATTY|RAGGEDY
+14,7,trial,zokuzoku,(SPINE) TINGLING| SHIVERS (DOWN YOUR SPINE)
+14,8,trial,amai,SWEET
+14,9,trial,kogoru,FREEZE
+14,10,trial,mizukusai,BLAND (taste)|TASTELESS|WATERY (taste)
+14,11,trial,ikiru,HUMID|MUGGY
+14,12,trial,kara,EMPTY
+14,13,control,katai,HARD
+14,14,control,pyoNpyoN,BOUNCING|HOPPING
+14,15,control,hisohiso,WHISPERING
+15,1,practice,yoroyoro,WOBBLING
+15,2,practice,fuwafuwa,FLUFFY
+15,3,trial,pokapoka,WARM
+15,4,trial,zuNzuN,THROBBING|PULSATING
+15,5,trial,syakiQ,LIVELY|ENERGETIC
+15,6,trial,zarazara,ROUGH|GRITTY|COARSE
+15,7,trial,zyizyimusai,SCRUFFY|TATTY|RAGGEDY
+15,8,trial,tyikutyiku,ITCHING|PRICKLING
+15,9,trial,tairana,FLAT|SMOOTH
+15,10,trial,sabaku,TEAR|RIP
+15,11,trial,ibii,SMOKY
+15,12,trial,kaku,SCRATCH
+15,13,control,katai,HARD
+15,14,control,pyoNpyoN,BOUNCING|HOPPING
+15,15,control,hisohiso,WHISPERING
+16,1,practice,yoroyoro,WOBBLING
+16,2,practice,fuwafuwa,FLUFFY
+16,3,trial,tataku,RAP (at the door)|KNOCK (at the door)
+16,4,trial,nigai,BITTER|ACRID
+16,5,trial,syiiN,QUIET
+16,6,trial,kaQtarii,EXHAUSTED|TIRED|WEARY
+16,7,trial,zukizuki,THROBBING|PULSATING
+16,8,trial,syibui,SOUR|ACIDIC
+16,9,trial,hidoroQko,GLARING (light)|BLINDING (light)
+16,10,trial,mawaru,ROLL|SPIN
+16,11,trial,omoreru,HUMID|MUGGY
+16,12,trial,sukosyi,A LITTLE|SLIGHTLY
+16,13,control,katai,HARD
+16,14,control,pyoNpyoN,BOUNCING|HOPPING
+16,15,control,hisohiso,WHISPERING
+17,1,practice,yoroyoro,WOBBLING
+17,2,practice,fuwafuwa,FLUFFY
+17,3,trial,naNgii,SLUGGISH|LETHARGIC
+17,4,trial,deQkai,BIG|MASSIVE|LARGE|HUGE
+17,5,trial,darui,SLUGGISH|LETHARGIC
+17,6,trial,piNpiN,LIVELY|ENERGETIC
+17,7,trial,kiiN,RINGING (e.g. a ringing sound in your ears)
+17,8,trial,marui,ROUND|CIRCULAR
+17,9,trial,matsupoi,GLARING (light)|BLINDING (light)
+17,10,trial,hiroi,SPACIOUS|WIDE
+17,11,trial,tsurai,SAD|GLUM
+17,12,trial,hedzune,SAD|GLUM
+17,13,control,katai,HARD
+17,14,control,pyoNpyoN,BOUNCING|HOPPING
+17,15,control,hisohiso,WHISPERING
+18,1,practice,yoroyoro,WOBBLING
+18,2,practice,fuwafuwa,FLUFFY
+18,3,trial,yaQkoi,SOFT|SQUISHY
+18,4,trial,kutyii,STUFFED (from eating too much)|FULL (from eating)
+18,5,trial,omoi,HEAVY
+18,6,trial,atsukamasyii,RUDE|ARROGANT|BRAZEN
+18,7,trial,haQkiri,CLEAR|REFRESHED
+18,8,trial,keQko,CLEAN|TIDY
+18,9,trial,sabui,COLD|CHILLY
+18,10,trial,kubiru,BIND|TIGHTEN
+18,11,trial,syitsukoi,OILY/HEAVY (food)
+18,12,control,katai,HARD
+18,13,control,pyoNpyoN,BOUNCING|HOPPING
+18,14,control,hisohiso,WHISPERING
+19,1,practice,yoroyoro,WOBBLING
+19,2,practice,fuwafuwa,FLUFFY
+19,3,trial,dokidoki,POUNDING (e.g. headache)|THROBBING (e.g. headache)
+19,4,trial,syibasyiba,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)"
+19,5,trial,zyireQtai,ANNOYED|IMPATIENT
+19,6,trial,osoi,SLOW
+19,7,trial,mabusyii,GLARING (light)|BLINDING (light)|DAZZLING
+19,8,trial,syobosyobo,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)"
+19,9,trial,kebutai,SMOKY
+19,10,trial,kowai,HARD
+19,11,trial,migotsu,CLEAN|TIDY
+19,12,control,katai,HARD
+19,13,control,pyoNpyoN,BOUNCING|HOPPING
+19,14,control,hisohiso,WHISPERING
+20,1,practice,yoroyoro,WOBBLING
+20,2,practice,fuwafuwa,FLUFFY
+20,3,trial,akarui,BRIGHT|SUNNY
+20,4,trial,betabeta,STICKY|GOOEY
+20,5,trial,nurunuru,SLIMY|SLIPPERY|SLICK
+20,6,trial,neranera,STICKY|GOOEY
+20,7,trial,zurui,CUNNING|SLY|SNEAKY
+20,8,trial,zomizomi,(SPINE) TINGLING| SHIVERS (DOWN YOUR SPINE)
+20,9,trial,uresyii,GLAD|HAPPY
+20,10,trial,aburaQkoi,OILY/HEAVY (food)
+20,11,trial,kosui,CUNNING|SLY|SNEAKY
+20,12,control,katai,HARD
+20,13,control,pyoNpyoN,BOUNCING|HOPPING
+20,14,control,hisohiso,WHISPERING
+21,1,practice,yoroyoro,WOBBLING
+21,2,practice,fuwafuwa,FLUFFY
+21,3,trial,hieQda,COLD|CHILLY
+21,4,trial,nebaneba,SLIMY|GOOEY
+21,5,trial,dotsuku,RAP (at the door)|KNOCK (at the door)
+21,6,trial,noroi,SLOW
+21,7,trial,karai,SALTY|BRINY (taste)
+21,8,trial,semai,CRAMPED|TIGHT
+21,9,trial,dareta,WORN OUT|TIRED|WEARY|EXHAUSTED
+21,10,trial,kakazyiru,SCRATCH
+21,11,trial,hau,CRAWL|CREEP
+21,12,control,katai,HARD
+21,13,control,pyoNpyoN,BOUNCING|HOPPING
+21,14,control,hisohiso,WHISPERING
+22,1,practice,yoroyoro,WOBBLING
+22,2,practice,fuwafuwa,FLUFFY
+22,3,trial,yaoi,SOFT|SQUISHY
+22,4,trial,kityii,TIGHT|PINCHING
+22,5,trial,kirikiri,CRAMPING (e.g. in stomach)|SPASMING (e.g. in stomach)
+22,6,trial,nureru,WET|SOGGY|DAMP
+22,7,trial,zyasyizyasyi,ROUGH|GRITTY|COARSE
+22,8,trial,syitosyito,WET|SOGGY|DAMP
+22,9,trial,biNbogena,SCRUFFY|TATTY|RAGGEDY
+22,10,trial,sekarasyika,LOUD|NOISY
+22,11,trial,dogitsuka,OILY/HEAVY (food)
+22,12,control,katai,HARD
+22,13,control,pyoNpyoN,BOUNCING|HOPPING
+22,14,control,hisohiso,WHISPERING
+23,1,practice,yoroyoro,WOBBLING
+23,2,practice,fuwafuwa,FLUFFY
+23,3,trial,syibareru,COLD|CHILLY
+23,4,trial,futoi,BIG|MASSIVE|LARGE|HUGE
+23,5,trial,zyimezyime,HUMID|MUGGY
+23,6,trial,taputapu,SLOSHING|SPLASHING
+23,7,trial,toNtoN,POUNDING (e.g. headache)|THROBBING (e.g. headache)
+23,8,trial,iraira,PRICKLING|TINGLING
+23,9,trial,nigiyaka,LOUD|NOISY
+23,10,trial,naku,CRY|WAIL
+23,11,trial,hasyikai,ITCHING|PRICKLING
+23,12,control,katai,HARD
+23,13,control,pyoNpyoN,BOUNCING|HOPPING
+23,14,control,hisohiso,WHISPERING
+24,1,practice,yoroyoro,WOBBLING
+24,2,practice,fuwafuwa,FLUFFY
+24,3,trial,hetoheto,EXHAUSTED|TIRED|WEARY
+24,4,trial,naGai,LONG
+24,5,trial,syiQpori,WET|SOGGY|DAMP
+24,6,trial,kiree,CLEAN|TIDY
+24,7,trial,adzu,RUDE|ARROGANT|BRAZEN
+24,8,trial,nuQka,HOT
+24,9,trial,kusuguQtee,TICKLING
+24,10,trial,utsukusyi,CLEAN|TIDY
+24,11,trial,hadagu,RAP (at the door)|KNOCK (at the door)
+24,12,control,katai,HARD
+24,13,control,pyoNpyoN,BOUNCING|HOPPING
+24,14,control,hisohiso,WHISPERING
+25,1,practice,yoroyoro,WOBBLING
+25,2,practice,fuwafuwa,FLUFFY
+25,3,trial,yaNdagunaruQ,ANNOYED|IMPATIENT
+25,4,trial,bakubaku,POUNDING (e.g. headache)|THROBBING (e.g. headache)
+25,5,trial,buruburu,SHAKING|TREMBLING
+25,6,trial,yakiyaki,ANNOYED|IMPATIENT
+25,7,trial,motyokoi,TICKLING
+25,8,trial,nurui,LUKEWARM
+25,9,trial,syiNdoi,SLUGGISH|LETHARGIC
+25,10,trial,kaii,ITCHING|PRICKLING
+25,11,trial,yabuku,TEAR|RIP
+25,12,control,katai,HARD
+25,13,control,pyoNpyoN,BOUNCING|HOPPING
+25,14,control,hisohiso,WHISPERING
+26,1,practice,yoroyoro,WOBBLING
+26,2,practice,fuwafuwa,FLUFFY
+26,3,trial,suQkoi,CUNNING|SLY|SNEAKY
+26,4,trial,zukizuki,POUNDING (e.g. headache)|THROBBING (e.g. headache)
+26,5,trial,aQtakee,WARM
+26,6,trial,mukamuka,ANNOYED|IMPATIENT
+26,7,trial,tyiisoo,TIGHT|PINCHING
+26,8,trial,suQkiri,CLEAR|REFRESHED
+26,9,trial,koragu,DRY|PARCHED
+26,10,trial,kowai,EXHAUSTED|TIRED|WEARY
+26,11,trial,hiru,DRY|PARCHED
+26,12,control,katai,HARD
+26,13,control,pyoNpyoN,BOUNCING|HOPPING
+26,14,control,hisohiso,WHISPERING
+27,1,practice,yoroyoro,WOBBLING
+27,2,practice,fuwafuwa,FLUFFY
+27,3,trial,kitsui,TIGHT|PINCHING
+27,4,trial,syikusyiku,WATERY (EYES)|BLEARY (EYES)
+27,5,trial,gutyugutyu,OOZING|DRIBBLING|SEEPING OUT (e.g. liquid)
+27,6,trial,zyikuzyiku,HUMID|MUGGY
+27,7,trial,kutakuta,EXHAUSTED|TIRED|WEARY
+27,8,trial,guQtari,EXHAUSTED|TIRED|WEARY
+27,9,trial,maNpuku,STUFFED (from eating too much)|FULL (from eating)
+27,10,trial,kamu,CHEW
+27,11,trial,erai,EXHAUSTED|TIRED|WEARY
+27,12,control,katai,HARD
+27,13,control,pyoNpyoN,BOUNCING|HOPPING
+27,14,control,hisohiso,WHISPERING
+28,1,practice,yoroyoro,WOBBLING
+28,2,practice,fuwafuwa,FLUFFY
+28,3,trial,syikusyiku,CRAMPING (e.g. in stomach)|SPASMING (e.g. in stomach)
+28,4,trial,hirihiri,BURNING|TINGLING
+28,5,trial,yarakai,SOFT|SQUISHY
+28,6,trial,yawarakai,SOFT|SQUISHY
+28,7,trial,serasera,PRICKLING|TINGLING
+28,8,trial,tyiraatyiraa,"STINGING (pain, e.g. in eyes)|BURNING (pain, e.g. in eyes)"
+28,9,trial,notaru,CRAWL|CREEP
+28,10,trial,doNkusai,SLOW
+28,11,trial,futoi,ROUGH|GRITTY|COARSE
+28,12,control,katai,HARD
+28,13,control,pyoNpyoN,BOUNCING|HOPPING
+28,14,control,hisohiso,WHISPERING
+29,1,practice,yoroyoro,WOBBLING
+29,2,practice,fuwafuwa,FLUFFY
+29,3,trial,nigai,ACRID (taste)|BITTER (taste)
+29,4,trial,boNyari,FUZZY|BLURRY|HAZY
+29,5,trial,nebaneba,SLIMY|SLIPPERY|SLICK
+29,6,trial,uzyauzya,SHAKING|TREMBLING
+29,7,trial,netyanetya,STICKY|GOOEY
+29,8,trial,kyuukutsuka,TIGHT|PINCHING
+29,9,trial,kitsuka,SLUGGISH|LETHARGIC
+29,10,trial,kooru,FREEZE
+29,11,trial,kitanai,CUNNING|SLY|SNEAKY
+29,12,control,katai,HARD
+29,13,control,pyoNpyoN,BOUNCING|HOPPING
+29,14,control,hisohiso,WHISPERING
+30,1,practice,yoroyoro,WOBBLING
+30,2,practice,fuwafuwa,FLUFFY
+30,3,trial,zoNzoN,(SPINE) TINGLING| SHIVERS (DOWN YOUR SPINE)
+30,4,trial,musyimusyi,HUMID|MUGGY
+30,5,trial,tyikutyiku,CRAMPING (e.g. in stomach)|SPASMING (e.g. in stomach)
+30,6,trial,hayai,FAST|QUICK|SPEEDY
+30,7,trial,syiNdo,EXHAUSTED|TIRED|WEARY
+30,8,trial,syaQkoi,COLD|CHILLY
+30,9,trial,yogoreru,WET|SOGGY|DAMP
+30,10,trial,hosoi,THIN|SLENDER
+30,11,trial,deQkai,ROUGH|GRITTY|COARSE
+30,12,control,katai,HARD
+30,13,control,pyoNpyoN,BOUNCING|HOPPING
+30,14,control,hisohiso,WHISPERING
+31,1,practice,yoroyoro,WOBBLING
+31,2,practice,fuwafuwa,FLUFFY
+31,3,trial,fuku,BLOW|PUFF
+31,4,trial,nukui,WARM
+31,5,trial,syobosyobo,WATERY (EYES)|BLEARY (EYES)
+31,6,trial,zaQkuzaQku,ROUGH|GRITTY|COARSE
+31,7,trial,booQ,FUZZY|BLURRY|HAZY
+31,8,trial,syakiQ,CLEAR|REFRESHED
+31,9,trial,otorosyii,SCARY|FRIGHTENING
+31,10,trial,igai,BIG|MASSIVE|LARGE|HUGE
+31,11,trial,hiratai,FLAT|SMOOTH
+31,12,control,katai,HARD
+31,13,control,pyoNpyoN,BOUNCING|HOPPING
+31,14,control,hisohiso,WHISPERING

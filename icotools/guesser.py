@@ -365,7 +365,7 @@ def guesser(wordlist,control_file):
 
     # add exit quest to the outro code
     if ".html" in exitques_html:
-        exitques=codecs.open(os.path.join(here,exitques_html),'r','utf-8')
+        exitques=codecs.open(exitques_html,'r','utf-8')
         exit_l=[]
         for line in exitques:
             exit_l.append(line)

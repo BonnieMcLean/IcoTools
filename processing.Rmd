@@ -3,9 +3,9 @@ title: "R scripts for processing guessing and rating experiment results"
 output: html_notebook
 ---
 
-# Rating results
+# Raw results to tidy data
 
-The code below can be used to combine the raw results from a series of rating tasks into one long tidy dataset. Just change the code where indicated so that it matches your filenames, and the number of experiments you have. I've used triple comment markers to indicate where there is code you need to change, and single comment markers to explain what the code does.
+The code below can be used to combine the raw results from a series of guessing or rating tasks into one long tidy dataset. Just change the code where indicated so that it matches your filenames, and the number of experiments you have. I've used triple comment markers to indicate where there is code you need to change, and single comment markers to explain what the code does.
 
 ```{r processing rating results}
 ### CHANGE n_experiments TO THE NUMBER OF EXPERIMENTS YOU HAVE TO PROCESS ###
@@ -40,7 +40,7 @@ experiments%>%
   # get rid of NAs -- for the experiments that have less trials
   filter(!(is.na(trans)))->experiments
 
-# add identifiers (in the format word_MEANING) for the trials -- this is important in case you have homonyms in your data
+# add identifiers (in the format word_MEANING) for the trials -- this is important in case you have homonyms in your data. I just use the first translation in the meaning column to make these identifiers.
 
 ### CHANGE THE FILENAME TO THE FILENAME OF YOUR EXPERIMENT LIST ###
 info <- read_csv("ratings/ratingwords_experiments.csv")
@@ -57,5 +57,4 @@ experiments%>%
   left_join(info)->experiments
 ```
 
-# Guessing results
 

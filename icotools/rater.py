@@ -331,7 +331,7 @@ def rater(stimuli_list,control_file):
 
     # add exit quest to the outro code
     if ".html" in exitques_html:
-        exitques=codecs.open(os.path.join(here,exitques_html),'r','utf-8')
+        exitques=codecs.open(exitques_html,'r','utf-8')
         exit_l=[]
         for line in exitques:
             exit_l.append(line)
@@ -468,7 +468,7 @@ def rater(stimuli_list,control_file):
 
         # write the php
         php=[]
-        php_template=codecs.open(os.getcwd()+'\\templates\\php_temp.php','r','utf-8')
+        php_template=codecs.open(os.path.join(here,'templates','php_temp.php'),'r','utf-8')
         for line in php_template:
             if 'data.csv' in line:
                 newline=line.replace('data','experiment'+str(n))
