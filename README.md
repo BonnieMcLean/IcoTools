@@ -57,9 +57,9 @@ It should be a csv file. The first three columns are required, but the last thre
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |the form to be tested--this should correspond to the name of your media files, e.g. if the form is honnori the media file should be called honnori.mp3 or honnori.mp4 etc. (depending on what you put in the control file)|either 'practice' (if it's a practice item), 'control' (if it's a control item) or 'trial' (if it's one of the items you're testing)|one or more translations, separated by \\||the names of items you want to use as foils. These should match their media file names (as for the form column), and be separated by \\||the names of items you don't want to use as foils. These should match their media file names (as for the form column), and be separated by \\||if you want to have a roughly equal number of possibly iconic vs possibly not iconic words in each experiment, indicate your hypothesis about iconicity 'y' or 'n' here|
 
-Practice and control items are included in every experiment (but you only have to list them in the stimuli file once). The practice items are always the first two items in every experiment, while the order of the trial items and the control items is randomised between participants. The choice of foil and the choice of translation (meaning) is also randomly varied between participants (for the meanings/foils listed). If you don't list any foils, then the foil will be randomly chosen from the other trials.
+Practice and control items are included in every experiment (but you only have to list them in the stimuli file once). The practice items are always the first two items in every experiment, while the order of the trial items and the control items is randomised between participants. The choice of foil and the choice of translation (in the meaning column) is also randomly varied between participants (for the meanings/foils listed). If you don't list any foils, then the foil will be randomly chosen from the other trials.
 
-The meanings will also all be presented in CAPITALS in the experiment (regardless of how you write them in the stimuli file)
+The meanings will also all be presented in CAPITALS during the experiment (regardless of how you write them in the stimuli file).
 
 See examples in the example folder.
 
@@ -73,3 +73,45 @@ See examples in the example folder.
 >  <p><strong>Criteria for participation</strong></p>
 >  <p>Because your answers should be guesses, it is very important for our experiment that you do NOT speak or understand Japanese. Also, since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
 >  <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+
+## Guesses - mp4 stimuli
+
+Below are the instructions for signs, in this case from JSL. JSL will be replaced with whatever language you specify.
+
+> We are interested in how well people can guess the meanings of signs in JSL. In this experiment, you will be asked to match the English translation with the corresponding sign in JSL, guessing from a choice of two JSL signs.  
+> **Criteria for participation**  
+> For your judgments to be unbiased, it is very important that you do NOT know any JSL. If you do know JSL, we kindly ask that you do not participate in this study.  
+> Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
+
+Below are the instructions for gestures. If you specify a language then it will replace 'foreign' with the language you specify.
+
+> We are interested in how well people can guess the meanings of foreign gestures. In this experiment, you will be asked to match the English translation with the corresponding gesture, guessing from between a choice of two gestures.
+> Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
+
+## Ratings - mp3 stimuli
+
+'Korean' will be replaced with whatever language you specify.
+
+> Some words seem to 'fit' their meanings. For example, consider the English words *wiggle*, *jiggle*, and *wriggle*.  
+> We have an intuitive sense of the meanings of these words, because there is a resemblance between the words and their meanings.  
+> Even people who do not speak any English can get a sense of the meaning of these words.  
+> Words like walk and run on the other hand are not so intuitive; people who do not know any English would not be able to guess what these words mean.  
+> In this task, you will listen to some Korean words, and we will tell you their meanings. You will then be asked to judge whether there is a resemblance between the word and its meaning.  
+> **Criteria for participation**  
+> For your judgments to be unbiased, it is very important that you do NOT know any Korean. If you do know Korean, we kindly ask that you do not participate in this study.  
+> Since the task requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the task that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the task.  
+> Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
+
+## Ratings - mp4 stimuli
+
+For signs:
+
+> In this task, you will be presented with some JSL signs, and we will tell you their meanings. Rate how well you think the sign depicts its meaning.
+> **Criteria for participation**
+> For your judgments to be unbiased, it is very important that you do NOT know any JSL. If you do know JSL, we kindly ask that you do not participate in this study.
+> Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
+
+For gestures:
+
+> In this task, you will be presented with some foreign gestures, and we will tell you their meanings. Rate how well you think the gesture depicts its meaning.  
+> Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
