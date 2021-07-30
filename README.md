@@ -38,7 +38,7 @@ It should be a csv file with two columns, the first column contains variable nam
 |-----------------|----------------------------------------------------------------------------------------------------------------|
 |media_source     |link to location of media files                                                                                 |
 |media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                                                  |                                           |mp4_type         |(if using mp4 format) specify either 'gesture' or 'sign' (for the wording in the questions)                     |
-|muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos                                        |
+|muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos (default is 'n')                       |
 |language         |(optional) language of the stimuli (if you want to inform participants of that)                                 |
 |headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'                      |                                           
 |instructions_html|either 'default' or provide filename to your own html instructions                                               |       
