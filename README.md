@@ -59,6 +59,8 @@ It should be a csv file with (up to) 6 columns. The first three columns are requ
 
 Items marked 'practice' will be included in every experiment, at the start of the experiment. Items marked 'control' will be included in every experiment, but randomly distributed throughout the experiment (the order of presentation of stimuli is different for each participant). Items marked 'trial' will only be included in one experiment (also in a random order), and are the items you are actually testing.
 
+The translations will also all be presented in CAPITALS in the experiment (regardless of how you write them in the stimuli file)
+
 See examples in the example folder.
 
 # Default instructions
