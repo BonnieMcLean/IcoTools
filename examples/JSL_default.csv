@@ -1,8 +1,11 @@
-media_source,https://www.honestcookingblog.com/videos
+media_source,http://johnhuisman.nl/bonnie/
 media_type,mp4
 muted_vids,y
 headphone_check,n
 instructions_html,default
 exitques_html,default
+submit_html,default
 n_practiceq,2
-words_per_exp,25
+words_per_exp,10
+mp4_type,sign
+language,JSL

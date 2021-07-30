@@ -4,5 +4,6 @@ muted_vids,y
 headphone_check,n
 instructions_html,default
 exitques_html,default
-n_practiceq,2
-words_per_exp,25
+submit_html,default
+words_per_exp,10
+mp4_type,gesture

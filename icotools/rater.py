@@ -119,8 +119,6 @@ def rater(stimuli_list,control_file):
 
 
     instructions="""
-    <div id="about">
-    <h3 style="text-align: center">About</h3>
     <p>Some words seem to 'fit' their meanings. For example, consider the English words <i>wiggle</i>, <i>jiggle</i>, and <i>wriggle</i>.</p>
     <p>We have an intuitive sense of the meanings of these words, because there is a resemblance between the words and their meanings.</p>
     <p>Even people who do not speak any English can get a sense of the meaning of these words.</p>
@@ -132,8 +130,42 @@ def rater(stimuli_list,control_file):
     <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
     <p>Since the task requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the task that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the task.</p> 
     <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    </div>
     """
+
+    instructions_signs="""
+    <p>In this task, you will be presented with some Japanese signs, and we will tell you their meanings. Rate how well you think the sign depicts its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+
+    instructions_signs_unknown="""
+    <p>In this task, you will be presented with some foreign signs, and we will tell you their meanings. Rate how well you think the sign depicts its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+
+    instructions_gestures="""
+    <p>In this task, you will be presented with some Japanese gestures, and we will tell you their meanings. Rate how well you think the gesture depicts its meaning. 
+    </p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+    
+
+    instructions_unknown="""
+    <p>Some words seem to 'fit' their meanings. For example, consider the English words <i>wiggle</i>, <i>jiggle</i>, and <i>wriggle</i>.</p>
+    <p>We have an intuitive sense of the meanings of these words, because there is a resemblance between the words and their meanings.</p>
+    <p>Even people who do not speak any English can get a sense of the meaning of these words.</p>
+    <p>Words like <i>walk</i> and <i>run</i> on the other hand are not so intuitive; people who do not know any English would not be able to guess what these words mean.</p>
+    <p>In this task, you will listen to some foreign words, and we will tell you their meanings. You will then be asked to judge whether there is
+    a resemblance between the word and its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>Since the task requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the task that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the task.</p> 
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+"""
 
     exit_ques="""
     <p>This is the end of the task. However, before you submit your answers we need to collect some information from you. Kindly fill in the following:</p>
@@ -159,7 +191,6 @@ def rater(stimuli_list,control_file):
     try:
         media_source=control['media_source']
         media_type=control['media_type']
-        language=control['language']
         instructions_html=control['instructions_html']
         exitques_html=control['exitques_html']
         submit_html=control['submit_html']
@@ -167,12 +198,39 @@ def rater(stimuli_list,control_file):
         words_per_exp=int(control['words_per_exp'])
     except KeyError:
         print('Your control file is not formatted correctly. See https://github.com/BonnieMcLean/IcoTools for the correct format.')
+
     try:
         muted_vids=control['muted_vids']
     except KeyError:
-        pass
+        muted_vids='n'
+        
+    try:
+        language=control['language']
+    except KeyError:
+        language='foreign'
+
+    if media_type=="mp4":
+        try:
+            mp4type=control['mp4_type']
+        except KeyError:
+            print('Please specify whether your mp4 stimuli are gestures or signs for the instructions')
+            sys.exit()            
+    
     if instructions_html=='default':
-        instructions=instructions.replace("Japanese",language)
+        if media_type=="mp3":
+            if language=="foreign":
+                instructions=instructions_unknown
+            else:
+                instructions=instructions.replace("Japanese",language)
+        elif media_type=="mp4":
+            if mp4type=='gesture':
+                instructions=instructions_gestures.replace('Japanese',language)
+            else:
+                if language=='foreign':
+                    instructions=instructions_signs_unknown
+                else:
+                    instructions=instructions_signs.replace('Japanese',language)
+            
     if exitques_html=='default':
         exitques=exit_ques
         exitques_labels=["NativeLang","OtherLangs","TaskDesc"]
@@ -203,10 +261,10 @@ def rater(stimuli_list,control_file):
 
     # make experiments list
 
-    filename=stimuli_list.replace('.csv','')+'_experiments.csv'
+    filename=control_file.replace('.csv','')+'_rating.csv'
     with open(filename,'w',newline='') as outfile:
         writer=csv.writer(outfile)
-        writer.writerow(('experiment','trial','item_type','form','meaning','hypothesis'))
+        writer.writerow(('experiment','trial','item_type','form','meaning'))
         for exp in experiments:
             stuff=experiments[exp]
             n=1
@@ -215,7 +273,7 @@ def rater(stimuli_list,control_file):
                 meaning=word[1]
                 hypothesis=word[2]
                 item_type=word[3]
-                writer.writerow((exp,n,item_type,form,meaning,hypothesis))
+                writer.writerow((exp,n,item_type,form,meaning))
                 n=n+1
     outfile.close()
 
@@ -245,7 +303,7 @@ def rater(stimuli_list,control_file):
         else:
             # outro code
             myline=line
-            if "$('#participate').click(showAudioTest);" in line:
+            if "$('#participate').click(showAudioTest)" in line:
                 if headphone_check=='n':
                     myline=line.replace('showAudioTest','easystart')
             outro_code.append(myline)
@@ -309,11 +367,16 @@ def rater(stimuli_list,control_file):
             for line in trial_code:
                 if '<div id="trial1" class="trialDiv">' in line:
                     myline=line.replace('trial1','trial'+str(n))
+                elif 'gesture' in line:
+                    if mp4type=='sign':
+                        myline=line.replace('gesture','sign')
+                    else:
+                        myline=line
                 elif "id='trans1'" in line:
                     myline=line.replace('trans1','trans'+str(n))
                 elif 'SOUNDFILE' in line:
                     word=trial[0]
-                    myline=line.replace('SOUNDFILE',media_source+word+'.mp3')
+                    myline=line.replace('SOUNDFILE',media_source+word+'.'+media_type)
                 elif 'name="chosentrans1"' in line:
                     myline=line.replace('chosentrans1','chosentrans'+str(n))
                 elif 'name="q1"' in line:
@@ -368,8 +431,15 @@ def rater(stimuli_list,control_file):
         code=code[:-2]
 
         # add the inner HTML lines
-        
-        trans_rep="document.getElementById('transX').innerHTML='<p>Listen to the "+language+" word below.</p><p>It means '+trans_choices[X]+'.</p>'"
+
+
+        if media_type=='mp3':
+            trans_rep="document.getElementById('transX').innerHTML='<p>Listen to the "+language+" word below.</p><p>It means '+trans_choices[X]+'.</p>'"
+        elif media_type=='mp4':
+            if mp4type=='gesture':
+                trans_rep="document.getElementById('transX').innerHTML='<p>Look at the gesture below.</p><p>It means '+trans_choices[X]+'.</p>'"
+            else:
+                 trans_rep="document.getElementById('transX').innerHTML='<p>Look at the sign below.</p><p>It means '+trans_choices[X]+'.</p>'"          
         for z in range(num_items):
             trans=trans_rep.replace('transX','trans'+str(z+1))
             trans=trans.replace('X',str(z))
@@ -381,8 +451,9 @@ def rater(stimuli_list,control_file):
         all_experiments.append(code)
 
     # write all the experiments
+    foldername=control_file.replace('.csv','')+'_rating'
+    path=os.getcwd()+'\\'+foldername+'\\'
 
-    path=os.getcwd()+'\\experiments\\'
     if not os.path.exists(path):
         os.mkdir(path)
 
@@ -407,7 +478,7 @@ def rater(stimuli_list,control_file):
                 newline=line
             php.append(newline)
 
-        path_php=os.getcwd()+'\\experiments\experiment'+str(n)+'.php'
+        path_php=os.getcwd()+'\\'+foldername+'\\experiment'+str(n)+'.php'
         
         with open(path_php,'w') as outfile:
             for line in php:
@@ -416,7 +487,7 @@ def rater(stimuli_list,control_file):
 
 
         # write the csv file to store responses
-        path_csv=os.getcwd()+'\\experiments\experiment'+str(n)+'.csv'
+        path_csv=os.getcwd()+'\\'+foldername+'\\experiment'+str(n)+'.csv'
         with open(path_csv,'w',newline='') as outfile:
             writer=csv.writer(outfile)
             n_items=len(experiments[str(n)])
@@ -434,5 +505,6 @@ def rater(stimuli_list,control_file):
         n=n+1
 
     n+=1
+    print('Finished! Please find your experiments in the '+foldername+' folder, and a list of all the experiments and their items in the file '+control_file.replace('.csv','')+'_rating.csv')
 
     

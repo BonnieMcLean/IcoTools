@@ -1,0 +1,9 @@
+media_source,http://honestcookingblog.com/soundfiles/
+media_type,mp3
+headphone_check,y
+instructions_html,custominstructions.html
+exitques_html,customexitques.html
+submit_html,customsubmitmessage.html
+words_per_exp,10
+language,Korean
+exitques_labels,"prolific,nativelang,otherlang,taskdesc"

@@ -151,6 +151,30 @@ def guesser(wordlist,control_file):
     submit_message="""
     <p>Thank you for participating in this research!</p>
     """
+
+    instructions_signs="""
+    <p>We are interested in how well people can guess the meanings of signs in Japanese. In this experiment, you will be asked to match the English translation with the corresponding sign in Japanese, guessing from a choice of two Japanese signs.
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    </div>
+    """
+
+    instructions_signs_unknown="""
+    <p>We are interested in how well people can guess the meanings of foreign language signs. In this experiment, you will be asked to match the English translation with the corresponding sign, guessing from between a choice of two signs.
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    </div>
+    """
+
+    instructions_gestures="""
+    <p>We are interested in how well people can guess the meanings of Japanese gestures. In this experiment, you will be asked to match the English translation with the corresponding gesture, guessing from between a choice of two gestures.
+    </p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    </div>
+    """
     
     # read in the information from the control file
     control={}
@@ -174,24 +198,34 @@ def guesser(wordlist,control_file):
     try:
         language=control['language']
     except KeyError:
-        language='unknown'
-        
+        language='foreign'
     if media_type=="mp4":
         try:
             muted_vids=control['muted_vids']
         except KeyError:
-            print('Your control file is not formatted correctly. See help(guesser) for information on how to format it.')
+            muted_vids='n'
+        try:
+            mp4type=control['mp4_type']
+        except KeyError:
+            print("Please specify the type of mp4 stimuli--gestures or signs--for the questions in the task")
+            sys.exit()
+            
     if instructions_html=='default':
         if media_type=='mp3':
-            if language=='unknown':
+            if language=='foreign':
                 instructions=instructions_unknown
             else:
                 instructions=instructions_mp3.replace('Japanese',language)
         elif media_type=='mp4':
-            print("There are no default instructions for mp4 stimuli; please write suitable instructions for your own data, and save them in a .html file.")
-            print("You can model your instructions off the default for mp3 stimuli, printed below:")
-            print(instructions_mp3)
-            sys.exit()
+            if mp4type=='gesture':
+                instructions=instructions_gestures.replace('Japanese',language)
+            else:
+                if language=='foreign':
+                    instructions=instructions_signs_unknown
+                else:
+                    instructions=instructions_signs.replace('Japanese',language)
+
+         
     if exitques_html=='default':
         exitques=exit_ques
         exit_vars=["NativeLang","OtherLangs","TaskDesc"]
@@ -214,7 +248,6 @@ def guesser(wordlist,control_file):
     if media_type!='mp3' and media_type!='mp4':
         print('Please enter a valid media type. Valid media types are mp3 or mp4.')
         return
-
     # call balancer to make the experiments
     stuff=balancer(wordlist,words_per_exp)
     experiments_raw=stuff[0]
@@ -237,7 +270,8 @@ def guesser(wordlist,control_file):
             item_type=item[3]
             foils=item[4].split('|')
             nofoils=item[5].split('|')
-            simple_foils.append(form)
+            if form not in simple_foils:
+                simple_foils.append(form)
             experiments[str(n)].append([form,foils,meanings,nofoils,hypothesis,item_type])
         n+=1
     
@@ -260,7 +294,8 @@ def guesser(wordlist,control_file):
             
 
     # make experiments list
-    filename=wordlist.replace('.csv','')+'_experiments.csv'
+    filename=control_file.replace('.csv','')+'_guessing.csv'
+    foldername=control_file.replace('.csv','')+'_guessing'
     with open(filename,'w',newline='') as outfile:
         writer=csv.writer(outfile)
         writer.writerow(('experiment','trial','item_type','form','meaning','foils'))
@@ -388,6 +423,11 @@ def guesser(wordlist,control_file):
             for line in trial_code:
                 if '<div id="trial1" class="trialDiv">' in line:
                     myline=line.replace('trial1','trial'+str(n))
+                elif 'gesture' in line:
+                    if mp4type=='sign':
+                        myline=line.replace('gesture','sign')
+                    else:
+                        myline=line
                 elif "id='trans1'" in line:
                     myline=line.replace('trans1','trans'+str(n))
                 elif 'name="chosentrans1"' in line:
@@ -505,7 +545,7 @@ def guesser(wordlist,control_file):
 
     # write all the experiments
     n=1
-    path=os.getcwd()+'\\experiments\\'
+    path=os.getcwd()+'\\'+foldername+'\\'
     if not os.path.exists(path):
         os.mkdir(path)
     
@@ -552,4 +592,4 @@ def guesser(wordlist,control_file):
             writer.writerow(header)
         outfile.close()
         n+=1
-    print('Finished! Please find your experiments in the experiments folder, and a list of all the experiments and their items in the file '+wordlist.replace('.csv','')+'_experiments.csv')
+    print('Finished! Please find your experiments in the '+foldername+' folder, and a list of all the experiments and their items in the file '+control_file.replace('.csv','')+'_guessing.csv')
