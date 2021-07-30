@@ -194,7 +194,7 @@ Your browser does not support the audio element.
 <!---TRIAL START!---->
 
 <div id="trial1" class="trialDiv">
-<p style="text-align: center">Listen to the Japanese words below.</p>
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans1'></p>
 <input type="hidden" name="chosentrans1" value="" id="chosentrans1">
 <table id="likert">
@@ -233,7 +233,7 @@ Your browser does not support the audio element.</audio></td>
 <!---EVEN TRIAL!---->
 
 <div id="trial1" class="trialDiv">
-<p style="text-align: center">Listen to the Japanese words below.</p>
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans1'></p>
 <input type="hidden" name="chosentrans1" value="" id="chosentrans1">
 <table id="likert">
@@ -314,6 +314,8 @@ var curTrial=0;
 //REMEMBER TO UPDATE THE NUMBER OF TRIALS BELOW 
 var nTrials=6;
 var startTrialTime;
+// The firstgo variable is to allow them to play the media multiple times without resetting the reaction time count
+
 var firstgo='True';
 
 

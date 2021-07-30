@@ -1,4 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <style>
 .trialDiv {
   padding-left: 20px;
@@ -130,21 +133,15 @@ input[type=submit] {
 .player {width: 200px}
 
 </style>
-    <div id="about">
-    <h3 style="text-align: center">About</h3>
-    <p>Some words seem to 'fit' their meanings. For example, consider the English words <i>wiggle</i>, <i>jiggle</i>, and <i>wriggle</i>.</p>
-    <p>We have an intuitive sense of the meanings of these words, because there is a resemblance between the words and their meanings.</p>
-    <p>Even people who do not speak any English can get a sense of the meaning of these words.</p>
-    <p>Words like <i>walk</i> and <i>run</i> on the other hand are not so intuitive; people who do not know any English would not be able to guess what these words mean.</p>
-    <p>In this task, you will listen to some Japanese words, and we will tell you their meanings. You will then be asked to judge whether there is
-    a resemblance between the word and its meaning. 
-    </p>
-    <p><strong>Criteria for participation</strong></p>
-    <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
-    <p>Since the task requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the task that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the task.</p> 
-    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    </div>
+<div id="about">
+<h3 style="text-align: center">About</h3>
+<p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in Japanese, guessing from a choice of two Japanese words.</p>
+
+<p><strong>Criteria for participation</strong></p>
+<p>Because your answers should be guesses, it is very important for our experiment that you do NOT speak or understand Japanese. Also, since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
+<p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
     
+</div>
 
 <div id="audiotest">
 <h2>Headphone check</h2>
@@ -187,7 +184,7 @@ Your browser does not support the audio element.
 </div>
 
 <div id="instructions">
-    <p style="text-align:center"> Thank you for wearing headphones. You may now continue to the task. </p>
+    <p style="text-align:center"> Thank you for wearing headphones. You may now continue to the experiment.</p>
 </div>
 <div id = "participateButton">
 <a href="#" id="participate">Participate</a>
@@ -197,1403 +194,1350 @@ Your browser does not support the audio element.
 <a href="#" id="startexperiment">Start</a>
 </div>
 
-<!---ADD GOOGLE FORM URL HERE!---->
-
 <form action="experiment2.php" method="post">
 
 <!---TRIAL START!---->
 
 <div id="trial1" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans1'></p>
 <input type="hidden" name="chosentrans1" value="" id="chosentrans1">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player1'>
-  <source src="http://johnhuisman.nl/bonnie/ yoroyoro.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-1' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//yoroyoro.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-1' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil1" value="" id="chosenfoil1">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options1" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques1'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q1" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q1" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q1" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q1" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q1" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt1" value="0" id="reactionTime1">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial2" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans2'></p>
 <input type="hidden" name="chosentrans2" value="" id="chosentrans2">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player2'>
-  <source src="http://johnhuisman.nl/bonnie/ fuwafuwa.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-2' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil2" value="" id="chosenfoil2">
+<td><audio id='realplayer-2' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//fuwafuwa.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options2" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques2'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q2" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q2" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q2" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q2" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q2" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q2" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q2" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q2" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q2" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt2" value="0" id="reactionTime2">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial3" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans3'></p>
 <input type="hidden" name="chosentrans3" value="" id="chosentrans3">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player3'>
-  <source src="http://johnhuisman.nl/bonnie/ kiiN.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-3' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//kudoi.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-3' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil3" value="" id="chosenfoil3">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options3" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques3'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q3" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q3" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q3" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q3" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q3" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q3" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q3" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q3" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q3" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt3" value="0" id="reactionTime3">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial4" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans4'></p>
 <input type="hidden" name="chosentrans4" value="" id="chosentrans4">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player4'>
-  <source src="http://johnhuisman.nl/bonnie/ tyikutyiku.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-4' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil4" value="" id="chosenfoil4">
+<td><audio id='realplayer-4' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//osoi.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options4" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques4'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q4" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q4" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q4" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q4" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q4" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q4" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q4" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q4" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q4" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt4" value="0" id="reactionTime4">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial5" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans5'></p>
 <input type="hidden" name="chosentrans5" value="" id="chosentrans5">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player5'>
-  <source src="http://johnhuisman.nl/bonnie/ kapokapo.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-5' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//darui.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-5' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil5" value="" id="chosenfoil5">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options5" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques5'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q5" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q5" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q5" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q5" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q5" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q5" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q5" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q5" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q5" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt5" value="0" id="reactionTime5">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial6" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans6'></p>
 <input type="hidden" name="chosentrans6" value="" id="chosentrans6">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player6'>
-  <source src="http://johnhuisman.nl/bonnie/ nebaneba.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-6' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil6" value="" id="chosenfoil6">
+<td><audio id='realplayer-6' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//zyimezyime.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options6" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques6'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q6" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q6" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q6" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q6" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q6" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q6" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q6" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q6" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q6" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt6" value="0" id="reactionTime6">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial7" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans7'></p>
 <input type="hidden" name="chosentrans7" value="" id="chosentrans7">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player7'>
-  <source src="http://johnhuisman.nl/bonnie/ nurunuru.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-7' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//nigai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-7' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil7" value="" id="chosenfoil7">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options7" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques7'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q7" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q7" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q7" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q7" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q7" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q7" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q7" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q7" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q7" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt7" value="0" id="reactionTime7">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial8" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans8'></p>
 <input type="hidden" name="chosentrans8" value="" id="chosentrans8">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player8'>
-  <source src="http://johnhuisman.nl/bonnie/ musyimusyi.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-8' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil8" value="" id="chosenfoil8">
+<td><audio id='realplayer-8' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//boNyari.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options8" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques8'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q8" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q8" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q8" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q8" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q8" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q8" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q8" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q8" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q8" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt8" value="0" id="reactionTime8">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial9" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans9'></p>
 <input type="hidden" name="chosentrans9" value="" id="chosentrans9">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player9'>
-  <source src="http://johnhuisman.nl/bonnie/ boNyari.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-9' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//kurai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-9' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil9" value="" id="chosenfoil9">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options9" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques9'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q9" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q9" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q9" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q9" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q9" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q9" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q9" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q9" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q9" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt9" value="0" id="reactionTime9">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial10" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans10'></p>
 <input type="hidden" name="chosentrans10" value="" id="chosentrans10">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player10'>
-  <source src="http://johnhuisman.nl/bonnie/ tyikatyika.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-10' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil10" value="" id="chosenfoil10">
+<td><audio id='realplayer-10' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//ookii.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options10" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques10'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q10" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q10" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q10" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q10" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q10" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q10" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q10" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q10" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q10" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt10" value="0" id="reactionTime10">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial11" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans11'></p>
 <input type="hidden" name="chosentrans11" value="" id="chosentrans11">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player11'>
-  <source src="http://johnhuisman.nl/bonnie/ saku.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-11' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//mukamuka.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-11' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil11" value="" id="chosenfoil11">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options11" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques11'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q11" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q11" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q11" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q11" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q11" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q11" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q11" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q11" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q11" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt11" value="0" id="reactionTime11">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial12" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans12'></p>
 <input type="hidden" name="chosentrans12" value="" id="chosentrans12">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player12'>
-  <source src="http://johnhuisman.nl/bonnie/ igaiga.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-12' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil12" value="" id="chosenfoil12">
+<td><audio id='realplayer-12' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//semai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options12" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques12'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q12" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q12" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q12" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q12" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q12" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q12" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q12" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q12" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q12" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt12" value="0" id="reactionTime12">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial13" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans13'></p>
 <input type="hidden" name="chosentrans13" value="" id="chosentrans13">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player13'>
-  <source src="http://johnhuisman.nl/bonnie/ saQpari.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-13' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//igaiga.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-13' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil13" value="" id="chosenfoil13">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options13" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques13'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q13" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q13" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q13" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q13" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q13" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q13" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q13" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q13" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q13" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt13" value="0" id="reactionTime13">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial14" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans14'></p>
 <input type="hidden" name="chosentrans14" value="" id="chosentrans14">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player14'>
-  <source src="http://johnhuisman.nl/bonnie/ uzyauzya.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-14' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil14" value="" id="chosenfoil14">
+<td><audio id='realplayer-14' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//kiree.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options14" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques14'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q14" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q14" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q14" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q14" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q14" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q14" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q14" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q14" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q14" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt14" value="0" id="reactionTime14">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial15" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans15'></p>
 <input type="hidden" name="chosentrans15" value="" id="chosentrans15">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player15'>
-  <source src="http://johnhuisman.nl/bonnie/ hetoheto.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-15' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//yagurasyika.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-15' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil15" value="" id="chosenfoil15">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options15" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques15'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q15" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q15" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q15" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q15" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q15" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q15" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q15" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q15" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q15" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt15" value="0" id="reactionTime15">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial16" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans16'></p>
 <input type="hidden" name="chosentrans16" value="" id="chosentrans16">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player16'>
-  <source src="http://johnhuisman.nl/bonnie/ kudoi.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-16' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil16" value="" id="chosenfoil16">
+<td><audio id='realplayer-16' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//keQko.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options16" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques16'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q16" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q16" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q16" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q16" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q16" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q16" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q16" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q16" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q16" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt16" value="0" id="reactionTime16">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial17" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans17'></p>
 <input type="hidden" name="chosentrans17" value="" id="chosentrans17">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player17'>
-  <source src="http://johnhuisman.nl/bonnie/ netyinetyi.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-17' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//nurunuru.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-17' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil17" value="" id="chosenfoil17">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options17" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques17'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q17" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q17" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q17" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q17" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q17" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q17" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q17" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q17" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q17" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt17" value="0" id="reactionTime17">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial18" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans18'></p>
 <input type="hidden" name="chosentrans18" value="" id="chosentrans18">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player18'>
-  <source src="http://johnhuisman.nl/bonnie/ zuruNzuruN.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-18' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil18" value="" id="chosenfoil18">
+<td><audio id='realplayer-18' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//hirihiri.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options18" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques18'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q18" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q18" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q18" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q18" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q18" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q18" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q18" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q18" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q18" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt18" value="0" id="reactionTime18">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial19" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans19'></p>
 <input type="hidden" name="chosentrans19" value="" id="chosentrans19">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player19'>
-  <source src="http://johnhuisman.nl/bonnie/ piNpiN.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-19' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//uzyauzya.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-19' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil19" value="" id="chosenfoil19">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options19" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques19'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q19" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q19" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q19" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q19" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q19" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q19" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q19" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q19" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q19" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt19" value="0" id="reactionTime19">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial20" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans20'></p>
 <input type="hidden" name="chosentrans20" value="" id="chosentrans20">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player20'>
-  <source src="http://johnhuisman.nl/bonnie/ booQ.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-20' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil20" value="" id="chosenfoil20">
+<td><audio id='realplayer-20' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//hiyaQkoi.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options20" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques20'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q20" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q20" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q20" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q20" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q20" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q20" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q20" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q20" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q20" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt20" value="0" id="reactionTime20">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial21" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans21'></p>
 <input type="hidden" name="chosentrans21" value="" id="chosentrans21">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player21'>
-  <source src="http://johnhuisman.nl/bonnie/ deQkai.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-21' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//boroboro.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-21' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil21" value="" id="chosenfoil21">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options21" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques21'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q21" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q21" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q21" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q21" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q21" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q21" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q21" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q21" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q21" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt21" value="0" id="reactionTime21">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial22" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans22'></p>
 <input type="hidden" name="chosentrans22" value="" id="chosentrans22">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player22'>
-  <source src="http://johnhuisman.nl/bonnie/ koenee.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-22' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil22" value="" id="chosenfoil22">
+<td><audio id='realplayer-22' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//egui.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options22" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques22'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q22" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q22" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q22" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q22" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q22" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q22" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q22" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q22" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q22" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt22" value="0" id="reactionTime22">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial23" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans23'></p>
 <input type="hidden" name="chosentrans23" value="" id="chosentrans23">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player23'>
-  <source src="http://johnhuisman.nl/bonnie/ kara.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-23' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//maNpuku.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-23' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil23" value="" id="chosenfoil23">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options23" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques23'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q23" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q23" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q23" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q23" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q23" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q23" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q23" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q23" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q23" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt23" value="0" id="reactionTime23">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial24" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans24'></p>
 <input type="hidden" name="chosentrans24" value="" id="chosentrans24">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player24'>
-  <source src="http://johnhuisman.nl/bonnie/ hau.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-24' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil24" value="" id="chosenfoil24">
+<td><audio id='realplayer-24' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//matsupoi.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options24" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques24'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q24" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q24" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q24" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q24" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q24" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q24" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q24" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q24" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q24" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt24" value="0" id="reactionTime24">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial25" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans25'></p>
 <input type="hidden" name="chosentrans25" value="" id="chosentrans25">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player25'>
-  <source src="http://johnhuisman.nl/bonnie/ sabui.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-25' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//kitsuka.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-25' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil25" value="" id="chosenfoil25">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options25" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques25'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q25" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q25" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q25" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q25" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q25" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q25" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q25" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q25" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q25" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt25" value="0" id="reactionTime25">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial26" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans26'></p>
 <input type="hidden" name="chosentrans26" value="" id="chosentrans26">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player26'>
-  <source src="http://johnhuisman.nl/bonnie/ modokasyii.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-26' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil26" value="" id="chosenfoil26">
+<td><audio id='realplayer-26' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//kaku.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options26" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques26'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q26" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q26" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q26" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q26" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q26" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q26" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q26" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q26" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q26" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt26" value="0" id="reactionTime26">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial27" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans27'></p>
 <input type="hidden" name="chosentrans27" value="" id="chosentrans27">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player27'>
-  <source src="http://johnhuisman.nl/bonnie/ koi.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-27' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//mawaru.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-27' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil27" value="" id="chosenfoil27">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options27" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques27'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q27" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q27" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q27" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q27" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q27" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q27" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q27" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q27" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q27" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt27" value="0" id="reactionTime27">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial28" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans28'></p>
 <input type="hidden" name="chosentrans28" value="" id="chosentrans28">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player28'>
-  <source src="http://johnhuisman.nl/bonnie/ nigiyaka.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-28' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil28" value="" id="chosenfoil28">
+<td><audio id='realplayer-28' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//deQkai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options28" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques28'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q28" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q28" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q28" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q28" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q28" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q28" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q28" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q28" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q28" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt28" value="0" id="reactionTime28">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial29" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans29'></p>
 <input type="hidden" name="chosentrans29" value="" id="chosentrans29">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player29'>
-  <source src="http://johnhuisman.nl/bonnie/ hagai.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-29' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//kosui.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-29' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil29" value="" id="chosenfoil29">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options29" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques29'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q29" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q29" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q29" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q29" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q29" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q29" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q29" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q29" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q29" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt29" value="0" id="reactionTime29">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial30" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans30'></p>
 <input type="hidden" name="chosentrans30" value="" id="chosentrans30">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player30'>
-  <source src="http://johnhuisman.nl/bonnie/ kaku.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-30' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil30" value="" id="chosenfoil30">
+<td><audio id='realplayer-30' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//notaru.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options30" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques30'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q30" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q30" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q30" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q30" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q30" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q30" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q30" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q30" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q30" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt30" value="0" id="reactionTime30">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial31" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans31'></p>
 <input type="hidden" name="chosentrans31" value="" id="chosentrans31">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player31'>
-  <source src="http://johnhuisman.nl/bonnie/ dareta.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-31' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//hagai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-31' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil31" value="" id="chosenfoil31">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options31" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques31'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q31" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q31" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q31" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q31" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q31" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q31" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q31" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q31" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q31" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt31" value="0" id="reactionTime31">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial32" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans32'></p>
 <input type="hidden" name="chosentrans32" value="" id="chosentrans32">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player32'>
-  <source src="http://johnhuisman.nl/bonnie/ katai.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-32' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil32" value="" id="chosenfoil32">
+<td><audio id='realplayer-32' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//katai.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options32" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques32'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q32" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q32" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q32" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q32" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q32" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q32" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q32" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q32" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q32" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt32" value="0" id="reactionTime32">
 </div>
 
+
 <!---TRIAL END!---->
 
 <div id="trial33" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans33'></p>
 <input type="hidden" name="chosentrans33" value="" id="chosentrans33">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player33'>
-  <source src="http://johnhuisman.nl/bonnie/ pyoNpyoN.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='realplayer-33' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//pyoNpyoN.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+<td><audio id='foilplayer-33' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<input type="hidden" name="chosenfoil33" value="" id="chosenfoil33">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options33" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques33'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q33" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q33" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q33" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q33" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q33" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q33" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q33" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q33" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q33" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt33" value="0" id="reactionTime33">
 </div>
 
-<!---TRIAL END!---->
+<!---EVEN TRIAL!---->
 
 <div id="trial34" class="trialDiv">
+<p style="text-align: center">Listen to the words below.</p>
 <p style="text-align: center" id='trans34'></p>
 <input type="hidden" name="chosentrans34" value="" id="chosentrans34">
-<p style="text-align: center"><audio controls controlsList="nodownload" class="player" id='player34'>
-  <source src="http://johnhuisman.nl/bonnie/ hisohiso.mp3" type="audio/mpeg">
-Your browser does not support the audio element.</audio></p>
+<table id="likert">
+<tr>
+<td><audio id='foilplayer-34' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles/tehe.mp3" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>.
+<input type="hidden" name="chosenfoil34" value="" id="chosenfoil34">
+<td><audio id='realplayer-34' class="player" controls controlsList="nodownload">
+  <source src="https://www.honestcookingblog.com/soundfiles//hisohiso.mp3"&someRandomSeed=" + Math.random().toString(36)" type="audio/mpeg">
+Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+  </table>
 </div>
 <div id="options34" class="optionsDiv">
-<p style="text-align: center">Do you think there is a resemblance between the word and its meaning?</p>
-
+<br>
+<br>
+<p style="text-align: center" id='ques34'></p>
 <table id="likert">
      <tr>
-	     <td>No resemblance</td>
-         <td><input type="radio" class="responseButton" name="q34" value="0" /></td>
-         <td><input type="radio" class="responseButton" name="q34" value="1" /></td>
-         <td><input type="radio" class="responseButton" name="q34" value="2" /></td>
-         <td><input type="radio" class="responseButton" name="q34" value="3" /></td>
-		 <td><input type="radio" class="responseButton" name="q34" value="4" /></td>
-         <td><input type="radio" class="responseButton" name="q34" value="5" /></td>
-         <td><input type="radio" class="responseButton" name="q34" value="6" /></td>
-		 <td>Strong resemblance</td>
-
+         <td><input type="radio" class="responseButton" name="q34" value="A" /></td>
+         <td><input type="radio" class="responseButton" name="q34" value="B" /></td>
      </tr>
      <tr>
-         <td></td>
-         <td>0</td>
-         <td>1</td>
-         <td>2</td>
-         <td>3</td>
-		 <td>4</td>
-         <td>5</td>
-         <td>6</td>
-         <td></td>
-
+         <td>A</td>
+         <td>B</td>
      </tr>
   </table>
     <input type="hidden" name="rt34" value="0" id="reactionTime34">
 </div>
+
 
 <!---TRIAL END!---->
 
@@ -1616,7 +1560,12 @@ Your browser does not support the audio element.</audio></p>
 <!--POST EXPERIMENT INFORMATION COLLECTION-->
 <!--Include a short text description of the experiment to check people were paying attention-->
 <script>
-var alltrans=[["WOBBLING"],["FLUFFY"],["RINGING (E.G. A RINGING SOUND IN YOUR EARS)"],["ITCHING","PRICKLING"],["SLOSHING","SPLASHING"],["STICKY","GOOEY"],["SLIMY","SLIPPERY","SLICK"],["HUMID","MUGGY"],["FUZZY","BLURRY","HAZY"],["STINGING (PAIN, E.G. IN EYES)","BURNING (PAIN, E.G. IN EYES)"],["TEAR","RIP"],["PRICKLING","TINGLING"],["CLEAN","TIDY"],["SHAKING","TREMBLING"],["EXHAUSTED","TIRED","WEARY"],["OILY/HEAVY (FOOD)"],["CLINGY"],["SLIMY","GOOEY"],["LIVELY","ENERGETIC"],["FUZZY","BLURRY","HAZY"],["BIG","MASSIVE","LARGE","HUGE"],["EXHAUSTED","TIRED","WEARY"],["EMPTY"],["CRAWL","CREEP"],["COLD","CHILLY"],["ANNOYED","IMPATIENT"],["RICH (TASTE)","STRONG (TASTE)"],["LOUD","NOISY"],["ANNOYED","IMPATIENT"],["SCRATCH"],["WORN OUT","TIRED","WEARY","EXHAUSTED"],["HARD"],["BOUNCING","HOPPING"],["WHISPERING"]];
+$.ajaxSetup({
+  cache: false
+});
+var allfoils=[["https://www.honestcookingblog.com/soundfiles//tehe.mp3","https://www.honestcookingblog.com/soundfiles//tyekye.mp3","https://www.honestcookingblog.com/soundfiles//tseke.mp3"],["https://www.honestcookingblog.com/soundfiles//rizyu.mp3","https://www.honestcookingblog.com/soundfiles//gityu.mp3","https://www.honestcookingblog.com/soundfiles//nitsu.mp3"],["https://www.honestcookingblog.com/soundfiles//niwea.mp3","https://www.honestcookingblog.com/soundfiles//ziyea.mp3","https://www.honestcookingblog.com/soundfiles//rihea.mp3"],["https://www.honestcookingblog.com/soundfiles//ekea.mp3","https://www.honestcookingblog.com/soundfiles//emea.mp3","https://www.honestcookingblog.com/soundfiles//egea.mp3"],["https://www.honestcookingblog.com/soundfiles//wuhia.mp3","https://www.honestcookingblog.com/soundfiles//yukyia.mp3","https://www.honestcookingblog.com/soundfiles//hukia.mp3"],["https://www.honestcookingblog.com/soundfiles//matyo.mp3","https://www.honestcookingblog.com/soundfiles//waso.mp3","https://www.honestcookingblog.com/soundfiles//hasyo.mp3"],["https://www.honestcookingblog.com/soundfiles//syarua.mp3","https://www.honestcookingblog.com/soundfiles//kasua.mp3","https://www.honestcookingblog.com/soundfiles//hatyua.mp3"],["https://www.honestcookingblog.com/soundfiles//tyeQtuha.mp3","https://www.honestcookingblog.com/soundfiles//heQtyukya.mp3","https://www.honestcookingblog.com/soundfiles//syeQtsuka.mp3"],["https://www.honestcookingblog.com/soundfiles//nihua.mp3","https://www.honestcookingblog.com/soundfiles//zikyua.mp3","https://www.honestcookingblog.com/soundfiles//rikua.mp3"],["https://www.honestcookingblog.com/soundfiles//ena.mp3","https://www.honestcookingblog.com/soundfiles//eza.mp3","https://www.honestcookingblog.com/soundfiles//era.mp3"],["https://www.honestcookingblog.com/soundfiles//tyinu.mp3","https://www.honestcookingblog.com/soundfiles//sizu.mp3","https://www.honestcookingblog.com/soundfiles//syiru.mp3"],["https://www.honestcookingblog.com/soundfiles//kotyua.mp3","https://www.honestcookingblog.com/soundfiles//mosua.mp3","https://www.honestcookingblog.com/soundfiles//gosyua.mp3"],["https://www.honestcookingblog.com/soundfiles//aru.mp3","https://www.honestcookingblog.com/soundfiles//asu.mp3","https://www.honestcookingblog.com/soundfiles//atyu.mp3"],["https://www.honestcookingblog.com/soundfiles//naho.mp3","https://www.honestcookingblog.com/soundfiles//zakyo.mp3","https://www.honestcookingblog.com/soundfiles//rako.mp3"],["https://www.honestcookingblog.com/soundfiles//turihuranu.mp3","https://www.honestcookingblog.com/soundfiles//tyusikyunazu.mp3","https://www.honestcookingblog.com/soundfiles//tsutyikumaru.mp3"],["https://www.honestcookingblog.com/soundfiles//none.mp3","https://www.honestcookingblog.com/soundfiles//zoze.mp3","https://www.honestcookingblog.com/soundfiles//rore.mp3"],["https://www.honestcookingblog.com/soundfiles//syihi.mp3","https://www.honestcookingblog.com/soundfiles//kikyi.mp3","https://www.honestcookingblog.com/soundfiles//hiki.mp3"],["https://www.honestcookingblog.com/soundfiles//naha.mp3","https://www.honestcookingblog.com/soundfiles//dzakya.mp3","https://www.honestcookingblog.com/soundfiles//zyaka.mp3"],["https://www.honestcookingblog.com/soundfiles//imu.mp3","https://www.honestcookingblog.com/soundfiles//iwu.mp3","https://www.honestcookingblog.com/soundfiles//ihu.mp3"],["https://www.honestcookingblog.com/soundfiles//natunea.mp3","https://www.honestcookingblog.com/soundfiles//dzatyuzea.mp3","https://www.honestcookingblog.com/soundfiles//zyatsurea.mp3"],["https://www.honestcookingblog.com/soundfiles//tyehe.mp3","https://www.honestcookingblog.com/soundfiles//hekye.mp3","https://www.honestcookingblog.com/soundfiles//syeke.mp3"],["https://www.honestcookingblog.com/soundfiles//oria.mp3","https://www.honestcookingblog.com/soundfiles//osia.mp3","https://www.honestcookingblog.com/soundfiles//otyia.mp3"],["https://www.honestcookingblog.com/soundfiles//tyuQsyini.mp3","https://www.honestcookingblog.com/soundfiles//suQwizi.mp3","https://www.honestcookingblog.com/soundfiles//syuQyiri.mp3"],["https://www.honestcookingblog.com/soundfiles//tyuhisyea.mp3","https://www.honestcookingblog.com/soundfiles//suwiwea.mp3","https://www.honestcookingblog.com/soundfiles//syuyiyea.mp3"],["https://www.honestcookingblog.com/soundfiles//nahinu.mp3","https://www.honestcookingblog.com/soundfiles//zawizu.mp3","https://www.honestcookingblog.com/soundfiles//rayiru.mp3"],["https://www.honestcookingblog.com/soundfiles//nuni.mp3","https://www.honestcookingblog.com/soundfiles//zuzi.mp3","https://www.honestcookingblog.com/soundfiles//ruri.mp3"],["https://www.honestcookingblog.com/soundfiles//tyuzyuhi.mp3","https://www.honestcookingblog.com/soundfiles//sutyukyi.mp3","https://www.honestcookingblog.com/soundfiles//syutsuki.mp3"],["https://www.honestcookingblog.com/soundfiles//wonua.mp3","https://www.honestcookingblog.com/soundfiles//yozua.mp3","https://www.honestcookingblog.com/soundfiles//horua.mp3"],["https://www.honestcookingblog.com/soundfiles//nekia.mp3","https://www.honestcookingblog.com/soundfiles//zemia.mp3","https://www.honestcookingblog.com/soundfiles//regia.mp3"],["https://www.honestcookingblog.com/soundfiles//syehuhi.mp3","https://www.honestcookingblog.com/soundfiles//kewukyi.mp3","https://www.honestcookingblog.com/soundfiles//heyuki.mp3"],["https://www.honestcookingblog.com/soundfiles//nurua.mp3","https://www.honestcookingblog.com/soundfiles//dzusua.mp3","https://www.honestcookingblog.com/soundfiles//zyutyua.mp3"],["https://www.honestcookingblog.com/soundfiles//nuhua.mp3","https://www.honestcookingblog.com/soundfiles//zuwua.mp3","https://www.honestcookingblog.com/soundfiles//ruyua.mp3"],["https://www.honestcookingblog.com/soundfiles//neQ.mp3","https://www.honestcookingblog.com/soundfiles//zeQ.mp3","https://www.honestcookingblog.com/soundfiles//reQ.mp3"],["https://www.honestcookingblog.com/soundfiles//nake.mp3","https://www.honestcookingblog.com/soundfiles//dzame.mp3","https://www.honestcookingblog.com/soundfiles//zyage.mp3"]];
+var alltrans=[["WOBBLING"],["FLUFFY"],["OILY/HEAVY (FOOD)"],["SLOW"],["SLUGGISH","LETHARGIC"],["HUMID","MUGGY"],["ACRID (TASTE)","BITTER (TASTE)"],["FUZZY","BLURRY","HAZY"],["DARK","DIM"],["BIG","MASSIVE","LARGE","HUGE"],["ANNOYED","IMPATIENT"],["CRAMPED","TIGHT"],["PRICKLING","TINGLING"],["CLEAN","TIDY"],["LOUD","NOISY"],["CLEAN","TIDY"],["SLIMY","SLIPPERY","SLICK"],["THROBBING","PULSATING"],["SHAKING","TREMBLING"],["COOL","FRESH"],["SCRUFFY","TATTY","RAGGEDY"],["ACRID (TASTE)","BITTER (TASTE)"],["STUFFED (FROM EATING TOO MUCH)","FULL (FROM EATING)"],["GLARING (LIGHT)","BLINDING (LIGHT)"],["EXHAUSTED","TIRED","WEARY"],["SCRATCH"],["ROLL","SPIN"],["ROUGH","GRITTY","COARSE"],["CUNNING","SLY","SNEAKY"],["CRAWL","CREEP"],["ANNOYED","IMPATIENT"],["HARD"],["BOUNCING","HOPPING"],["WHISPERING"]];
+var foil_choices=[];
 var trans_choices=[];
 
 var i;
@@ -1626,6 +1575,11 @@ for (i=0;i<34;i++) {
 	transchoice=trans[Math.floor(Math.random()*trans.length)];
 	trans_choices.push(transchoice);
 	$('#chosentrans'+(i+1)).attr("value",transchoice)
+	//Choose a foil
+	foils=allfoils[i];
+	foilchoice=foils[Math.floor(Math.random()*foils.length)];
+	foil_choices.push(foilchoice);
+	$('#chosenfoil'+(i+1)).attr("value",foilchoice)
 }
 
 //REMEMBER TO UPDATE THE ARRAY YOU'RE SHUFFLING 
@@ -1635,7 +1589,10 @@ var curTrial=0;
 //REMEMBER TO UPDATE THE NUMBER OF TRIALS BELOW 
 var nTrials=34;
 var startTrialTime;
+// The firstgo variable is to allow them to play the media multiple times without resetting the reaction time count
+
 var firstgo='True';
+
 
 function audioplayed() {
 	if(firstgo=='True'){
@@ -1658,12 +1615,12 @@ function buttonClicked() {
 		$('#exitsurvey').show();
 	} else {	
 		$('#trial'+trialOrder[curTrial]).show();
-		firstgo='True'
+		firstgo='True';
 	}
 }
 function showFirstTrial() {
 	$('#trial'+trialOrder[0]).show();
-
+	
 }
 
 function showAudioTest() {
@@ -1700,17 +1657,18 @@ function showpractice() {
 	$('#startexperimentButton').hide();
 	$('#trial1').show();
 	}
+	
+
+function tryagain() {
+  $('#errormessage').hide()
+  $('#audiotest').show()
+}
 
 function easystart() {
 	$('#about').hide();
 	$('#participateButton').hide();
 	$('#trial1').show();
 
-}
-	
-function tryagain() {
-  $('#errormessage').hide()
-  $('#audiotest').show()
 }
 
 /* Fisher-Yates shuffle */
@@ -1719,50 +1677,127 @@ function shuffle(o){
     return o;
 }
 
-$('#participate').click(showAudioTest)
-$('#again').click(tryagain)
+function showoptions(){
+$('#realplayer-'+trialOrder[curTrial]).bind("ended", function(){
+$('#foilplayer-'+trialOrder[curTrial]).bind("ended",audioplayed)
+});
+$('#foilplayer-'+trialOrder[curTrial]).bind("ended", function(){
+$('#realplayer-'+trialOrder[curTrial]).bind("ended",audioplayed)
+});
+}
 
-$('#continue').click(processAudioTest)
-$('#startexperiment').click(showpractice)
+
+$('#participate').click(showAudioTest);
+$('#again').click(tryagain);
+
+$('#continue').click(processAudioTest);
+$('#startexperiment').click(showpractice);
+
+$('.player').bind('play',showoptions);
+$('.responseButton').click(buttonClicked);
 
 
-$('.player').bind("ended",audioplayed)
-$('.responseButton').click(buttonClicked)
-
-
-document.getElementById('trans1').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[0]+'.</p>'
-document.getElementById('trans2').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[1]+'.</p>'
-document.getElementById('trans3').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[2]+'.</p>'
-document.getElementById('trans4').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[3]+'.</p>'
-document.getElementById('trans5').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[4]+'.</p>'
-document.getElementById('trans6').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[5]+'.</p>'
-document.getElementById('trans7').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[6]+'.</p>'
-document.getElementById('trans8').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[7]+'.</p>'
-document.getElementById('trans9').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[8]+'.</p>'
-document.getElementById('trans10').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[9]+'.</p>'
-document.getElementById('trans11').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[10]+'.</p>'
-document.getElementById('trans12').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[11]+'.</p>'
-document.getElementById('trans13').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[12]+'.</p>'
-document.getElementById('trans14').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[13]+'.</p>'
-document.getElementById('trans15').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[14]+'.</p>'
-document.getElementById('trans16').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[15]+'.</p>'
-document.getElementById('trans17').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[16]+'.</p>'
-document.getElementById('trans18').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[17]+'.</p>'
-document.getElementById('trans19').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[18]+'.</p>'
-document.getElementById('trans20').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[19]+'.</p>'
-document.getElementById('trans21').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[20]+'.</p>'
-document.getElementById('trans22').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[21]+'.</p>'
-document.getElementById('trans23').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[22]+'.</p>'
-document.getElementById('trans24').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[23]+'.</p>'
-document.getElementById('trans25').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[24]+'.</p>'
-document.getElementById('trans26').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[25]+'.</p>'
-document.getElementById('trans27').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[26]+'.</p>'
-document.getElementById('trans28').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[27]+'.</p>'
-document.getElementById('trans29').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[28]+'.</p>'
-document.getElementById('trans30').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[29]+'.</p>'
-document.getElementById('trans31').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[30]+'.</p>'
-document.getElementById('trans32').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[31]+'.</p>'
-document.getElementById('trans33').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[32]+'.</p>'
-document.getElementById('trans34').innerHTML='<p>Listen to the Japanese word below.</p><p>It means '+trans_choices[33]+'.</p>'
+document.getElementById('trans1').innerHTML='One of them means '+trans_choices[0]
+document.getElementById('ques1').innerHTML='Which one do you think means '+trans_choices[0]+'?'
+document.getElementById('foilplayer-1').src=foil_choices[0]
+document.getElementById('trans2').innerHTML='One of them means '+trans_choices[1]
+document.getElementById('ques2').innerHTML='Which one do you think means '+trans_choices[1]+'?'
+document.getElementById('foilplayer-2').src=foil_choices[1]
+document.getElementById('trans3').innerHTML='One of them means '+trans_choices[2]
+document.getElementById('ques3').innerHTML='Which one do you think means '+trans_choices[2]+'?'
+document.getElementById('foilplayer-3').src=foil_choices[2]
+document.getElementById('trans4').innerHTML='One of them means '+trans_choices[3]
+document.getElementById('ques4').innerHTML='Which one do you think means '+trans_choices[3]+'?'
+document.getElementById('foilplayer-4').src=foil_choices[3]
+document.getElementById('trans5').innerHTML='One of them means '+trans_choices[4]
+document.getElementById('ques5').innerHTML='Which one do you think means '+trans_choices[4]+'?'
+document.getElementById('foilplayer-5').src=foil_choices[4]
+document.getElementById('trans6').innerHTML='One of them means '+trans_choices[5]
+document.getElementById('ques6').innerHTML='Which one do you think means '+trans_choices[5]+'?'
+document.getElementById('foilplayer-6').src=foil_choices[5]
+document.getElementById('trans7').innerHTML='One of them means '+trans_choices[6]
+document.getElementById('ques7').innerHTML='Which one do you think means '+trans_choices[6]+'?'
+document.getElementById('foilplayer-7').src=foil_choices[6]
+document.getElementById('trans8').innerHTML='One of them means '+trans_choices[7]
+document.getElementById('ques8').innerHTML='Which one do you think means '+trans_choices[7]+'?'
+document.getElementById('foilplayer-8').src=foil_choices[7]
+document.getElementById('trans9').innerHTML='One of them means '+trans_choices[8]
+document.getElementById('ques9').innerHTML='Which one do you think means '+trans_choices[8]+'?'
+document.getElementById('foilplayer-9').src=foil_choices[8]
+document.getElementById('trans10').innerHTML='One of them means '+trans_choices[9]
+document.getElementById('ques10').innerHTML='Which one do you think means '+trans_choices[9]+'?'
+document.getElementById('foilplayer-10').src=foil_choices[9]
+document.getElementById('trans11').innerHTML='One of them means '+trans_choices[10]
+document.getElementById('ques11').innerHTML='Which one do you think means '+trans_choices[10]+'?'
+document.getElementById('foilplayer-11').src=foil_choices[10]
+document.getElementById('trans12').innerHTML='One of them means '+trans_choices[11]
+document.getElementById('ques12').innerHTML='Which one do you think means '+trans_choices[11]+'?'
+document.getElementById('foilplayer-12').src=foil_choices[11]
+document.getElementById('trans13').innerHTML='One of them means '+trans_choices[12]
+document.getElementById('ques13').innerHTML='Which one do you think means '+trans_choices[12]+'?'
+document.getElementById('foilplayer-13').src=foil_choices[12]
+document.getElementById('trans14').innerHTML='One of them means '+trans_choices[13]
+document.getElementById('ques14').innerHTML='Which one do you think means '+trans_choices[13]+'?'
+document.getElementById('foilplayer-14').src=foil_choices[13]
+document.getElementById('trans15').innerHTML='One of them means '+trans_choices[14]
+document.getElementById('ques15').innerHTML='Which one do you think means '+trans_choices[14]+'?'
+document.getElementById('foilplayer-15').src=foil_choices[14]
+document.getElementById('trans16').innerHTML='One of them means '+trans_choices[15]
+document.getElementById('ques16').innerHTML='Which one do you think means '+trans_choices[15]+'?'
+document.getElementById('foilplayer-16').src=foil_choices[15]
+document.getElementById('trans17').innerHTML='One of them means '+trans_choices[16]
+document.getElementById('ques17').innerHTML='Which one do you think means '+trans_choices[16]+'?'
+document.getElementById('foilplayer-17').src=foil_choices[16]
+document.getElementById('trans18').innerHTML='One of them means '+trans_choices[17]
+document.getElementById('ques18').innerHTML='Which one do you think means '+trans_choices[17]+'?'
+document.getElementById('foilplayer-18').src=foil_choices[17]
+document.getElementById('trans19').innerHTML='One of them means '+trans_choices[18]
+document.getElementById('ques19').innerHTML='Which one do you think means '+trans_choices[18]+'?'
+document.getElementById('foilplayer-19').src=foil_choices[18]
+document.getElementById('trans20').innerHTML='One of them means '+trans_choices[19]
+document.getElementById('ques20').innerHTML='Which one do you think means '+trans_choices[19]+'?'
+document.getElementById('foilplayer-20').src=foil_choices[19]
+document.getElementById('trans21').innerHTML='One of them means '+trans_choices[20]
+document.getElementById('ques21').innerHTML='Which one do you think means '+trans_choices[20]+'?'
+document.getElementById('foilplayer-21').src=foil_choices[20]
+document.getElementById('trans22').innerHTML='One of them means '+trans_choices[21]
+document.getElementById('ques22').innerHTML='Which one do you think means '+trans_choices[21]+'?'
+document.getElementById('foilplayer-22').src=foil_choices[21]
+document.getElementById('trans23').innerHTML='One of them means '+trans_choices[22]
+document.getElementById('ques23').innerHTML='Which one do you think means '+trans_choices[22]+'?'
+document.getElementById('foilplayer-23').src=foil_choices[22]
+document.getElementById('trans24').innerHTML='One of them means '+trans_choices[23]
+document.getElementById('ques24').innerHTML='Which one do you think means '+trans_choices[23]+'?'
+document.getElementById('foilplayer-24').src=foil_choices[23]
+document.getElementById('trans25').innerHTML='One of them means '+trans_choices[24]
+document.getElementById('ques25').innerHTML='Which one do you think means '+trans_choices[24]+'?'
+document.getElementById('foilplayer-25').src=foil_choices[24]
+document.getElementById('trans26').innerHTML='One of them means '+trans_choices[25]
+document.getElementById('ques26').innerHTML='Which one do you think means '+trans_choices[25]+'?'
+document.getElementById('foilplayer-26').src=foil_choices[25]
+document.getElementById('trans27').innerHTML='One of them means '+trans_choices[26]
+document.getElementById('ques27').innerHTML='Which one do you think means '+trans_choices[26]+'?'
+document.getElementById('foilplayer-27').src=foil_choices[26]
+document.getElementById('trans28').innerHTML='One of them means '+trans_choices[27]
+document.getElementById('ques28').innerHTML='Which one do you think means '+trans_choices[27]+'?'
+document.getElementById('foilplayer-28').src=foil_choices[27]
+document.getElementById('trans29').innerHTML='One of them means '+trans_choices[28]
+document.getElementById('ques29').innerHTML='Which one do you think means '+trans_choices[28]+'?'
+document.getElementById('foilplayer-29').src=foil_choices[28]
+document.getElementById('trans30').innerHTML='One of them means '+trans_choices[29]
+document.getElementById('ques30').innerHTML='Which one do you think means '+trans_choices[29]+'?'
+document.getElementById('foilplayer-30').src=foil_choices[29]
+document.getElementById('trans31').innerHTML='One of them means '+trans_choices[30]
+document.getElementById('ques31').innerHTML='Which one do you think means '+trans_choices[30]+'?'
+document.getElementById('foilplayer-31').src=foil_choices[30]
+document.getElementById('trans32').innerHTML='One of them means '+trans_choices[31]
+document.getElementById('ques32').innerHTML='Which one do you think means '+trans_choices[31]+'?'
+document.getElementById('foilplayer-32').src=foil_choices[31]
+document.getElementById('trans33').innerHTML='One of them means '+trans_choices[32]
+document.getElementById('ques33').innerHTML='Which one do you think means '+trans_choices[32]+'?'
+document.getElementById('foilplayer-33').src=foil_choices[32]
+document.getElementById('trans34').innerHTML='One of them means '+trans_choices[33]
+document.getElementById('ques34').innerHTML='Which one do you think means '+trans_choices[33]+'?'
+document.getElementById('foilplayer-34').src=foil_choices[33]
 </script>
 </form>

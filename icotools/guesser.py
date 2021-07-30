@@ -57,7 +57,7 @@ def balancer(csv_file,no_expwords):
                 controls.append((form,meaning,hypothesis,item,foils,nofoils))
     infile.close()
 
-
+    no_practiceq=len(practice)
     # Decide how many experiments to test all these words
 
     no_words=len(trials)
@@ -117,24 +117,41 @@ def balancer(csv_file,no_expwords):
     for exp in experiments:
         index=experiments.index(exp)
         experiments[index]=practice+exp+controls
-
-##    # now write the experiments file
-##    filename=csv_file.strip('.csv')+'_experimentlist.csv'
-##    with open(filename,'w',newline='',encoding='UTF-8') as outfile:
-##        writer=csv.writer(outfile)
-##        writer.writerow(['experiment','item','form','meaning','hypothesis'])
-##        for i in range(len(experiments)):
-##            items=experiments[i]
-##            exp_no=i+1
-##            for tup in items:
-##                writer.writerow([exp_no,tup[3],tup[0],tup[1],tup[2]])
-##    outfile.close()
-        return(experiments)
+    return((experiments,no_practiceq))
 
 
 def guesser(wordlist,control_file):
-    """Makes gue"""
+    """Makes guessing experiments, see https://github.com/BonnieMcLean/IcoTools for the format of the stimuli list and control file"""
 
+    instructions_mp3="""
+<p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in Japanese, guessing from a choice of two Japanese words.</p>
+
+<p><strong>Criteria for participation</strong></p>
+<p>Because your answers should be guesses, it is very important for our experiment that you do NOT speak or understand Japanese. Also, since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
+<p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+
+    instructions_unknown="""
+<p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in an unknown language, guessing from a choice of two words.</p>
+
+<p><strong>Criteria for participation</strong></p>
+<p>Since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
+<p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+
+    exit_ques="""
+    <p>This is the end of the task. However, before you submit your answers we need to collect some information from you. Kindly fill in the following:</p>
+    <p><strong>Native Language*:</strong><input type="text" name="nativelang" required></p>
+    <p><strong>Other languages you understand:</strong><input type="text" name="otherlang"></p>
+    <p><strong>For our feedback, please also describe the TASK you were performing*:</strong></p>
+    <p><input type="text" name="taskdesc" size="80"></p>
+    <p>*Required</p>
+    """
+
+    submit_message="""
+    <p>Thank you for participating in this research!</p>
+    """
+    
     # read in the information from the control file
     control={}
     with open(control_file,'r',encoding='UTF-8') as infile:
@@ -143,28 +160,65 @@ def guesser(wordlist,control_file):
             key=row[0]
             value=row[1]
             control[key]=value
+    infile.close()
     try:
-        no_practiceq=int(control['n_practiceq'])
         media_source=control['media_source']
         media_type=control['media_type']
-        muted_vids=control['muted_vids']
         instructions_html=control['instructions_html']
         exitques_html=control['exitques_html']
         headphone_check=control['headphone_check']
+        submit_html=control['submit_html']
         words_per_exp=int(control['words_per_exp'])
     except KeyError:
         print('Your control file is not formatted correctly. See help(guesser) for information on how to format it.')
+    try:
+        language=control['language']
+    except KeyError:
+        language='unknown'
+        
+    if media_type=="mp4":
+        try:
+            muted_vids=control['muted_vids']
+        except KeyError:
+            print('Your control file is not formatted correctly. See help(guesser) for information on how to format it.')
     if instructions_html=='default':
-        instructions_html='guesses_instructions_'+media_type+'.html'
+        if media_type=='mp3':
+            if language=='unknown':
+                instructions=instructions_unknown
+            else:
+                instructions=instructions_mp3.replace('Japanese',language)
+        elif media_type=='mp4':
+            print("There are no default instructions for mp4 stimuli; please write suitable instructions for your own data, and save them in a .html file.")
+            print("You can model your instructions off the default for mp3 stimuli, printed below:")
+            print(instructions_mp3)
+            sys.exit()
     if exitques_html=='default':
-        exitques_html='guesses_exitques.html'
+        exitques=exit_ques
+        exit_vars=["NativeLang","OtherLangs","TaskDesc"]
+    else:
+        exitques=exitques_html
+        try:
+            exitques_labels=control["exitques_labels"]
+            exit_vars=exitques_labels.split(",")
+        except KeyError:
+            print("Please provide labels for your exit questions. See https://github.com/BonnieMcLean/IcoTools for more information.")
+
+    if submit_html!="default":
+        submit_message_raw=codecs.open(submit_html,'r','utf-8')
+        submit_message_l=[]
+        for line in submit_message_raw:
+            submit_message_l.append(line)
+        submit_message=' '.join(submit_message_l)
+        submit_message=submit_message.replace('"',"'")     
 
     if media_type!='mp3' and media_type!='mp4':
         print('Please enter a valid media type. Valid media types are mp3 or mp4.')
         return
 
     # call balancer to make the experiments
-    experiments_raw=balancer(wordlist,words_per_exp)
+    stuff=balancer(wordlist,words_per_exp)
+    experiments_raw=stuff[0]
+    no_practiceq=stuff[1]
 
     # make a list of all the words here in the case that you are just
     # using simple foils
@@ -206,14 +260,16 @@ def guesser(wordlist,control_file):
             
 
     # make experiments list
-    filename=wordlist.strip('.csv')+'_experiments.csv'
+    filename=wordlist.replace('.csv','')+'_experiments.csv'
     with open(filename,'w',newline='') as outfile:
         writer=csv.writer(outfile)
-        writer.writerow(('experiment','item_type','form','meaning','foils','hypothesis'))
+        writer.writerow(('experiment','trial','item_type','form','meaning','foils'))
         for exp in experiments:
             items=experiments[exp]
+            n=1
             for item in items:
-                writer.writerow((exp,item[5],item[0],'|'.join(item[2]),'|'.join(item[1]),item[4]))
+                writer.writerow((exp,n,item[5],item[0],'|'.join(item[2]),'|'.join(item[1])))
+                n+=1
     outfile.close()
                                 
     # get together the code for the guessing experiments
@@ -252,12 +308,16 @@ def guesser(wordlist,control_file):
                     myline=line.replace('showAudioTest','easystart')
             outro_code.append(myline)
 
+
     # add instructions to the intro code
 
-    instructions=codecs.open(os.path.join(here,'templates',instructions_html),'r','utf8')
-    instructions_l=[]
-    for line in instructions:
-        instructions_l.append(line)
+    if ".html" in instructions_html:
+        instructions_all=codecs.open(instructions_html,'r','utf8')      
+        instructions_l=[]
+        for line in instructions_all:
+            instructions_l.append(line)
+    else:
+        instructions_l=[instructions]
 
     # split intro code into two by line INSTRUCTIONS
     for i in range(len(intro_code)):
@@ -269,10 +329,13 @@ def guesser(wordlist,control_file):
     
 
     # add exit quest to the outro code
-    exitques=codecs.open(os.path.join(here,'templates',exitques_html),'r','utf-8')
-    exit_l=[]
-    for line in exitques:
-        exit_l.append(line)
+    if ".html" in exitques_html:
+        exitques=codecs.open(os.path.join(here,exitques_html),'r','utf-8')
+        exit_l=[]
+        for line in exitques:
+            exit_l.append(line)
+    else:
+        exit_l=[exitques]
 
     # split outro code into two by line EXIT QUESTIONS
     for i in range(len(outro_code)):
@@ -439,18 +502,6 @@ def guesser(wordlist,control_file):
         all_experiments.append(code)
 
 
-    # check what questions are in the exit survey
-    exit_vars=[]
-    for line in exitques:
-        if 'name=' in line:
-            split=line.split('name=')[1]
-            try:
-                var=split.split('"')[1]
-            except IndexError:
-                var=split.split("'")[1]
-            if var not in exit_vars:
-                exit_vars.append(var)
-        
 
     # write all the experiments
     n=1
@@ -480,6 +531,8 @@ def guesser(wordlist,control_file):
         php_file='experiment'+str(n)+'.php'
         with open(path+php_file,'w') as outfile:
             for line in php:
+                if "// Print a message for them" in line:
+                    line='print("'+submit_message+'");'
                 outfile.write('%s\n'%line.strip('\n'))
         outfile.close()
 
@@ -490,13 +543,13 @@ def guesser(wordlist,control_file):
             n_items=len(experiments[str(n)])
             header=[]
             for i in range(n_items):
-                header.append('trans'+str(i+1))
-                header.append('foil'+str(i+1))
-                header.append('answer'+str(i+1))
-                header.append('ReactionTime'+str(i+1))
+                header.append('t'+str(i+1))
+                header.append('f'+str(i+1))
+                header.append('a'+str(i+1))
+                header.append('rt'+str(i+1))
             for var in exit_vars:
                 header.append(var)
-                print(var)
             writer.writerow(header)
         outfile.close()
         n+=1
+    print('Finished! Please find your experiments in the experiments folder, and a list of all the experiments and their items in the file '+wordlist.replace('.csv','')+'_experiments.csv')

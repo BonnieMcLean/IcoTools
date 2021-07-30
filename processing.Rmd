@@ -56,3 +56,6 @@ info$trial <- as.character(info$trial)
 experiments%>%
   left_join(info)->experiments
 ```
+
+# Guessing results
+
