@@ -49,7 +49,7 @@ It should be a csv file with two columns, the first column contains variable nam
 |exitques_html    |either 'default' or provide filename to your own html exit questions                                             |  
 |exitques_labels  |(if not using default exit questions) a comma separated list of labels for your exit questions (for the csv file)|
 |submit_html      |either 'default' or provide filename to your own html submit message (e.g. if you need to redirect participants) |
-|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)                           |                                                                        
+|words_per_exp    |roughly how many words would you like to test per experiment (ex. practice questions and control items)          |                                                                        
 
 See examples in the example folder.
 
@@ -86,5 +86,5 @@ See examples in the example folder.
 |exitques_html    |either 'default' or provide filename to your own html exit questions                                             |  
 |exitques_labels  |(if not using default exit questions) a comma separated list of labels for your exit questions (for the csv file)|
 |submit_html      |either 'default' or provide filename to your own html submit message (e.g. if you need to redirect participants) |
-|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)                           |
+|words_per_exp    |roughly how many words would you like to test per experiment (ex. practice questions and control items)          |
 |rating_labels    |(optional) if you want custom labels for each end of the rating scale, put them here separated by a comma        |
