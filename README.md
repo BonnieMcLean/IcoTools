@@ -75,13 +75,16 @@ See examples in the example folder.
 
 # Instructions for rating experiments
 
-|Col1             |Col2                                                                                      |
-|-----------------|------------------------------------------------------------------------------------------|
-|language         |language of the words (if you want to inform participants of that)                        |
-|media_source     |link to location of media files                                                           |
-|media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                            |                                                                           |
-|muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos                  |                                                                             |
-|headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'|                                                                        |
-|instructions_html|either 'default' or provide filename to your own html instructions                        |                                                                       |
-|exitques_html    |either 'default' or provide filename to your own html exit questions                      |                                                                        |
-|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)    |                                                                        |
+|Col1             |Col2                                                                                                            |
+|-----------------|----------------------------------------------------------------------------------------------------------------|
+|media_source     |link to location of media files                                                                                 |
+|media_type       |media format (either mp4, mp3, jpg, jpeg, png)                                                                  |                                                                           
+|muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos                                        |
+|language         |(optional) language of the stimuli (if you want to inform participants of that)                                 |
+|headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'                      |                                                                        
+|instructions_html|provide filename to your own html instructions. If using mp3 stimuli, you can write 'default' for the default instructions, but there are no default instructions for other stimuli types|                                              |                                                                       |
+|exitques_html    |either 'default' or provide filename to your own html exit questions                                             |  
+|exitques_labels  |(if not using default exit questions) a comma separated list of labels for your exit questions (for the csv file)|
+|submit_html      |either 'default' or provide filename to your own html submit message (e.g. if you need to redirect participants) |
+|words_per_exp    |roughly how many words would you like to test per experiment (inc. practice questions)                           |
+|rating_labels    |(optional) if you want custom labels for each end of the rating scale, put them here separated by a comma        |
