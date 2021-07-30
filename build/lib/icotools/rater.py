@@ -39,25 +39,17 @@ def balancer(csv_file,no_expwords):
             except KeyError:
                 hypothesis='none'
 
-            try:
-                foils=row['foils']
-            except KeyError:
-                foils=''
-            try:
-                nofoils=row['no_foils']
-            except KeyError:
-                nofoils=''
                 
             # store the trials, practice and control items
             if item=='trial':
-                trials.append((form,meaning,hypothesis,item,foils,nofoils))
+                trials.append((form,meaning,hypothesis,item))
             elif item=='practice':
-                practice.append((form,meaning,hypothesis,item,foils,nofoils))
+                practice.append((form,meaning,hypothesis,item))
             else:
-                controls.append((form,meaning,hypothesis,item,foils,nofoils))
+                controls.append((form,meaning,hypothesis,item))
     infile.close()
 
-    no_practiceq=len(practice)
+
     # Decide how many experiments to test all these words
 
     no_words=len(trials)
@@ -117,31 +109,67 @@ def balancer(csv_file,no_expwords):
     for exp in experiments:
         index=experiments.index(exp)
         experiments[index]=practice+exp+controls
-    return((experiments,no_practiceq))
+
+    return(experiments)
 
 
-def guesser(wordlist,control_file):
-    """Makes guessing experiments, see https://github.com/BonnieMcLean/IcoTools for the format of the stimuli list and control file"""
 
-    instructions_mp3="""
-<p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in Japanese, guessing from a choice of two Japanese words.</p>
+def rater(stimuli_list,control_file):
+    """Makes rating tasks, see https://github.com/BonnieMcLean/IcoTools for the format of the stimuli list and control file"""
 
-<p><strong>Criteria for participation</strong></p>
-<p>Because your answers should be guesses, it is very important for our experiment that you do NOT speak or understand Japanese. Also, since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
-<p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+
+    instructions="""
+    <p>Some words seem to 'fit' their meanings. For example, consider the English words <i>wiggle</i>, <i>jiggle</i>, and <i>wriggle</i>.</p>
+    <p>We have an intuitive sense of the meanings of these words, because there is a resemblance between the words and their meanings.</p>
+    <p>Even people who do not speak any English can get a sense of the meaning of these words.</p>
+    <p>Words like <i>walk</i> and <i>run</i> on the other hand are not so intuitive; people who do not know any English would not be able to guess what these words mean.</p>
+    <p>In this task, you will listen to some Japanese words, and we will tell you their meanings. You will then be asked to judge whether there is
+    a resemblance between the word and its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
+    <p>Since the task requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the task that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the task.</p> 
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
     """
+
+    instructions_signs="""
+    <p>In this task, you will be presented with some Japanese signs, and we will tell you their meanings. Rate how well you think the sign depicts its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+
+    instructions_signs_unknown="""
+    <p>In this task, you will be presented with some foreign signs, and we will tell you their meanings. Rate how well you think the sign depicts its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+
+    instructions_gestures="""
+    <p>In this task, you will be presented with some Japanese gestures, and we will tell you their meanings. Rate how well you think the gesture depicts its meaning. 
+    </p>
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+    """
+    
 
     instructions_unknown="""
-<p>We are interested in how well people can guess words in foreign languages. In this experiment, you will be asked to match the English translation with the corresponding word in an unknown language, guessing from a choice of two words.</p>
-
-<p><strong>Criteria for participation</strong></p>
-<p>Since the experiment requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the experiment that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the experiment.</p> 
-<p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    """
+    <p>Some words seem to 'fit' their meanings. For example, consider the English words <i>wiggle</i>, <i>jiggle</i>, and <i>wriggle</i>.</p>
+    <p>We have an intuitive sense of the meanings of these words, because there is a resemblance between the words and their meanings.</p>
+    <p>Even people who do not speak any English can get a sense of the meaning of these words.</p>
+    <p>Words like <i>walk</i> and <i>run</i> on the other hand are not so intuitive; people who do not know any English would not be able to guess what these words mean.</p>
+    <p>In this task, you will listen to some foreign words, and we will tell you their meanings. You will then be asked to judge whether there is
+    a resemblance between the word and its meaning. 
+    </p>
+    <p><strong>Criteria for participation</strong></p>
+    <p>Since the task requires you to listen to the words, you will need to complete it in a quiet place using headphones. We will check at the beginning of the task that you are using headphones, so please make sure to use them as participants who do not use headphones will not be able to complete the task.</p> 
+    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
+"""
 
     exit_ques="""
     <p>This is the end of the task. However, before you submit your answers we need to collect some information from you. Kindly fill in the following:</p>
-    <p><strong>Native Language*:</strong><input type="text" name="nativelang" required></p>
+    <p><strong>Native Language*:</strong><input type="text" name="lang" required></p>
     <p><strong>Other languages you understand:</strong><input type="text" name="otherlang"></p>
     <p><strong>For our feedback, please also describe the TASK you were performing*:</strong></p>
     <p><input type="text" name="taskdesc" size="80"></p>
@@ -152,30 +180,6 @@ def guesser(wordlist,control_file):
     <p>Thank you for participating in this research!</p>
     """
 
-    instructions_signs="""
-    <p>We are interested in how well people can guess the meanings of signs in Japanese. In this experiment, you will be asked to match the English translation with the corresponding sign in Japanese, guessing from a choice of two Japanese signs.
-    </p>
-    <p><strong>Criteria for participation</strong></p>
-    <p>For your judgments to be unbiased, it is very important that you do NOT know any Japanese. If you do know Japanese, we kindly ask that you do not participate in this study.</p>
-    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    </div>
-    """
-
-    instructions_signs_unknown="""
-    <p>We are interested in how well people can guess the meanings of foreign language signs. In this experiment, you will be asked to match the English translation with the corresponding sign, guessing from between a choice of two signs.
-    </p>
-    <p><strong>Criteria for participation</strong></p>
-    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    </div>
-    """
-
-    instructions_gestures="""
-    <p>We are interested in how well people can guess the meanings of Japanese gestures. In this experiment, you will be asked to match the English translation with the corresponding gesture, guessing from between a choice of two gestures.
-    </p>
-    <p>Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.</p>
-    </div>
-    """
-    
     # read in the information from the control file
     control={}
     with open(control_file,'r',encoding='UTF-8') as infile:
@@ -184,39 +188,41 @@ def guesser(wordlist,control_file):
             key=row[0]
             value=row[1]
             control[key]=value
-    infile.close()
     try:
         media_source=control['media_source']
         media_type=control['media_type']
         instructions_html=control['instructions_html']
         exitques_html=control['exitques_html']
-        headphone_check=control['headphone_check']
         submit_html=control['submit_html']
+        headphone_check=control['headphone_check']
         words_per_exp=int(control['words_per_exp'])
     except KeyError:
-        print('Your control file is not formatted correctly. See help(guesser) for information on how to format it.')
+        print('Your control file is not formatted correctly. See https://github.com/BonnieMcLean/IcoTools for the correct format.')
+
+    try:
+        muted_vids=control['muted_vids']
+    except KeyError:
+        muted_vids='n'
+        
     try:
         language=control['language']
     except KeyError:
         language='foreign'
+
     if media_type=="mp4":
-        try:
-            muted_vids=control['muted_vids']
-        except KeyError:
-            muted_vids='n'
         try:
             mp4type=control['mp4_type']
         except KeyError:
-            print("Please specify the type of mp4 stimuli--gestures or signs--for the questions in the task")
-            sys.exit()
-            
+            print('Please specify whether your mp4 stimuli are gestures or signs for the instructions')
+            sys.exit()            
+    
     if instructions_html=='default':
-        if media_type=='mp3':
-            if language=='foreign':
+        if media_type=="mp3":
+            if language=="foreign":
                 instructions=instructions_unknown
             else:
-                instructions=instructions_mp3.replace('Japanese',language)
-        elif media_type=='mp4':
+                instructions=instructions.replace("Japanese",language)
+        elif media_type=="mp4":
             if mp4type=='gesture':
                 instructions=instructions_gestures.replace('Japanese',language)
             else:
@@ -224,100 +230,63 @@ def guesser(wordlist,control_file):
                     instructions=instructions_signs_unknown
                 else:
                     instructions=instructions_signs.replace('Japanese',language)
-
-         
+            
     if exitques_html=='default':
         exitques=exit_ques
-        exit_vars=["NativeLang","OtherLangs","TaskDesc"]
+        exitques_labels=["NativeLang","OtherLangs","TaskDesc"]
     else:
         exitques=exitques_html
         try:
             exitques_labels=control["exitques_labels"]
-            exit_vars=exitques_labels.split(",")
+            exitques_labels=exitques_labels.split(",")
         except KeyError:
             print("Please provide labels for your exit questions. See https://github.com/BonnieMcLean/IcoTools for more information.")
-
     if submit_html!="default":
         submit_message_raw=codecs.open(submit_html,'r','utf-8')
         submit_message_l=[]
         for line in submit_message_raw:
             submit_message_l.append(line)
         submit_message=' '.join(submit_message_l)
-        submit_message=submit_message.replace('"',"'")     
-
+        submit_message=submit_message.replace('"',"'")
+    
     if media_type!='mp3' and media_type!='mp4':
         print('Please enter a valid media type. Valid media types are mp3 or mp4.')
         return
+
     # call balancer to make the experiments
-    stuff=balancer(wordlist,words_per_exp)
-    experiments_raw=stuff[0]
-    no_practiceq=stuff[1]
-
-    # make a list of all the words here in the case that you are just
-    # using simple foils
-    simple_foils=[]
-
-    # make a neat dictionary to store experiments
+    experiments_raw=balancer(stimuli_list,words_per_exp)
     experiments={}
-
-    n=1
-    for exp in experiments_raw:
-        experiments[str(n)]=[]
-        for item in exp:
-            form=item[0]
-            meanings=item[1].upper().split('|')
-            hypothesis=item[2]
-            item_type=item[3]
-            foils=item[4].split('|')
-            nofoils=item[5].split('|')
-            if form not in simple_foils:
-                simple_foils.append(form)
-            experiments[str(n)].append([form,foils,meanings,nofoils,hypothesis,item_type])
-        n+=1
-    
-    # in the case where you have simple foils, figure out what the
-    # foil list for each word is
-
-    for exp in experiments:
-        itemlist=experiments[exp]
-        for i in range(len(itemlist)):
-            form=itemlist[i][0]
-            foils=itemlist[i][1]
-            no_foils=itemlist[i][3]
-            if foils[0]=='':
-                true_foils=list(simple_foils)
-                true_foils.remove(form)
-                if no_foils[0]!='':
-                    for item in no_foils:
-                        true_foils.remove(item)
-                experiments[exp][i][1]=true_foils
-            
+    for i in range(len(experiments_raw)):
+        experiments[str(i+1)]=experiments_raw[i]
 
     # make experiments list
-    filename=control_file.replace('.csv','')+'_guessing.csv'
-    foldername=control_file.replace('.csv','')+'_guessing'
+
+    filename=control_file.replace('.csv','')+'_rating.csv'
     with open(filename,'w',newline='') as outfile:
         writer=csv.writer(outfile)
-        writer.writerow(('experiment','trial','item_type','form','meaning','foils'))
+        writer.writerow(('experiment','trial','item_type','form','meaning'))
         for exp in experiments:
-            items=experiments[exp]
+            stuff=experiments[exp]
             n=1
-            for item in items:
-                writer.writerow((exp,n,item[5],item[0],'|'.join(item[2]),'|'.join(item[1])))
-                n+=1
+            for word in stuff:
+                form=word[0]
+                meaning=word[1]
+                hypothesis=word[2]
+                item_type=word[3]
+                writer.writerow((exp,n,item_type,form,meaning))
+                n=n+1
     outfile.close()
-                                
-    # get together the code for the guessing experiments
-    
+
+    # get together code for rating tasks
+
     intro_code=[]
-    odd_trial=[]
-    even_trial=[]
+    trial_code=[]
     outro_code=[]
     here = os.path.dirname(os.path.abspath(__file__))
     if media_type=='mp4':
-        template=codecs.open(os.path.join(here,'templates','guesses_mp4.html'),'r','utf-8')
+        template=codecs.open(os.path.join(here,'templates','ratings_mp4.html'),'r','utf-8')
     else:
-        template=codecs.open(os.path.join(here,'templates','guesses_mp3.html'),'r','utf-8')
+        template=codecs.open(os.path.join(here,'templates','ratings_mp3.html'),'r','utf-8')
     
     section=1
     for line in template:
@@ -328,20 +297,17 @@ def guesser(wordlist,control_file):
                 section+=1
         elif section==2:
             # real test items
-            odd_trial.append(line)
-            if '<!---EVEN TRIAL!---->' in line:
-                section+=1
-        elif section==3:
-            even_trial.append(line)
+            trial_code.append(line)
             if '<!---TRIAL END!---->' in line:
-                section+=1   
+                section+=1
         else:
             # outro code
             myline=line
-            if "$('#participate').click(showAudioTest);" in line:
+            if "$('#participate').click(showAudioTest)" in line:
                 if headphone_check=='n':
                     myline=line.replace('showAudioTest','easystart')
             outro_code.append(myline)
+
 
 
     # add instructions to the intro code
@@ -354,6 +320,7 @@ def guesser(wordlist,control_file):
     else:
         instructions_l=[instructions]
 
+
     # split intro code into two by line INSTRUCTIONS
     for i in range(len(intro_code)):
         if 'INSTRUCTIONS' in intro_code[i]:
@@ -361,7 +328,6 @@ def guesser(wordlist,control_file):
     intro_code_1=intro_code[:index]
     intro_code_2=intro_code[index+1:]
     intro_code=intro_code_1+instructions_l+intro_code_2
-    
 
     # add exit quest to the outro code
     if ".html" in exitques_html:
@@ -381,45 +347,23 @@ def guesser(wordlist,control_file):
     outro_code_2=outro_code[index+1:]
     outro_code=outro_code_1+exit_l+outro_code_2
 
-    
-    # make the code for each experiment, and store that in all_experiments
+
     all_experiments=[]
     for exp in experiments:
-        code=[]
-
-        # first the intro code
-        for line in intro_code:
-            if 'experimentX.php' in line:
-                code.append(line.replace('X',exp))
-            else:
-                code.append(line)
-
-        # then the trial code
-        trials=experiments[exp]
-        n=1
-
-        # keep track of all the foils, and all the trans in order, as you need to
-        # put these in the outro code at the end
-
-        allfoils=[]
         alltrans=[]
-        
-        for trial in trials:
-            foils=trial[1]
-            trans=trial[2]
-            for i in range(len(foils)):
-                foils[i]=media_source+'/'+foils[i]+'.'+media_type
-
-            allfoils.append(foils)
-            alltrans.append(trans)
-
-            # I have different odd and even trials because in the even trials the answer is A,
-            # in the odd trials the answer is B.
-          
-            if n%2!=0:
-                trial_code=odd_trial
+        code=[]
+        for item in intro_code:
+            if 'experimentX.php' in item:
+                code.append(item.replace('X',exp))
             else:
-                trial_code=even_trial
+                code.append(item)
+
+        trials=experiments[exp]
+
+        n=1
+        for trial in trials:
+            trans=trial[1].upper().split('|')
+            alltrans.append(trans)
             for line in trial_code:
                 if '<div id="trial1" class="trialDiv">' in line:
                     myline=line.replace('trial1','trial'+str(n))
@@ -430,64 +374,40 @@ def guesser(wordlist,control_file):
                         myline=line
                 elif "id='trans1'" in line:
                     myline=line.replace('trans1','trans'+str(n))
+                elif 'SOUNDFILE' in line:
+                    word=trial[0]
+                    myline=line.replace('SOUNDFILE',media_source+word+'.'+media_type)
                 elif 'name="chosentrans1"' in line:
                     myline=line.replace('chosentrans1','chosentrans'+str(n))
-                elif "id='realplayer-1'" in line:
-                    myline=line.replace('realplayer-1','realplayer-'+str(n))
-                    if media_type=='mp4' and muted_vids=='n':
-                        myline=myline.replace('muted','')
-                elif "id='foilplayer-1'" in line:
-                    myline=line.replace('foilplayer-1','foilplayer-'+str(n))
-                    if media_type=='mp4' and muted_vids=='n':
-                        myline=myline.replace('muted','')
-                elif 'id="chosenfoil1"' in line:
-                    myline=line.replace('chosenfoil1','chosenfoil'+str(n))                    
-                elif "ANSWER_MEDIA" in line:
-                    word=trial[0]
-                    myline=line.replace('ANSWER_MEDIA',media_source+'/'+word+'.'+media_type+'"&someRandomSeed=" + Math.random().toString(36)')
+                elif 'name="q1"' in line:
+                    myline=line.replace('q1','q'+str(n))
+                elif "id='player1'" in line:
+                    myline=line.replace('player1','player'+str(n))
                 elif 'options1' in line:
                     myline=line.replace('options1','options'+str(n))
-                elif 'q1' in line:
-                    myline=line.replace('q1','q'+str(n))
-                elif 'ques1' in line:
-                    myline=line.replace('ques1','ques'+str(n))
                 elif 'reactionTime1' in line:
                     myline=line.replace('reactionTime1','reactionTime'+str(n))
                     myline=myline.replace('rt1','rt'+str(n))
                 else:
                     myline=line
                 code.append(myline)
-            n+=1
 
-        # then finally the outro code
+            n+=1
+        
+        # now time to make the outro code
         for line in outro_code:
-            if 'allfoils=[[],[]]' in line:
-                begin='[['
-                for i in range(len(allfoils)):
-                    items=allfoils[i]
-                    for z in range(len(items)):
-                        if z==len(items)-1:
-                            if i==len(allfoils)-1:
-                                begin+='"'+items[z]+'"]]'
-                            else:
-                                begin+='"'+items[z]+'"],['
-                        else:
-                            begin+='"'+items[z]+'",'
-                    
-                myline=line.replace('[[],[]]',begin)
-                    
-            elif 'alltrans=[[],[]]' in line:
+            if 'alltrans=[[],[]]' in line:
                 sub='[['
                 for i in range(len(alltrans)):
                     items=alltrans[i]
                     for z in range(len(items)):
                         if z==len(items)-1:
                             if i==len(alltrans)-1:
-                               sub+='"'+items[z]+'"]]'
+                               sub+='"'+items[z].upper()+'"]]'
                             else:
-                                sub+='"'+items[z]+'"],['
+                                sub+='"'+items[z].upper()+'"],['
                         else:
-                            sub+='"'+items[z]+'",'
+                            sub+='"'+items[z].upper()+'",'
                 myline=line.replace('[[],[]]',sub)
 
             elif 'i<2' in line:
@@ -495,22 +415,12 @@ def guesser(wordlist,control_file):
             elif 'var shuffled = shuffle([3,4,5,6]);' in line:
                 num_items=n-1
                 string=''
-                for i in range(num_items-no_practiceq):
+                for i in range(num_items-2):
                     if i==0:
-                        string+=str(i+no_practiceq+1)
+                        string+=str(i+3)
                     else:
-                        string+=','+str(i+no_practiceq+1)
+                        string+=','+str(i+3)
                 myline=line.replace('3,4,5,6',string)
-            elif 'var trialOrder =[1,2].concat(shuffled);' in line:
-                string=''
-                for i in range(no_practiceq):
-                    if i==0:
-                        string+=str(i+1)
-                    else:
-                        string+=','+str(i+1)
-                myline=line.replace('1,2',string)
-                if no_practiceq==0:
-                    myline='var trialOrder=shuffled;'
             elif 'var nTrials=6' in line:
                 myline=line.replace('6',str(num_items))   
             else:
@@ -518,78 +428,83 @@ def guesser(wordlist,control_file):
             code.append(myline)
 
         # get rid of the stuff ending the script and form
-        code=code[:-2]        
-    
+        code=code[:-2]
+
         # add the inner HTML lines
 
-        trans_rep="document.getElementById('transX').innerHTML='One of them means '+trans_choices[X]"
-        ques_rep="document.getElementById('quesX').innerHTML='Which one do you think means '+trans_choices[X]+'?'"
-        foil_rep="document.getElementById('foilplayer-X').src=foil_choices[X]"
+
+        if media_type=='mp3':
+            trans_rep="document.getElementById('transX').innerHTML='<p>Listen to the "+language+" word below.</p><p>It means '+trans_choices[X]+'.</p>'"
+        elif media_type=='mp4':
+            if mp4type=='gesture':
+                trans_rep="document.getElementById('transX').innerHTML='<p>Look at the gesture below.</p><p>It means '+trans_choices[X]+'.</p>'"
+            else:
+                 trans_rep="document.getElementById('transX').innerHTML='<p>Look at the sign below.</p><p>It means '+trans_choices[X]+'.</p>'"          
         for z in range(num_items):
             trans=trans_rep.replace('transX','trans'+str(z+1))
             trans=trans.replace('X',str(z))
-            ques=ques_rep.replace('quesX','ques'+str(z+1))
-            ques=ques.replace('X',str(z))
-            foil=foil_rep.replace('foilplayer-X','foilplayer-'+str(z+1))
-            foil=foil.replace('X',str(z))
             code.append(trans)
-            code.append(ques)
-            code.append(foil)
 
         # add back the end of the script and form
         code.append('</script>')
         code.append('</form>')
         all_experiments.append(code)
 
-
-
     # write all the experiments
-    n=1
+    foldername=control_file.replace('.csv','')+'_rating'
     path=os.getcwd()+'\\'+foldername+'\\'
+
     if not os.path.exists(path):
         os.mkdir(path)
-    
-    for exp in all_experiments:
+
+    n=1
+    for exper in all_experiments:
+        # write the html
         name='experiment'+str(n)+'.html'
-        # write the experiment
         with open(path+name,'w') as outfile:
-            for line in exp:
+            for line in exper:
                 outfile.write('%s\n'%line.strip('\n'))
         outfile.close()
 
         # write the php
         php=[]
-        php_template=codecs.open(os.path.join(here,'templates','php_temp.php'),'r','utf-8')
-        
+        php_template=codecs.open(os.getcwd()+'\\templates\\php_temp.php','r','utf-8')
         for line in php_template:
             if 'data.csv' in line:
                 newline=line.replace('data','experiment'+str(n))
+            elif "Print a message for them" in line:
+                newline='print("'+submit_message+'");'
             else:
                 newline=line
             php.append(newline)
 
-        php_file='experiment'+str(n)+'.php'
-        with open(path+php_file,'w') as outfile:
+        path_php=os.getcwd()+'\\'+foldername+'\\experiment'+str(n)+'.php'
+        
+        with open(path_php,'w') as outfile:
             for line in php:
-                if "// Print a message for them" in line:
-                    line='print("'+submit_message+'");'
                 outfile.write('%s\n'%line.strip('\n'))
         outfile.close()
 
+
         # write the csv file to store responses
-        csv_file='experiment'+str(n)+'.csv'
-        with open(path+csv_file,'w',newline='') as outfile:
+        path_csv=os.getcwd()+'\\'+foldername+'\\experiment'+str(n)+'.csv'
+        with open(path_csv,'w',newline='') as outfile:
             writer=csv.writer(outfile)
             n_items=len(experiments[str(n)])
             header=[]
             for i in range(n_items):
                 header.append('t'+str(i+1))
-                header.append('f'+str(i+1))
                 header.append('a'+str(i+1))
                 header.append('rt'+str(i+1))
-            for var in exit_vars:
-                header.append(var)
+
+            for label in exitques_labels:
+                header.append(label)
+
             writer.writerow(header)
         outfile.close()
-        n+=1
-    print('Finished! Please find your experiments in the '+foldername+' folder, and a list of all the experiments and their items in the file '+control_file.replace('.csv','')+'_guessing.csv')
+        n=n+1
+
+    n+=1
+    print('Finished! Please find your experiments in the '+foldername+' folder, and a list of all the experiments and their items in the file '+control_file.replace('.csv','')+'_rating.csv')
+
+    
