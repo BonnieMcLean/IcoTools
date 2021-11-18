@@ -17,12 +17,12 @@ If you don't specify your own foils, option (b) will be chosen automatically.
 The ratings function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
 
 **Available stimuli types for guessing experiments**  
-* mp3
+* mp3 or wav
 * mp4
 * images (COMING SOON)
 
 **Available stimuli types for rating experiments**
-* mp3
+* mp3 or wav
 * mp4
 * images (COMING SOON)
 
@@ -66,7 +66,7 @@ See examples in the example folder.
 
 # Default instructions
 
-## Guesses - mp3 stimuli
+## Guesses - mp3/wav stimuli
 
 'Japanese' will be replaced with whatever language you specify in the control file. If you don't specify a language, the instructions will just refer to 'an unknown language'.
 
@@ -89,7 +89,7 @@ Below are the instructions for gestures. If you specify a language then it will 
 > We are interested in how well people can guess the meanings of foreign gestures. In this experiment, you will be asked to match the English translation with the corresponding gesture, guessing from between a choice of two gestures.
 > Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
 
-## Ratings - mp3 stimuli
+## Ratings - mp3/wav stimuli
 
 'Korean' will be replaced with whatever language you specify.
 
