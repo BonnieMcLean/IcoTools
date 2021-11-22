@@ -67,7 +67,7 @@ See examples in the example folder.
 
 # Instructions for using the foiler() function
 
-For those not using IPA, if you have long vowels and consonants, represent them as doubled letters to have it convert them to single letters. 
+If you have geminate consonants, please represent them using doubled letters if you want them to be converted to single letters. If you have long vowels you can use doubled letters or the length symbol in IPA; both will work. 
 
 # Default instructions
 
