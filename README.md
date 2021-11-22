@@ -6,7 +6,7 @@ Icotools comes with three functions:
 
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.rater('stimuli.csv','controlfile.csv')`
-- `icotools.foiler(`stimuli.csv`,(`letters.csv`))`
+- `icotools.foiler(`stimuli.csv`,`letters.csv`)`
 
 The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
 
