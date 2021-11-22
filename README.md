@@ -2,10 +2,11 @@
 
 Icotools is a [python package](https://pypi.org/project/icotools/). To install it, use `pip install icotools`.
 
-Icotools comes with two functions:
+Icotools comes with three functions:
 
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.rater('stimuli.csv','controlfile.csv')`
+- `icotools.foiler(`stimuli.csv`,(`letters.csv`))`
 
 The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
 
@@ -63,6 +64,10 @@ Practice and control items are included in every experiment (but you only have t
 The meanings will also all be presented in CAPITALS during the experiment (regardless of how you write them in the stimuli file).
 
 See examples in the example folder.
+
+# Instructions for using the foiler() function
+
+For those not using IPA, if you have long vowels and consonants, represent them as doubled letters to have it convert them to single letters. 
 
 # Default instructions
 
