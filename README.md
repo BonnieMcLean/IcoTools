@@ -69,6 +69,8 @@ See examples in the example folder.
 
 If you have geminate consonants, please represent them using doubled letters if you want them to be converted to single letters. If you have long vowels you can use doubled letters or the length symbol in IPA; both will work. 
 
+By default, the formula for calculating the phonological distance between two segments—or between a segment and “silence”, i.e. insertion or deletion—is the one used in the Sublexical Learner [Allen2014]. When comparing two segments, the distance between them is equal to the sum of the distances between each of their feature values: the distance between two feature values that are identical is 0, while the distance between two opposing values (+/- or -/+) is 1, and the distance between two feature values in the case that just one of them is 0 (unspecified) is set to by default to 0.25.
+
 # Default instructions
 
 ## Guesses - mp3/wav stimuli
