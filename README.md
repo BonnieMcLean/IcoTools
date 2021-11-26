@@ -8,16 +8,16 @@ Icotools comes with three functions:
 - `icotools.rater('stimuli.csv','controlfile.csv')`
 - `icotools.foiler('stimuli.csv','letters.csv')` -- coming very soon!
 
-The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
+The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
 
 (a) make guessing experiments where the foils for each item are specified, or   
 (b) make guessing experiments where the foils for each item are randomly chosen from all the items available, with the option to specify particular item-foil pairings which should *not* be used.
 
 If you don't specify your own foils, option (b) will be chosen automatically.
 
-The ratings function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
+The **ratings** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
 
-The foiler function makes a list of 'opposite'-sounding words for all of your words, which you can use instead of random foils if you would like. I found that words are usually guessed better when paired with an opposite-sounding foil compared to a random foil. Using opposite foils can improve the sensitivity of your guessing experiment to iconicity, especially in cases where the items you are tested are expected to exhibit only weak iconicity, or where you do not have so many guesses per item.
+The **foiler** function makes a list of 'opposite'-sounding words for all of your words, which you can use instead of random foils if you would like. I found that words are usually guessed better when paired with an opposite-sounding foil compared to a random foil. Using opposite foils can improve the sensitivity of your guessing experiment to iconicity, especially in cases where the items you are tested are expected to exhibit only weak iconicity, or where you do not have so many guesses per item.
 
 **Available stimuli types for guessing experiments**  
 * mp3 or wav
