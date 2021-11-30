@@ -120,7 +120,7 @@ def balancer(csv_file,no_expwords):
     return((experiments,no_practiceq))
 
 
-def guesser(wordlist,control_file):
+def guesser(stimuli_list,control_file):
     """Makes guessing experiments, see https://github.com/BonnieMcLean/IcoTools for the format of the stimuli list and control file"""
 
     instructions_mp3="""
@@ -211,7 +211,7 @@ def guesser(wordlist,control_file):
             sys.exit()
             
     if instructions_html=='default':
-        if media_type=='mp3':
+        if media_type=='mp3' or media_type=="wav":
             if language=='foreign':
                 instructions=instructions_unknown
             else:
@@ -245,8 +245,8 @@ def guesser(wordlist,control_file):
         submit_message=' '.join(submit_message_l)
         submit_message=submit_message.replace('"',"'")     
 
-    if media_type!='mp3' and media_type!='mp4':
-        print('Please enter a valid media type. Valid media types are mp3 or mp4.')
+    if media_type!='mp3' and media_type!='mp4' and media_type!="wav":
+        print('Please enter a valid media type. Valid media types are mp3, wav or mp4.')
         return
     # call balancer to make the experiments
     stuff=balancer(wordlist,words_per_exp)

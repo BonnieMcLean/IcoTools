@@ -217,7 +217,7 @@ def rater(stimuli_list,control_file):
             sys.exit()            
     
     if instructions_html=='default':
-        if media_type=="mp3":
+        if media_type=="mp3" or media_type=="wav":
             if language=="foreign":
                 instructions=instructions_unknown
             else:
@@ -249,8 +249,8 @@ def rater(stimuli_list,control_file):
         submit_message=' '.join(submit_message_l)
         submit_message=submit_message.replace('"',"'")
     
-    if media_type!='mp3' and media_type!='mp4':
-        print('Please enter a valid media type. Valid media types are mp3 or mp4.')
+    if media_type!='mp3' and media_type!='mp4' and media_type!="wav":
+        print('Please enter a valid media type. Valid media types are mp3, wav or mp4.')
         return
 
     # call balancer to make the experiments
@@ -433,7 +433,7 @@ def rater(stimuli_list,control_file):
         # add the inner HTML lines
 
 
-        if media_type=='mp3':
+        if media_type=='mp3' or media_type=="wav":
             trans_rep="document.getElementById('transX').innerHTML='<p>Listen to the "+language+" word below.</p><p>It means '+trans_choices[X]+'.</p>'"
         elif media_type=='mp4':
             if mp4type=='gesture':
