@@ -120,7 +120,7 @@ def balancer(csv_file,no_expwords):
     return((experiments,no_practiceq))
 
 
-def guesser(wordlist,control_file):
+def guesser(stimuli_list,control_file):
     """Makes guessing experiments, see https://github.com/BonnieMcLean/IcoTools for the format of the stimuli list and control file"""
 
     instructions_mp3="""
