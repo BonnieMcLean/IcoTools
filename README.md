@@ -2,27 +2,30 @@
 
 Icotools is a [python package](https://pypi.org/project/icotools/). To install it, use `pip install icotools`.
 
-Icotools comes with two functions:
+Icotools comes with three functions:
 
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.rater('stimuli.csv','controlfile.csv')`
+- `icotools.foiler('stimuli.csv','letters.csv')` -- coming very soon!
 
-The guesser function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
+The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
 
 (a) make guessing experiments where the foils for each item are specified, or   
 (b) make guessing experiments where the foils for each item are randomly chosen from all the items available, with the option to specify particular item-foil pairings which should *not* be used.
 
 If you don't specify your own foils, option (b) will be chosen automatically.
 
-The ratings function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
+The **ratings** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
+
+The **foiler** function makes a list of 'opposite'-sounding words for all of your words, which you can use instead of random foils if you would like. I found that words are usually guessed better when paired with an opposite-sounding foil compared to a random foil. Using opposite foils can improve the sensitivity of your guessing experiment to iconicity, especially in cases where the items you are tested are expected to exhibit only weak iconicity, or where you do not have so many guesses per item.
 
 **Available stimuli types for guessing experiments**  
-* mp3
+* mp3 or wav
 * mp4
 * images (COMING SOON)
 
 **Available stimuli types for rating experiments**
-* mp3
+* mp3 or wav
 * mp4
 * images (COMING SOON)
 
@@ -64,9 +67,15 @@ The meanings will also all be presented in CAPITALS during the experiment (regar
 
 See examples in the example folder.
 
+# Instructions for using the foiler() function
+
+If you have geminate consonants, please represent them using doubled letters if you want them to be converted to single letters. If you have long vowels you can use doubled letters or the length symbol in IPA; both will work. 
+
+By default, the formula for calculating the phonological distance between two segments—or between a segment and “silence”, i.e. insertion or deletion—is the one used in the Sublexical Learner [Allen2014]. When comparing two segments, the distance between them is equal to the sum of the distances between each of their feature values: the distance between two feature values that are identical is 0, while the distance between two opposing values (+/- or -/+) is 1, and the distance between two feature values in the case that just one of them is 0 (unspecified) is set to by default to 0.25.
+
 # Default instructions
 
-## Guesses - mp3 stimuli
+## Guesses - mp3/wav stimuli
 
 'Japanese' will be replaced with whatever language you specify in the control file. If you don't specify a language, the instructions will just refer to 'an unknown language'.
 
@@ -89,7 +98,7 @@ Below are the instructions for gestures. If you specify a language then it will 
 > We are interested in how well people can guess the meanings of foreign gestures. In this experiment, you will be asked to match the English translation with the corresponding gesture, guessing from between a choice of two gestures.
 > Participation is completely voluntary, anonymous and confidential. If you meet the above criteria and agree to participate, please click 'Participate'.
 
-## Ratings - mp3 stimuli
+## Ratings - mp3/wav stimuli
 
 'Korean' will be replaced with whatever language you specify.
 
