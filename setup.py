@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.1.8' 
+VERSION = '1.1.9' 
 DESCRIPTION = 'Tools for collecting behavioural measures of iconicity'
 
 
@@ -28,6 +28,6 @@ setup(
             "Operating System :: Microsoft :: Windows",
         ],
         include_package_data=True,
-        package_data={'':['templates/*.html','templates/*.php','features/*.txt']},
+        package_data={'':['templates/*.html','templates/*.php','features/*.tsv']},
 )
 

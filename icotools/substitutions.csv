@@ -1,0 +1,106 @@
+letter,substitution,distance
+m,y,7.75
+m,r,7.25
+m,w,7.25
+m,h,7.25
+p,y,8.5
+p,r,8.0
+p,w,8.0
+b,y,8.0
+b,r,7.5
+b,w,7.5
+f,w,8.0
+f,y,7.5
+f,n,7.0
+f,r,7.0
+n,w,9.5
+n,y,8.0
+n,py,8.0
+ts,w,10.25
+ts,y,8.75
+ts,py,6.25
+dz,w,9.75
+dz,y,8.25
+dz,py,6.75
+t,w,10.25
+t,y,8.75
+t,m,6.0
+d,w,9.75
+d,y,8.25
+d,h,6.25
+s,w,9.25
+s,y,7.75
+s,py,7.25
+z,w,8.75
+z,py,7.75
+z,y,7.25
+zy,w,9.75
+zy,y,8.25
+zy,r,7.25
+r,py,10.0
+r,Qk,9.0
+r,k,8.5
+r,ky,8.5
+r,Qp,8.5
+r,Qg,8.5
+sy,w,9.25
+sy,y,7.75
+sy,py,7.25
+ty,w,10.25
+ty,y,8.75
+ty,r,7.75
+k,r,8.5
+k,w,7.5
+k,n,6.5
+g,r,8.0
+g,w,7.0
+g,h,6.5
+w,Qt,10.75
+w,ts,10.25
+w,t,10.25
+w,ty,10.25
+w,Qd,10.25
+y,Qt,9.25
+y,Qp,9.0
+y,ts,8.75
+y,t,8.75
+y,ty,8.75
+y,Qd,8.75
+h,n,7.5
+h,r,7.5
+h,w,7.5
+h,py,7.5
+ky,r,8.5
+ky,w,7.5
+ky,n,6.5
+py,r,10.0
+py,n,8.0
+py,z,7.75
+Qt,w,10.75
+Qt,y,9.25
+Qt,m,6.5
+Qp,y,9.0
+Qp,r,8.5
+Qp,w,8.5
+Qk,r,9.0
+Qk,w,8.0
+Qk,n,7.0
+Qd,w,10.25
+Qd,y,8.75
+Qd,h,6.75
+Qb,y,8.5
+Qb,r,8.0
+Qb,w,8.0
+Qg,r,8.5
+Qg,w,7.5
+Qg,h,7.0
+a,u|i,not calculated (user-specified substitution)
+i,a|u,not calculated (user-specified substitution)
+u,i|a,not calculated (user-specified substitution)
+e,o,not calculated (user-specified substitution)
+o,e,not calculated (user-specified substitution)
+ii,a|u,not calculated (user-specified substitution)
+oo,e,not calculated (user-specified substitution)
+uu,i|a,not calculated (user-specified substitution)
+aa,u|i,not calculated (user-specified substitution)
+ee,o,not calculated (user-specified substitution)
