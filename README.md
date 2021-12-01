@@ -21,24 +21,24 @@ If you don't specify your own foils, option (b) will be chosen automatically.
 
 We have found that words are usually guessed more accurately when paired with foils that are as different-sounding to them as possible, compared to when paired with random foils. Thus, using opposite foils can improve the sensitivity of your guessing experiments to iconicity, particularly in cases where the items you are testing are expected to exhibit only weak iconicity, when you do not have so many guesses per item, or when you do not have so many items in your study. We also think it is a more principled way to test for iconicity, since if a word does sound appropriate for a meaning, then a word that sounds very different to it should be *inappropriate* for that meaning. 
 
-The function **foiler** provides a list of opposite-sounding words for each item in your experiment. At the moment, the **foiler** function is only supported for items that are *spoken language words or sounds* (able to be transcribed in IPA). If the items in your experiment are hand signs or gestures, we recommend using random foils. As items in the visual modality are often higher in iconicity anyway, using opposite foils would be unlikely to greatly improve the sensitivity of the measure. However, if you have some way of choosing maximally contrastive signs or gestures to pair with your items, you are free to specify this in the 'foils' column of your stimuli file (See [here](#Format-for-the-stimuli-file))
+The function **foiler** provides a list of opposite-sounding words for each item in your experiment. At the moment, the **foiler** function is only supported for items that are *spoken language words or sounds* (able to be transcribed in IPA). If the items in your experiment are hand signs or gestures, we recommend using random foils. As items in the visual modality are often higher in iconicity anyway, using opposite foils would be unlikely to greatly improve the sensitivity of the measure. However, if you have some way of choosing maximally contrastive signs or gestures to pair with your items, you are free to specify this in the 'foils' column of your stimuli file (See [here](#Format-for-stimuli-file))
 
-**Available stimuli types for guessing experiments**  
+## Available stimuli types
 
-* mp3 or wav
-* mp4
-* images (COMING SOON)
+At the moment, the following types of stimuli are supported:
 
-**Available stimuli types for rating experiments**
-* mp3 or wav
-* mp4
-* images (COMING SOON)
+- mp3 or wav 
+- mp4
 
-Each function takes a list of stimuli (stimuli.csv) and a control file (control.csv) as inputs, and produces a folder of html experiments to collect measures of iconicity on those items. For each experiment, three files are produced--a html file, a php file, and a csv file. Once you upload all these files to your server, and share the link to the html experiments with participants, as participants complete your study, their answers (as well as their reaction times for each item, and a record of which translation/foil was presented to them for each item) will be written to the csv file on your server (by the php). The functions also produce a summary csv file with all the details of the experiments (what the trials and translations were and, where applicable, the foils as well).
+We are planning to add support for images soon. If you would like support for more types of stimuli, please request it in the 'Issues' section.
 
-There are examples in the 'examples' folder. The file `processing.Rmd` contains R scripts for combining the raw results files from the experiments into one long tidy dataset. 
+## How do the guessing and rating functions work? 
 
-# Format for control files
+Each function takes a list of stimuli (stimuli.csv) and a control file (control.csv) as inputs, and produces a folder of html experiments to collect measures of iconicity on those items. For each experiment, three files are produced--a html file, a php file, and a csv file. Once you upload all these files to your server, and share the link to the html experiments with participants, as participants complete your study, their answers (as well as their reaction times for each item, and a record of which translation/foil was presented to them for each item) will be written to the csv file on your server (by the php). The functions also produce a summary csv file with all the details of the experiments (i.e. the trials in each experiment, as well as the translations and, where applicable, foils used).
+
+There are examples in the 'examples' folder. The file `processing.Rmd` contains R scripts for combining the raw result files from the experiments into one long tidy dataset. 
+
+# Format for control file
 
 It should be a csv file with two columns, the first column contains variable names and the second column contains their values.
 
@@ -59,14 +59,14 @@ It should be a csv file with two columns, the first column contains variable nam
 The order of the variables doesn't matter.
 See examples in the example folder.
 
-# Format for the stimuli file
-It should be a csv file. The first three columns are required, but the last three are optional. Having extra columns (with stuff not relevant to the experiments) also doesn't matter.
+# Format for stimuli file
+It should be a csv file. The first three columns are required, but the last three are optional. Having extra columns (with stuff not relevant to the experiments) will not matter.
 
-|form                                                                                                                                                                                                                      |item                                                                                                                                |meaning                                   |foils                                                                                                                                   |no_foils                                                                                                                                      |iconic                                                                                                                                                                 |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|the form to be tested--this should correspond to the name of your media files, e.g. if the form is honnori the media file should be called honnori.mp3 or honnori.mp4 etc. (depending on what you put in the control file)|either 'practice' (if it's a practice item), 'control' (if it's a control item) or 'trial' (if it's one of the items you're testing)|one or more translations, separated by \\||the names of items you want to use as foils. These should match their media file names (as for the form column), and be separated by \\||the names of items you don't want to use as foils. These should match their media file names (as for the form column), and be separated by \\||if you want to have a roughly equal number of possibly iconic vs possibly not iconic words in each experiment, indicate your hypothesis about iconicity 'y' or 'n' here|
+| form                                                         | item                                                         | meaning                                   | foils                                                        | no_foils                                                     | iconic                                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| the form to be tested--this should correspond to the name of your media files, e.g. if the form is honnori the media file should be called honnori.mp3 or honnori.mp4 etc. (depending on what you put in the control file) | either 'practice' (if it's a practice item), 'control' (if it's a control item) or 'trial' (if it's one of the items you're testing)--see explanation below table | one or more translations, separated by \| | the names of items you want to use as foils. These should match their media file names (as for the form column), and be separated by \| | the names of items you don't want to use as foils. These should match their media file names (as for the form column), and be separated by \| | if you want to have a roughly equal number of possibly iconic vs possibly not iconic words in each experiment, indicate your hypothesis about iconicity 'y' or 'n' here |
 
-Practice and control items are included in every experiment (but you only have to list them in the stimuli file once). The practice items are always the first two items in every experiment, while the order of the trial items and the control items is randomised between participants. The choice of foil and the choice of translation (in the meaning column) is also randomly varied between participants (for the meanings/foils listed). If you don't list any foils, then the foil will be randomly chosen from the other trials.
+Practice and control items are included in every experiment (but you only have to list them in the stimuli file once). The practice items are always the first two items in every experiment, while the order of the trial items and the control items is randomised between participants. The choice of foil and the choice of translation (in the meaning column) is also randomly varied between participants (for the meanings/foils listed). If you don't list any foils, then the foil will be randomly chosen from the other trials. We recommend providing multiple translations in the meaning column for each trial where possible, so that the choice of translation does not too strongly influence the results. Try to choose translations that are similar in meaning, but different in sound (see the paper for more discussion). 
 
 The meanings will also all be presented in CAPITALS during the experiment (regardless of how you write them in the stimuli file).
 
@@ -77,6 +77,14 @@ See examples in the example folder.
 If you have geminate consonants, please represent them using doubled letters if you want them to be converted to single letters. If you have long vowels you can use doubled letters or the length symbol in IPA; both will work. 
 
 By default, the formula for calculating the phonological distance between two segments—or between a segment and “silence”, i.e. insertion or deletion—is the one used in the Sublexical Learner [Allen2014]. When comparing two segments, the distance between them is equal to the sum of the distances between each of their feature values: the distance between two feature values that are identical is 0, while the distance between two opposing values (+/- or -/+) is 1, and the distance between two feature values in the case that just one of them is 0 (unspecified) is set to by default to 0.25.
+
+# Demo
+
+Below is an example of how to use the functions in icotools from python:
+
+![](terminal.PNG)
+
+You can find the input files in the folder 'examples/foiler_examples'.
 
 # Default instructions
 
