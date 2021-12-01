@@ -4,9 +4,11 @@ Icotools is a [python package](https://pypi.org/project/icotools/). To install i
 
 Icotools comes with three functions:
 
-- `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.rater('stimuli.csv','controlfile.csv')`
-- `icotools.foiler('stimuli.csv','letters.csv')` -- coming very soon!
+- `icotools.guesser('stimuli.csv','controlfile.csv')`
+- `icotools.foiler('stimuli.csv','letters.csv')` 
+
+The **rater** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
 
 The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
 
@@ -15,11 +17,14 @@ The **guesser** function makes guessing experiments, where participants are give
 
 If you don't specify your own foils, option (b) will be chosen automatically.
 
-The **ratings** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
+## Why specify foils?
 
-The **foiler** function makes a list of 'opposite'-sounding words for all of your words, which you can use instead of random foils if you would like. I found that words are usually guessed better when paired with an opposite-sounding foil compared to a random foil. Using opposite foils can improve the sensitivity of your guessing experiment to iconicity, especially in cases where the items you are tested are expected to exhibit only weak iconicity, or where you do not have so many guesses per item.
+We have found that words are usually guessed more accurately when paired with foils that are as different-sounding to them as possible, compared to when paired with random foils. Thus, using opposite foils can improve the sensitivity of your guessing experiments to iconicity, particularly in cases where the items you are testing are expected to exhibit only weak iconicity, when you do not have so many guesses per item, or when you do not have so many items in your study. We also think it is a more principled way to test for iconicity, since if a word does sound appropriate for a meaning, then a word that sounds very different to it should be *inappropriate* for that meaning. 
+
+The function **foiler** provides a list of opposite-sounding words for each item in your experiment. At the moment, the **foiler** function is only supported for items that are *spoken language words or sounds* (able to be transcribed in IPA). If the items in your experiment are hand signs or gestures, we recommend using random foils. As items in the visual modality are often higher in iconicity anyway, using opposite foils would be unlikely to greatly improve the sensitivity of the measure. However, if you have some way of choosing maximally contrastive signs or gestures to pair with your items, you are free to specify this in the 'foils' column of your stimuli file (See [here](#Format-for-the-stimuli-file))
 
 **Available stimuli types for guessing experiments**  
+
 * mp3 or wav
 * mp4
 * images (COMING SOON)
