@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.1.3' 
+VERSION = '1.1.8' 
 DESCRIPTION = 'Tools for collecting behavioural measures of iconicity'
 
 

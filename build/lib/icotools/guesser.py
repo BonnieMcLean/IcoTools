@@ -249,7 +249,7 @@ def guesser(stimuli_list,control_file):
         print('Please enter a valid media type. Valid media types are mp3, wav or mp4.')
         return
     # call balancer to make the experiments
-    stuff=balancer(wordlist,words_per_exp)
+    stuff=balancer(stimuli_list,words_per_exp)
     experiments_raw=stuff[0]
     no_practiceq=stuff[1]
 

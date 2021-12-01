@@ -1,6 +1,7 @@
 import csv
 import os
 import numpy as np
+import re
 from random import randint
 
 def foiler(stimuli,letters):
@@ -16,6 +17,7 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
     i=-1
     currentgroup=None
     ipa2letter={}
+    specified=[]
     with open(letters,'r',encoding='utf-8') as infile:
         reader=csv.DictReader(infile)
         for row in reader:
@@ -32,6 +34,7 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
                 sub=row['substitute']
                 if sub!="":
                     substitutions[letter]=[sub]
+                    specified.append(letter)
             except KeyError:
                 pass
             try:
@@ -96,12 +99,13 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
                         distances[sound]=[[item],[diff]]
         else:
             for sound in group:
-                subs=group
+                subs=list(group)
                 subs.remove(sound)
                 substitutions[sound]=subs
-                
     # figure out the top three biggest distances, and add sounds with those distances to the substitutions dictionary until you have at least 3 subs for each sound
+    distance_record=[]
     for key in distances.keys():
+        # sort distances from highest to lowest
         dists=sorted(distances[key][1],reverse=True)
         subs=[]
         i=0
@@ -111,19 +115,19 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
                 thing=distances[key][0][z]
                 if thing not in subs:
                     subs.append(thing)
+                    distance_record.append((key,thing,dists[i]))
             i+=1
         if key not in substitutions.keys():
             substitutions[key]=subs
 
     ordered_subs=sorted(list(substitutions.keys()),key=len,reverse=True)
-    
 
     # make the foils
     outlines=[]
     with open(stimuli,'r',encoding="UTF-8") as infile:
         reader=csv.DictReader(infile)
         headers=reader.fieldnames
-        headers.append("foil")
+        headers.append("foils")
         outlines.append(headers)
         for row in reader:
             word=row["form"]
@@ -133,46 +137,88 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
                     # if it's reduplicated, let's unreduplicate it
                     word=word[0:int(len(word)/2)]
             # then make the substitutions
-            foil1=str(word)
-            foil2=str(word)
-            foil3=str(word)
             original=str(word)
+            # get a list of unique sounds to replace
+            sounds=[]
             for key in ordered_subs:
                 if key in word:
-                    subs=list(substitutions[key])
-                    if len(subs)<3:
-                        if len(subs)==1:
-                            foil1=foil1.replace(key,subs[0])
-                            foil2=foil2.replace(key,subs[0])
-                            foil3=foil3.replace(key,subs[0])
-                        else:
-                            if randint(1,2)==1:
-                                foil1=foil1.replace(key,subs[0])
-                                foil2=foil2.replace(key,subs[1])
-                                foil3=foil3.replace(key,subs[0])
-                            else:
-                                foil1=foil1.replace(key,subs[1])
-                                foil2=foil2.replace(key,subs[0])
-                                foil3=foil3.replace(key,subs[1])     
+                    sounds.append(key)
+                    word=word.replace(key,"")
+
+            # subdivide the words into those sounds
+            # first split the word into characters
+            wordsplit=list(original)
+
+            # then go through and join them back together if they belong to a bigraph
+            substitute=[]
+            i=0
+            while i<len(wordsplit):
+                current=wordsplit[i]
+                try:
+                    next_one=wordsplit[i+1]
+                except IndexError:
+                    next_one=""
+                if current+next_one in sounds:
+                    substitute.append(current+next_one)
+                    i=i+2
+                else:
+                    substitute.append(current)
+                    i=i+1
+            foil1=list(substitute)
+            foil2=list(substitute)
+            foil3=list(substitute)
+            original=list(substitute)
+            
+            # replace each of the sounds
+            for i in range(len(substitute)):
+                key=original[i]
+                subs=list(substitutions[key])
+
+                if len(subs)<3:
+                    if len(subs)==1:
+                        sub=subs.pop()
+                        foil1[i]=sub
+                        foil2[i]=sub
+                        foil3[i]=sub
                     else:
-                        index=randint(0,len(subs)-1)
-                        sub=subs.pop(index)
-                        foil1=foil1.replace(key,sub)
-                        index=randint(0,len(subs)-1)
-                        sub=subs.pop(index)
-                        foil2=foil2.replace(key,sub)
-                        index=randint(0,len(subs)-1)
-                        sub=subs.pop(index)
-                        foil3=foil3.replace(key,sub)
-                    word=word.replace(key,'')
+                        index=randint(0,1)
+                        sub1=subs.pop(index)
+                        sub2=subs.pop()
+                        foil1[i]=sub1
+                        foil2[i]=sub1
+                        foil3[i]=sub2
+                else:
+                    index=randint(0,len(subs)-1)
+                    sub=subs.pop(index)
+                    foil1[i]=sub
+                    index=randint(0,len(subs)-1)
+                    sub=subs.pop(index)
+                    foil2[i]=sub
+                    index=randint(0,len(subs)-1)
+                    sub=subs.pop(index)
+                    foil3[i]=sub
+            
             line=list(row.values())
+            foil1="".join(foil1)
+            foil2="".join(foil2)
+            foil3="".join(foil3)
             line[-1]=foil1+"|"+foil2+"|"+foil3
             outlines.append(line)
+
+            # check you didn't miss any characters in your letters file
+            for char in original:
+                found=False
+                for key in substitutions.keys():
+                    if char in key:
+                        found=True
+                if not found:
+                    print("WARNING! The letter "+char+" in the word "+original+" was not found in your letters file, so it has not been replaced in the foils!")
+                    print("We recommend you add this letter to the letters file and rerun this program before proceeding.")
         infile.close()
 
                     
     # now write the file
-    with open(stimuli.strip('.csv')+"opp_foils.csv","w",encoding="UTF-8",newline="") as outfile:
+    with open(stimuli.strip('.csv')+"_oppfoils.csv","w",encoding="UTF-8",newline="") as outfile:
         writer=csv.writer(outfile)
         for line in outlines:
             writer.writerow(line)
@@ -181,9 +227,17 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
     # also write the substitutions
     with open("substitutions.csv","w",encoding="UTF-8",newline="") as outfile:
         writer=csv.writer(outfile)
-        writer.writerow(["sound","substitutions"])
-        for key in substitutions:
-            writer.writerow([key,"|".join(substitutions[key])])
+        writer.writerow(("letter","substitution","distance"))
+        outlines=[]
+        for item in distance_record:
+            letter=item[0]
+            if letter in specified:
+                if (letter,"|".join(substitutions[letter]),"not calculated (user-specified substitution)") not in outlines:
+                    outlines.append((letter,"|".join(substitutions[letter]),"not calculated (user-specified substitution)"))
+            else:
+                outlines.append(item)
+        for item in outlines:
+            writer.writerow(item)
     outfile.close()
 
 
