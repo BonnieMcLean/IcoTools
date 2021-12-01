@@ -9,7 +9,7 @@ icotools.egg-info/PKG-INFO
 icotools.egg-info/SOURCES.txt
 icotools.egg-info/dependency_links.txt
 icotools.egg-info/top_level.txt
-icotools/features/phoiblefeatures.txt
+icotools/features/phoible-segments-features.tsv
 icotools/templates/guesses_mp3.html
 icotools/templates/guesses_mp4.html
 icotools/templates/php_temp.php

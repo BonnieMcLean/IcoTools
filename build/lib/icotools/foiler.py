@@ -33,7 +33,7 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
             try:
                 sub=row['substitute']
                 if sub!="":
-                    substitutions[letter]=[sub]
+                    substitutions[letter]=sub.split("|")
                     specified.append(letter)
             except KeyError:
                 pass
@@ -49,10 +49,10 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
     # get their feature values
     features={}
     here=os.path.dirname(os.path.abspath(__file__))
-    path=os.path.join(here,'features','phoiblefeatures.txt')
+    path=os.path.join(here,'features','phoible-segments-features.tsv')
     with open(path,"r",encoding="UTF-8") as infile:
         next(infile)
-        reader=csv.reader(infile)
+        reader=csv.reader(infile,delimiter="\t")
         for row in reader:
             ipa=row[0]
             if ipa in list(ipa2letter.keys()):
@@ -74,7 +74,7 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
                         one=features[sound]
                     except KeyError:
                         print("ERROR!")
-                        print("Your sound "+sound+" is missing from the feature table. You can manually add it to the feature table by editing the file phoiblefeatures.txt in the features folder in your icotools folder")
+                        print("Your sound "+sound+" is missing from the feature table. You can manually add it to the feature table by editing the file phoible-segments-features.tsv in the features folder in your icotools folder")
                         raise SystemExit
                     try:
                         two=features[item]
@@ -85,12 +85,17 @@ See https://github.com/BonnieMcLean/IcoTools for more details."""
 
                     # set the difference between the two sounds to zero
                     diff=0
+                    # weight differences in length and voicing a little less
+                    length_voicing_cols=[3,4,29]
                     for i in range(len(one)):
                         if one[i]!=two[i]:
                             if one[i]=="0" or two[i]=="0":
                                 diff+=.25
                             else:
-                                diff+=1
+                                if i in length_voicing_cols:
+                                    diff+=.5
+                                else:
+                                    diff+=1
 
                     try:
                         distances[sound][0].append(item)
