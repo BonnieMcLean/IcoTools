@@ -84,7 +84,7 @@ To use the foiler function, you need to provide a csv file that shows how the le
 
 See the code in 'icotools/foiler.py'. We can walk through an example with the word *fuwafuwa*.
 
-If any of your items are reduplicated, the first thing foiler will do is get rid of this reduplication. So *fuwafuwa* becomes *fuwa*. It then looks at each sound in *fuwa*, and figures out the phonetic distances between that sound and every other sound in the language with which it can be freely substituted (based on how you have defined your groups in the letters file).
+If any of your items are reduplicated, the first thing foiler will do is get rid of this reduplication. So *fuwafuwa* becomes *fuwa*. It then looks at each sound in *fuwa*, and figures out the phonological distances between that sound and every other sound in the language with which it can be freely substituted (based on how you have defined your groups in the letters file).
 
 The phonological distances are calculated using the feature matrix provided by PHOIBLE, found [here](https://github.com/phoible/dev/blob/5bb2f0e4e759544af4cbcecd04ab35106894b8af/raw-data/FEATURES/phoible-segments-features.tsv). The distance between two sounds is equal to the sum of the distances between each of their feature values: the distance between two feature values that are identical is 0, while the distance between two opposing values (+/- or -/+) is 1—except if the feature involved is length or voicing, then the distance if 0.5—and the distance between two feature values when one of them is 0 (not applicable) is 0.25.
 
