@@ -12,14 +12,9 @@ The code below can be used to combine the raw results from a series of guessing 
 n_experiments <- 2
 
 ### CHANGE THE FILENAME TO THE FILENAME OF YOUR FIRST EXPERIMENT ###
-experiments <- read_csv("ratings/experiment1.csv")
+experiments <- read_csv("ratings/experiment1.csv")%>%mutate(experiment=1)
 
-# get rid of the last column (which just says 'submit') and also add a column to identify the experiment number
-experiments%>%
-  select(-length(.))%>%
-  mutate(experiment=1)->experiments
-
-# do the same for all the other experiments you have, progressively joining them together each time
+# join all the experiments
 for(i in 2:n_experiments){
   next_experiment <-read_csv(paste("ratings/experiment",as.character(i),".csv",sep=''))
   next_experiment%>%
@@ -57,4 +52,44 @@ experiments%>%
   left_join(info)->experiments
 ```
 
+
+```{r processing guessing results}
+# use the same code above as for the ratings, then add this to mark the stuff as correct or incorrect
+
+grade_responses <- function(trial,response){
+  trial <- as.numeric(trial)
+  if(trial%%2==1&response=="A"){return("correct")}
+  else if(trial%%2==0&response=="B"){return("correct")}
+  else{return("incorrect")}
+}
+
+experiments%>%
+  rename(response=rating)%>%
+  rowwise()%>%
+  mutate(grade=grade_responses(trial,response))->experiments
+```
+
+# Examining participants answers
+
+```{r examine results}
+# first look at task descriptions
+experiments%>%
+  select(participant,Taskdesc)%>%
+  unique()->taskdesc
+
+# then look at their RTs and performance on the control items
+### REPLACE THE ITEMS HERE WITH YOUR OWN CONTROL ITEMS ###
+controls <- c("fuwafuwa_FLUFFY","yoroyoro_WOBBLING","pyoNpyoN_BOUNCING","hisohiso_WHISPERING","katai_HARD")
+
+groupmeanRT <- mean(experiments$rt)
+groupsd <- sd(experiments$rt)
+experiments%>%
+  mutate(outlier_item=ifelse(abs(rt-groupmeanRT)>=3*groupsd,"y","n"))%>%
+  group_by(participant)%>%
+  mutate(score=sum(grade=="correct")/sum(grade=="correct"|grade=="incorrect"))%>%
+  mutate(outlier_participant=ifelse(abs(rt-groupmeanRT)>=3*groupsd,"y","n"))%>%
+  filter(identifier%in%controls)%>%
+  mutate(control_score=sum(grade=="correct")/sum(grade=="correct"|grade=="incorrect"))%>%
+  select(participant,identifier,grade,control_score,score,outlier_item,outlier_participant)->examine
+```
 
