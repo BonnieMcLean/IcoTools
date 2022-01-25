@@ -13,7 +13,7 @@ experiments%>%
   mutate(experiment=1)->experiments
 # do the same for all the other experiments you have, progressively joining them together each time
 for(i in 2:n_experiments){
-  next_experiment <-read_csv(paste("https://honestcookingblog.com/experiments/experiment",as.character(i),".csv",sep=''))
+  next_experiment <-read_csv(paste(file_location,"/experiment",as.character(i),".csv",sep=''))
   next_experiment%>%
     mutate(experiment=i)->next_experiment
   experiments <- full_join(experiments,next_experiment)
