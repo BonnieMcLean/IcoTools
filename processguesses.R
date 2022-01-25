@@ -1,3 +1,5 @@
+library(tidyverse)
+
 # specify the location of the folder with your experiment results, the
 # number of experiments that you have, and the location of your summary csv file 
 # (which contains the details of items in every experiment) here
