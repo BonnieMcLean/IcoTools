@@ -36,7 +36,7 @@ We are planning to add support for images soon. If you would like support for mo
 
 Each function takes a list of stimuli (stimuli.csv) and a control file (control.csv) as inputs, and produces a folder of html experiments to collect measures of iconicity on those items. For each experiment, three files are produced--a html file, a php file, and a csv file. Once you upload all these files to your server, and share the link to the html experiments with participants, as participants complete your study, their answers (as well as their reaction times for each item, and a record of which translation/foil was presented to them for each item) will be written to the csv file on your server (by the php). The functions also produce a summary csv file with all the details of the experiments (i.e. the trials in each experiment, as well as the translations and, where applicable, foils used).
 
-There are examples in the 'examples' folder. The file `processing.Rmd` contains R scripts for combining the raw result files from the experiments into one long tidy dataset. 
+There are examples in the 'examples' folder. The files `processguesses.R` and `processratings.R` are R scripts for combining the raw result files from the experiments into one long tidy dataset. 
 
 # Format for control file
 
