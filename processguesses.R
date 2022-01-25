@@ -52,4 +52,4 @@ experiments%>%
   rowwise()%>%
   mutate(grade=grade_responses(trial,response))->experiments
 
-write_csv(experiments,"guessing2.csv")
+write_csv(experiments,"guessingres.csv")
