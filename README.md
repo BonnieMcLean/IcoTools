@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5910276.svg)](https://doi.org/10.5281/zenodo.5910276)
+
 # General overview
 
 Icotools is a [python package](https://pypi.org/project/icotools/). To install it, use `pip install icotools`.
