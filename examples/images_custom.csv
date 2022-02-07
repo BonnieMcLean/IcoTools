@@ -1,0 +1,7 @@
+media_source,https://honestcookingblog.com/recipes/images/
+media_type,jpg
+instructions_html,custominstructions.html
+exitques_html,customexitques.html
+submit_html,customsubmitmessage.html
+words_per_exp,10
+exitques_labels,"prolific,nativelang,otherlang,taskdesc"

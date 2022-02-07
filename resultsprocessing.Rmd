@@ -1,0 +1,118 @@
+---
+title: "R Code to process experiment results"
+author: "Bonnie McLean"
+date: "10/01/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Guessing experiments
+
+
+```{r preprocessing}
+### CHANGE n_experiments TO THE NUMBER OF EXPERIMENTS YOU HAVE TO PROCESS ###
+n_experiments <- 6
+### CHANGE TO THE LOCATION OF YOUR FIRST EXPERIMENT ###
+experiments <- read_csv("https://honestcookingblog.com/experiments/experiment1.csv")
+# get rid of the last column (which just says 'submit') and also add a column to identify the experiment number
+experiments%>%
+  mutate(experiment=1)->experiments
+# do the same for all the other experiments you have, progressively joining them together each time
+for(i in 2:n_experiments){
+  next_experiment <-read_csv(paste("https://honestcookingblog.com/experiments/experiment",as.character(i),".csv",sep=''))
+  next_experiment%>%
+    mutate(experiment=i)->next_experiment
+  experiments <- full_join(experiments,next_experiment)
+}
+# Figure out what the last reaction time column is
+last_RT <- tail(colnames(select(experiments,contains("rt"))),1)
+# convert to tidy data
+experiments%>%
+  # in case there are any double submissions
+  unique()%>%
+  pivot_longer(cols=t1:last_RT,names_to=c(".value","trial"),names_pattern="([A-Za-z]+)(\\d+)")%>%
+  rename(trans=t,rating=a)%>%
+  # get rid of NAs -- for the experiments that have less trials
+  filter(!(is.na(trans)))->experiments
+
+# add identifiers (in the format word_MEANING) for the trials -- this is important in case you have homonyms in your data. I just use the first translation in the meaning column to make these identifiers.
+
+### CHANGE TO THE LOCATION OF YOUR EXPERIMENT LIST ###
+info <- read_csv("experiments/control_guessing.csv")
+info%>%
+  rowwise()%>%
+  mutate(identifier=paste(form,str_split(meaning,"\\|")[[1]][1],sep="_"))%>%
+  select(experiment,trial,form,identifier)->info
+info$trial <- as.character(info$trial)
+# join to experiment data
+experiments%>%
+  left_join(info)->experiments
+
+# grade responses
+grade_responses <- function(trial,response){
+  trial <- as.numeric(trial)
+  if(trial%%2==1&response=="A"){return("correct")}
+  else if(trial%%2==0&response=="B"){return("correct")}
+  else{return("incorrect")}
+}
+
+experiments%>%
+  rename(response=rating,participant=ProlificID)%>%
+  rowwise()%>%
+  mutate(grade=grade_responses(trial,response))->experiments
+
+# first look at task descriptions
+experiments%>%
+  select(experiment,participant,Taskdesc)%>%
+  unique()->taskdesc
+
+# then look at their RTs and performance on the control items
+### REPLACE THE ITEMS HERE WITH YOUR OWN CONTROL ITEMS ###
+controls <- c("fuwafuwa_FLUFFY","yoroyoro_WOBBLING","katyikatyi_HARD","pyoNpyoN_BOUNCING","hisohiso_WHISPERING","katai_HARD")
+
+groupmeanRT <- mean(experiments$rt)
+groupsd <- sd(experiments$rt)
+experiments%>%
+  mutate(outlier_rt=ifelse(abs(rt-groupmeanRT)>=3*groupsd,"y","n"))->experiments
+
+experiments%>%
+  group_by(participant)%>%
+  mutate(score=sum(grade=="correct")/sum(grade=="correct"|grade=="incorrect"))%>%
+  mutate(outlier_participant=ifelse(abs(rt-groupmeanRT)>=3*groupsd,"y","n"))%>%
+  filter(identifier%in%controls)%>%
+  mutate(control_score=sum(grade=="correct")/sum(grade=="correct"|grade=="incorrect"))%>%
+  select(experiment,participant,identifier,grade,control_score,score,outlier_rt,outlier_participant)->examine
+
+
+         # poor control performance
+exclude <- c("612550d21d30a44cb0d2d579")
+
+experiments%>%
+  filter(participant!="123"&!(participant %in% exclude))%>%
+  group_by(identifier)%>%
+  mutate(score=sum(grade=="correct")/sum(grade=="correct"|grade=="incorrect"))%>%
+  select(experiment,identifier,score)%>%
+  unique()->results
+
+done <- read_csv("https://github.com/BonnieMcLean/IconicityMeasuresJaponic/raw/main/responses-guessingwords.csv")
+done%>%
+  mutate(identifier=paste(concept,word,sep="_"))%>%
+  group_by(identifier)%>%
+  mutate(score=sum(answer=="correct")/sum(answer=="correct"|answer=="incorrect"))%>%
+  select(identifier,score)%>%
+  unique()->results_done
+  
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
