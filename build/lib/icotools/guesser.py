@@ -185,14 +185,18 @@ def guesser(stimuli_list,control_file):
             value=row[1]
             control[key]=value
     infile.close()
+    sound_media=("mp3","wav","mp4")
     try:
         media_source=control['media_source']
         media_type=control['media_type']
         instructions_html=control['instructions_html']
         exitques_html=control['exitques_html']
-        headphone_check=control['headphone_check']
         submit_html=control['submit_html']
         words_per_exp=int(control['words_per_exp'])
+        if media_type not in sound_media:
+            headphone_check="n"
+        else:
+            headphone_check=control['headphone_check']
     except KeyError:
         print('Your control file is not formatted correctly. See help(guesser) for information on how to format it.')
     try:
@@ -245,8 +249,10 @@ def guesser(stimuli_list,control_file):
         submit_message=' '.join(submit_message_l)
         submit_message=submit_message.replace('"',"'")     
 
-    if media_type!='mp3' and media_type!='mp4' and media_type!="wav":
-        print('Please enter a valid media type. Valid media types are mp3, wav or mp4.')
+    valid_media_types=("mp3","mp4","wav","jpg","jpeg","png","svg","gif")
+    if media_type not in valid_media_types:
+        print("Please enter a valid media type. Valid media types are:")
+        print(", ".join(valid_media_types))
         return
     # call balancer to make the experiments
     stuff=balancer(stimuli_list,words_per_exp)
@@ -316,9 +322,11 @@ def guesser(stimuli_list,control_file):
     here = os.path.dirname(os.path.abspath(__file__))
     if media_type=='mp4':
         template=codecs.open(os.path.join(here,'templates','guesses_mp4.html'),'r','utf-8')
-    else:
+    elif media_type=="mp3" or media_type=="wav":
         template=codecs.open(os.path.join(here,'templates','guesses_mp3.html'),'r','utf-8')
-    
+    else:
+        template=codecs.open(os.path.join(here,'templates','guesses_images.html'),'r','utf-8')
+
     section=1
     for line in template:
         if section==1:
@@ -403,7 +411,6 @@ def guesser(stimuli_list,control_file):
 
         allfoils=[]
         alltrans=[]
-        
         for trial in trials:
             foils=trial[1]
             trans=trial[2]
@@ -436,13 +443,16 @@ def guesser(stimuli_list,control_file):
                     myline=line.replace('realplayer-1','realplayer-'+str(n))
                     if media_type=='mp4' and muted_vids=='n':
                         myline=myline.replace('muted','')
+                    if "ANSWER_MEDIA" in myline:
+                        word=trial[0]
+                        myline=myline.replace('ANSWER_MEDIA',media_source+'/'+word+'.'+media_type+'"&someRandomSeed=" + Math.random().toString(36)')
                 elif "id='foilplayer-1'" in line:
                     myline=line.replace('foilplayer-1','foilplayer-'+str(n))
                     if media_type=='mp4' and muted_vids=='n':
                         myline=myline.replace('muted','')
                 elif 'id="chosenfoil1"' in line:
                     myline=line.replace('chosenfoil1','chosenfoil'+str(n))                    
-                elif "ANSWER_MEDIA" in line:
+                elif 'ANSWER_MEDIA' in line:
                     word=trial[0]
                     myline=line.replace('ANSWER_MEDIA',media_source+'/'+word+'.'+media_type+'"&someRandomSeed=" + Math.random().toString(36)')
                 elif 'options1' in line:

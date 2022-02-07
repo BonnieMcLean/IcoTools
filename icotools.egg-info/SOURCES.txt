@@ -10,8 +10,10 @@ icotools.egg-info/SOURCES.txt
 icotools.egg-info/dependency_links.txt
 icotools.egg-info/top_level.txt
 icotools/features/phoible-segments-features.tsv
+icotools/templates/guesses_images.html
 icotools/templates/guesses_mp3.html
 icotools/templates/guesses_mp4.html
 icotools/templates/php_temp.php
+icotools/templates/ratings_images.html
 icotools/templates/ratings_mp3.html
 icotools/templates/ratings_mp4.html

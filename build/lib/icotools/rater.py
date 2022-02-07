@@ -188,14 +188,18 @@ def rater(stimuli_list,control_file):
             key=row[0]
             value=row[1]
             control[key]=value
+    sound_media=("mp3","wav","mp4")
     try:
         media_source=control['media_source']
         media_type=control['media_type']
         instructions_html=control['instructions_html']
         exitques_html=control['exitques_html']
         submit_html=control['submit_html']
-        headphone_check=control['headphone_check']
         words_per_exp=int(control['words_per_exp'])
+        if media_type not in sound_media:
+            headphone_check="n"
+        else:
+            headphone_check=control['headphone_check']
     except KeyError:
         print('Your control file is not formatted correctly. See https://github.com/BonnieMcLean/IcoTools for the correct format.')
 
@@ -249,10 +253,12 @@ def rater(stimuli_list,control_file):
         submit_message=' '.join(submit_message_l)
         submit_message=submit_message.replace('"',"'")
     
-    if media_type!='mp3' and media_type!='mp4' and media_type!="wav":
-        print('Please enter a valid media type. Valid media types are mp3, wav or mp4.')
+    valid_media_types=("mp3","mp4","wav","jpg","jpeg","png","svg","gif")
+    if media_type not in valid_media_types:
+        print("Please enter a valid media type. Valid media types are:")
+        print(", ".join(valid_media_types))
         return
-
+    
     # call balancer to make the experiments
     experiments_raw=balancer(stimuli_list,words_per_exp)
     experiments={}
@@ -285,9 +291,10 @@ def rater(stimuli_list,control_file):
     here = os.path.dirname(os.path.abspath(__file__))
     if media_type=='mp4':
         template=codecs.open(os.path.join(here,'templates','ratings_mp4.html'),'r','utf-8')
-    else:
+    elif media_type=="mp3" or media_type=="wav":
         template=codecs.open(os.path.join(here,'templates','ratings_mp3.html'),'r','utf-8')
-    
+    else:
+        template=codecs.open(os.path.join(here,'templates','ratings_images.html'),'r','utf-8')
     section=1
     for line in template:
         if section==1:
@@ -440,6 +447,8 @@ def rater(stimuli_list,control_file):
                 trans_rep="document.getElementById('transX').innerHTML='<p>Look at the gesture below.</p><p>It means '+trans_choices[X]+'.</p>'"
             else:
                  trans_rep="document.getElementById('transX').innerHTML='<p>Look at the sign below.</p><p>It means '+trans_choices[X]+'.</p>'"          
+        else:
+            trans_rep="document.getElementById('transX').innerHTML='<p>Look at the image below.</p><p>It means '+trans_choices[X]+'.</p>'"
         for z in range(num_items):
             trans=trans_rep.replace('transX','trans'+str(z+1))
             trans=trans.replace('X',str(z))
