@@ -29,7 +29,7 @@ At the moment, the following types of stimuli are supported:
 
 - mp3 or wav 
 - mp4
-- images, including jpg,jpeg,png,svg,gif 
+- images, including jpg, jpeg, png, svg, gif 
 
 If you would like support for more types of stimuli, please request it in the 'Issues' section.
 
@@ -46,11 +46,11 @@ It should be a csv file with two columns, the first column contains variable nam
 |Col1             |Col2                                                                                                             |
 |-----------------|-----------------------------------------------------------------------------------------------------------------|
 |media_source     |link to location of media files                                                                                  |
-|media_type       |media format (either 'mp3','wav', or 'mp4')                                                                      |                                            
+|media_type       |media format (either 'mp3','wav', 'mp4', 'jpg', 'jpeg', 'png', 'svg', 'gif' )                                    |                                         
 |mp4_type         |(if using mp4 format) specify either 'gesture' or 'sign' (for the wording in the questions)                      |
 |muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos (default is 'n')                        |
 |language         |(optional) language of the stimuli (if you want to inform participants of that)                                  |
-|headphone_check  |(for sounds/videos) do you want to include a headphone check at the start of the experiment--either 'y' or 'n'   |                                           
+|headphone_check  |(for sounds/videos) do you want to include a headphone check at the start of the experiment--either 'y' or 'n'   |                                         
 |instructions_html|either 'default' or provide filename to your own html instructions                                               |       
 |exitques_html    |either 'default' or provide filename to your own html exit questions                                             |  
 |exitques_labels  |(if not using default exit questions) a comma separated list of labels for your exit questions (for the csv file)|
