@@ -21,7 +21,7 @@ If you don't specify your own foils, option (b) will be chosen automatically.
 
 We have found that words are usually guessed more accurately when paired with foils that are as different-sounding to them as possible, compared to when paired with random foils. Thus, using opposite foils can improve the sensitivity of your guessing experiments to iconicity, particularly in cases where the items you are testing are expected to exhibit only weak iconicity, when you do not have so many guesses per item, or when you do not have so many items in your study. We also think it is a more principled way to test for iconicity, since if a word does sound appropriate for a meaning, then a word that sounds very different to it should be *inappropriate* for that meaning. 
 
-The function **foiler** provides a list of opposite-sounding words for each item in your experiment. At the moment, the **foiler** function is only supported for items that are *spoken language words or sounds* (able to be transcribed in IPA). If the items in your experiment are hand signs or gestures, we recommend using random foils. As items in the visual modality are often higher in iconicity anyway, using opposite foils would be unlikely to greatly improve the sensitivity of the measure. However, if you have some way of choosing maximally contrastive signs or gestures to pair with your items, you are free to specify this in the 'foils' column of your stimuli file (see [here](#Format-for-stimuli-file)). For a full discussion of how to use the foiler function, and how it makes the opposite-sounding words, see [here](#instructions-for-using-the-foiler-function)
+The function **foiler** provides a list of opposite-sounding words for each item in your experiment. At the moment, the **foiler** function is only supported for items that are *spoken language words or sounds* (able to be transcribed in IPA). If the items in your experiment are hand signs, gestures, or images, we recommend using random foils. As items in the visual modality are often higher in iconicity anyway, using opposite foils would be unlikely to greatly improve the sensitivity of the measure. However, if you have some way of choosing maximally contrastive signs/gestures/images to pair with your items, you are free to specify this in the 'foils' column of your stimuli file (see [here](#Format-for-stimuli-file)). For a full discussion of how to use the foiler function, and how it makes the opposite-sounding words, see [here](#instructions-for-using-the-foiler-function)
 
 ## Available stimuli types
 
@@ -29,8 +29,9 @@ At the moment, the following types of stimuli are supported:
 
 - mp3 or wav 
 - mp4
+- images, including jpg,jpeg,png,svg,gif 
 
-We are planning to add support for images soon. If you would like support for more types of stimuli, please request it in the 'Issues' section.
+If you would like support for more types of stimuli, please request it in the 'Issues' section.
 
 ## How do the guessing and rating functions work? 
 
@@ -49,15 +50,17 @@ It should be a csv file with two columns, the first column contains variable nam
 |mp4_type         |(if using mp4 format) specify either 'gesture' or 'sign' (for the wording in the questions)                      |
 |muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos (default is 'n')                        |
 |language         |(optional) language of the stimuli (if you want to inform participants of that)                                  |
-|headphone_check  |do you want to include a headphone check at the start of the experiment--either 'y' or 'n'                       |                                           
+|headphone_check  |(for sounds/videos) do you want to include a headphone check at the start of the experiment--either 'y' or 'n'   |                                           
 |instructions_html|either 'default' or provide filename to your own html instructions                                               |       
 |exitques_html    |either 'default' or provide filename to your own html exit questions                                             |  
 |exitques_labels  |(if not using default exit questions) a comma separated list of labels for your exit questions (for the csv file)|
 |submit_html      |either 'default' or provide filename to your own html submit message (e.g. if you need to redirect participants) |
-|words_per_exp    |roughly how many words would you like to test per experiment (excluding practice and control items)              |                                         
+|words_per_exp    |roughly how many words would you like to test per experiment (excluding practice and control items)              |      
+
+At the moment, I have only provided default instructions for tasks where the stimuli are sound files or videos. If you are using images then you should write your own custom instructions. 
 
 The order of the variables doesn't matter.
-See examples in the example folder.
+Examples of control files are provided in the example folder.
 
 # Format for stimuli file
 It should be a csv file. The first three columns are required, but the last three are optional. Having extra columns (with stuff not relevant to the experiments) will not matter.
@@ -70,7 +73,7 @@ Practice and control items are included in every experiment (but you only have t
 
 The meanings will also all be presented in CAPITALS during the experiment (regardless of how you write them in the stimuli file).
 
-See examples in the example folder.
+Examples are provided in the example folder.
 
 # Instructions for using the foiler() function
 
