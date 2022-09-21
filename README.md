@@ -33,7 +33,7 @@ At the moment, the following types of stimuli are supported:
 
 If you would like support for more types of stimuli, please request it in the 'Issues' section.
 
-## How do the guessing and rating functions work? 
+## How do the guesser and rater functions work? 
 
 Each function takes a list of stimuli (stimuli.csv) and a control file (control.csv) as inputs, and produces a folder of html experiments to collect measures of iconicity on those items. For each experiment, three files are produced--a html file, a php file, and a csv file. Once you upload all these files to your server, and share the link to the html experiments with participants, as participants complete your study, their answers (as well as their reaction times for each item, and a record of which translation/foil was presented to them for each item) will be written to the csv file on your server (by the php). The functions also produce a summary csv file with all the details of the experiments (i.e. the trials in each experiment, as well as the translations and, where applicable, foils used).
 
