@@ -320,13 +320,17 @@ var firstgo='True';
 
 
 function audioplayed() {
+	medialoaded='True'
+	if(medialoaded=='True'){
 	if(firstgo=='True'){
 	$('#options'+trialOrder[curTrial]).show();
 	startTrialTime=new Date();
-	firstgo='False'}
+	firstgo='False'}}
 }
 
 function buttonClicked() {
+	// so when the same media files pop up again, they don't count as already loaded.
+	medialoaded='False'
 	var curTime = new Date();
 	var rt = curTime - startTrialTime;
 	$('#reactionTime' + trialOrder[curTrial]).val(rt);

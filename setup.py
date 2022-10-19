@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.2.2' 
+VERSION = '1.2.3' 
 DESCRIPTION = 'Tools for collecting behavioural measures of iconicity'
 
 
@@ -13,7 +13,7 @@ setup(
         author_email="<59.b.mclean@gmail.com>",
         description=DESCRIPTION,
         long_description=open('pypiREADME.txt').read(),
-        packages=find_packages(),
+        packages=['icotools.templates','icotools.features'],
         url='https://pypi.org/project/icotools/',
         license="LICENSE",
         install_requires=[], # add any additional packages that 
