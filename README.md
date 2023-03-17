@@ -45,7 +45,7 @@ It should be a csv file with two columns, the first column contains variable nam
 
 |Col1             |Col2                                                                                                             |
 |-----------------|-----------------------------------------------------------------------------------------------------------------|
-|media_source     |link to location of media files                                                                                  |
+|media_source     |link to location of media files (e.g. https://bonniemclean.net/videos/)                                          |
 |media_type       |media format (either 'mp3','wav', 'mp4', 'jpg', 'jpeg', 'png', 'svg', 'gif' )                                    |                                         
 |mp4_type         |(if using mp4 format) specify either 'gesture' or 'sign' (for the wording in the questions)                      |
 |muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos (default is 'n')                        |
