@@ -101,7 +101,7 @@ For each sound, foiler takes the top three sounds that are most phonologically d
 
 If the sound group is small, as is often the case with vowels, you may wish to specify a smaller number of substitutions. I substitute the vowels with the vowel obtained by rotating the vowels at the endpoints of the vowel space triangle 120 degrees clockwise or counterclockwise, and flipping the vowels in the middle. So /u/ is substituted with either /a/ or /i/, /a/ is substituted with either /i/ or /u/, /i/ is substituted with either /a/ or /u/, and /e/ and /o/ are substituted with each other (see image below). 
 
-<img src="vowels.png" alt="Rotating the vowel space" style="zoom:50%;" />
+<img src="vowelsubs.png" alt="Rotating the vowel space" style="zoom:50%;" />
 
 Foiler then makes three foil words for each item, by randomly substituting sounds from among the most phonologically distant sounds, or among the specified substitution sounds. In the case of *fuwafuwa*, we end up with foil words like *watʃi*, *nati*, and *ridːu* (among other possibilities). 
 
