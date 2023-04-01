@@ -1,3 +1,9 @@
+# Citation
+
+If you use this package in your own work, please cite:
+
+> McLean, B., Dunn, M., & Dingemanse, M. (2023). Two measures are better than one: combining iconicity ratings and guessing experiments for a more nuanced picture of iconicity in the lexicon. *Language and Cognition*
+
 # General overview
 
 Icotools is a [python package](https://pypi.org/project/icotools/). To install it, use `pip install icotools`.
