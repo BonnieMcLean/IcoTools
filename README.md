@@ -103,7 +103,7 @@ If the sound group is small, as is often the case with vowels, you may wish to s
 
 <img src="vowels.png" alt="Rotating the vowel space" style="zoom:50%;" />
 
-Foiler then makes three foil words for each item, by randomly substituting sounds from among the most phonologically distant sounds, or among the specified substitution sounds. In the case of *fuwafuwa*, we then up with foil words like *watʃi*, *nati*, and *ridːu* (among other possibilities). 
+Foiler then makes three foil words for each item, by randomly substituting sounds from among the most phonologically distant sounds, or among the specified substitution sounds. In the case of *fuwafuwa*, we end up with foil words like *watʃi*, *nati*, and *ridːu* (among other possibilities). 
 
 Foiler produces two files, the first is your original stimuli list with a column 'foils' added to it, where you can see the foils it made for you. The second is a file 'substitutions.csv', where you can see which sounds were substituted with each other, and what the phonological distances were between them.
 
