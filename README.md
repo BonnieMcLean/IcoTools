@@ -2,7 +2,7 @@
 
 If you use this package in your own work, please cite:
 
-> McLean, B., Dunn, M., & Dingemanse, M. (2023). Two measures are better than one: combining iconicity ratings and guessing experiments for a more nuanced picture of iconicity in the lexicon. *Language and Cognition*
+> McLean, B., Dunn, M., & Dingemanse, M. (2023). Two measures are better than one: Combining iconicity ratings and guessing experiments for a more nuanced picture of iconicity in the lexicon. *Language and Cognition*, 1-24. doi:10.1017/langcog.2023.9
 
 # General overview
 
