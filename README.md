@@ -14,9 +14,9 @@ Icotools comes with three functions:
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.foiler('stimuli.csv','letters.csv')` 
 
-The **rater** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available [here](https://honestcookingblog.com/ratings/experiment1.html#). 
+The **rater** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available in the demo folder [here](https://github.com/BonnieMcLean/IcoTools/tree/main/demo). Download the file `rating_audio.html` and open it in your web browser and you should be able to click through the task.
 
-The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available [here](https://honestcookingblog.com/experiments/experiment1.html#). You can either:
+The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available in the demo folder [here](https://github.com/BonnieMcLean/IcoTools/tree/main/demo). Download the file `guessing_audio.html` and open it in your web browser and you should be able to click through the task.
 
 (a) make guessing experiments where the foils for each item are specified, or   
 (b) make guessing experiments where the foils for each item are randomly chosen from all the items available, with the option to specify particular item-foil pairings which should *not* be used.
