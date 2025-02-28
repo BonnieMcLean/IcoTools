@@ -14,14 +14,16 @@ Icotools comes with three functions:
 - `icotools.guesser('stimuli.csv','controlfile.csv')`
 - `icotools.foiler('stimuli.csv','letters.csv')` 
 
-The **rater** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. A demo is available in the [demo folder](https://github.com/BonnieMcLean/IcoTools/tree/main/demo). Download the file `rating_audio.html` and open it in your web browser and you should be able to click through the task.
+The **rater** function makes rating experiments, where participants are presented with stimuli and their meanings, and asked to rate on a 7-point scale whether they think there is a resemblance between the stimulus and its meaning, from 0 'No resemblance' to 6 'Strong resemblance'. 
 
-The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. A demo is available in the [demo folder](https://github.com/BonnieMcLean/IcoTools/tree/main/demo). Download the file `guessing_audio.html` and open it in your web browser and you should be able to click through the task.
+The **guesser** function makes guessing experiments, where participants are given a meaning and have to match the meaning to the correct stimulus, in a two alternative forced-choice paradigm. You can either:
 
 (a) make guessing experiments where the foils for each item are specified, or   
 (b) make guessing experiments where the foils for each item are randomly chosen from all the items available, with the option to specify particular item-foil pairings which should *not* be used.
 
 If you don't specify your own foils, option (b) will be chosen automatically.
+
+There are demos available for both the guessing and rating tasks in the [demos folder](https://github.com/BonnieMcLean/IcoTools/tree/main/demo). Download the github repository (go code > download as zip and then unzip it on your local machine), then navigate to the demo folder and open the files `guessing_audio.html` and `rating_audio.html` in your web browser to view the different tasks. Note that you need to have the audio files in the folders headcheck and soundfiles downloaded as well or your computer won't be able to find them during the experiment. The answers for the headphone test at the start of the experiments are 2, 1, 3 in that order (if you want to preview the task without headphones).
 
 ## Why specify foils?
 
