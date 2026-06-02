@@ -56,6 +56,7 @@ It should be a csv file with two columns, the first column contains variable nam
 |media_source     |link to location of media files (e.g. https://bonniemclean.net/videos/)                                          |
 |media_type       |media format (either 'mp3','wav', 'mp4', 'jpg', 'jpeg', 'png', 'svg', 'gif' )                                    |
 |img_source       |If using images alongside written translations, link to location of images for translations                      |
+|img_type         |The type of images used alongside written translations (e.g.'jpg', 'jpeg', 'png')                                |
 |mp4_type         |(if using mp4 format) specify either 'gesture' or 'sign' (for the wording in the questions)                      |
 |muted_vids       |(optional) either 'y' or 'n' if you want to mute the audio in the videos (default is 'n')                        |
 |language         |(optional) language of the stimuli (if you want to inform participants of that)                                  |
